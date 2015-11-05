@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".IngredientScanActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnSnap"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:onClick="snap"
+                    android:text="@string/take_snapshot"/>
+                <Button android:id="@+id/btnGrayscale"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:onClick="grayscale"
+                    android:text="@string/convert_to_grayscale"/>
+                <Button android:id="@+id/btnBinarize"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:onClick="binarize"
+                    android:text="@string/binarize"/>
+            </LinearLayout>
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="256"
+                android:id="@+id/threshold"
+                />
+            <FrameLayout android:id="@+id/preview"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp">
+            </FrameLayout>
+            <ImageView android:id="@+id/origImage"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"/>
+            <Button android:id="@+id/btnAnalyze"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:onClick="analyze"
+                android:text="@string/analyze"/>
+            <TextView android:id="@+id/result"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
