@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
+
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "20"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+    }
+
+    sourceSets.main {
+        manifest.srcFile 'AndroidManifest.xml'
+        java.srcDirs = ['src']
+        resources.srcDirs = ['src']
+        res.srcDirs = ['res']
+        jniLibs.srcDirs = ['libs']
+    }
+}
