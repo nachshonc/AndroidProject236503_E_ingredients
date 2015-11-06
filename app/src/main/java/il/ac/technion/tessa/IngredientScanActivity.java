@@ -2,6 +2,8 @@ package il.ac.technion.tessa;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,7 +13,10 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +30,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.googlecode.tesseract.android.ResultIterator;
 import com.googlecode.tesseract.android.TessBaseAPI;
@@ -38,11 +44,13 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static android.hardware.Camera.*;
 
-public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata"/*,
@@ -66,7 +74,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
 //    static String TEST_FILE="pic6.jpg";
 
     Bitmap origImage, binarizedImage;
-    Preview preview;
+//    Preview preview;
     SeekBar threshold;
     Camera camera;
     public static final String DATA_PATH = Environment
@@ -83,11 +91,85 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
         threshold.setProgress(80);
         threshold.setOnSeekBarChangeListener(this);
 
-        preview = new Preview(this, this);
+//        preview = new Preview(this, this);
 
-        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
+//        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
     }
 
+
+    String mCurrentPhotoPath;
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp;
+        File storageDir = new File(DATA_PATH+"tessdata");
+//        File image = new File(DATA_PATH+"tessdata/" + imageFileName + ".jpg");
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+//        mCurrentPhotoPath = DATA_PATH+"tessdata/" + imageFileName + ".jpg";
+        return image;
+    }
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    static final int REQUEST_TAKE_PHOTO = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                Log.d("TakePic", "Error while creating the image file "+mCurrentPhotoPath+"\n"+ex.toString());
+                ex.printStackTrace();
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(photoFile));
+                savePreferences();
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+    }
+
+    private void savePreferences(){
+        // We need an Editor object to make preference changes.
+        SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+        editor.putString("mCurrentPhotoPath", mCurrentPhotoPath);
+
+        // Commit the edits!
+        editor.commit();
+    }
+
+    private void restorePreferences() {
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        mCurrentPhotoPath = settings.getString("mCurrentPhotoPath", "");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            if (mCurrentPhotoPath == null)
+                restorePreferences();
+
+            Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
+            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            ImageView iv = (ImageView) findViewById(R.id.origImage);
+            iv.setImageBitmap(origImage);
+
+        }
+    }
 
     public void snap(View v) {
         if (origImage != null)
@@ -98,10 +180,12 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
         binarizedImage = null;
         System.gc();
 
-        preview.mCamera.takePicture(null, null, jpegCallback);
+        dispatchTakePictureIntent();
+
+//        preview.mCamera.takePicture(null, null, jpegCallback);
 
     }
-
+    /*
     ShutterCallback shutterCallback = new ShutterCallback() {
         public void onShutter() {
             Log.d(TAG, "onShutter'd");
@@ -110,14 +194,14 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
 
 
     static final String TAG="Tessa";
-    /** Handles data for raw picture */
+    /** Handles data for raw picture *
     PictureCallback rawCallback = new PictureCallback() {
         public void onPictureTaken(byte[] data, Camera camera) {
             Log.d(TAG, "onPictureTaken - raw");
         }
     };
 
-    /** Handles data for jpeg picture */
+    /** Handles data for jpeg picture *
     PictureCallback jpegCallback = new PictureCallback() {
         public void onPictureTaken(byte[] data, Camera camera) {
             FileOutputStream outStream = null;
@@ -152,7 +236,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
             Log.d(TAG, "onPictureTaken - jpeg");
         }
     };
-
+    */
 
 
 
@@ -327,6 +411,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
         }
     }
 
+    /*
     private boolean safeCameraOpen(int id) {
         boolean qOpened = false;
 
@@ -349,6 +434,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
             camera = null;
         }
     }
+    */
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -364,6 +450,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
 
     }
 
+    /*
     @Override
     public void onPause() {
         super.onPause();
@@ -377,6 +464,7 @@ public class IngredientScanActivity extends Activity implements SeekBar.OnSeekBa
         preview.setCamera(camera);
  //       preview.mCamera = camera;
     }
+    */
 
 
 }

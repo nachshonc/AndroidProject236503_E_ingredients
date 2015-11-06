@@ -41,10 +41,6 @@
                 android:max="256"
                 android:id="@+id/threshold"
                 />
-            <FrameLayout android:id="@+id/preview"
-                android:layout_width="fill_parent"
-                android:layout_height="200dp">
-            </FrameLayout>
             <ImageView android:id="@+id/origImage"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"/>
