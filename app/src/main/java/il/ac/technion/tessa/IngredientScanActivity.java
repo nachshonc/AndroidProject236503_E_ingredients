@@ -1,6 +1,7 @@
 package il.ac.technion.tessa;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.hardware.Camera;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -239,8 +241,69 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     */
 
 
+    private class Analyzer extends AsyncTask<Bitmap, Void, String> {
+
+        private ProgressDialog dialog = new ProgressDialog(IngredientScanActivity.this);
+
+        @Override
+        protected String doInBackground(Bitmap... params) {
+            TessBaseAPI baseApi = new TessBaseAPI();
+
+            baseApi.setDebug(false);
+            baseApi.init(DATA_PATH, "eng+heb");
+//        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
+
+            baseApi.setImage(params[0]);
+//        baseApi.setImage(b);
+            String recognizedText = baseApi.getUTF8Text();
+
+            StringBuffer result = new StringBuffer();
+            final ResultIterator iterator = baseApi.getResultIterator();
+            iterator.begin(); //crashes my app
+            do {
+                String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
+                Log.d("word", "#"+word+"#");
+                if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*"))
+                    result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
+                else if (word.matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
+                    result.append(word.replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]","0")).append("\n");
+            } while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD));
+
+            String res = result.toString();
+            baseApi.end();
+            Log.d("word", "Analysis complete");
+            return res;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            TextView tv = (TextView) findViewById(R.id.result);
+            tv.setText("Analyzing...");
+            this.dialog.setMessage("Please wait");
+            this.dialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            TextView tv = (TextView) findViewById(R.id.result);
+            if (result.equals(""))
+                result = "No match found";
+            tv.setText(result);
+        }
+    }
 
     public void analyze(View v) {
+        if (origImage == null)
+            return; // simply ignore
+        if (binarizedImage == null)
+            binarizedImage = origImage;
+        new Analyzer().execute(binarizedImage);
+    }
+
+    public void analyze_old(View v) {
         TextView tv = (TextView) findViewById(R.id.result);
 
         TessBaseAPI baseApi = new TessBaseAPI();
@@ -275,6 +338,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void grayscale(View v) {
+        if (origImage == null)
+            return;
         Bitmap grayscaleImage = toGrayscale(origImage);
         origImage.recycle();
         origImage = null;
@@ -285,6 +350,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void binarize(View v) {
+        if (origImage == null)
+            return;
         if (binarizedImage != null)
             binarizedImage.recycle();
         binarizedImage = null;
