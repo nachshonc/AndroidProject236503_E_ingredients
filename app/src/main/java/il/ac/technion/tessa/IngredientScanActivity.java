@@ -56,7 +56,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
-            "bread.jpg"/*,
+            "lord_sandwich.jpg"/*,
             "pic1.jpg",
             "pic2.jpg",
             "pic3.jpg",
@@ -74,7 +74,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE=null; //"bread.jpg";
+    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -167,9 +167,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 restorePreferences();
 
             Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
-            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
-            ImageView iv = (ImageView) findViewById(R.id.origImage);
-            iv.setImageBitmap(origImage);
+            setPic();
+//            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
+//
+//            ImageView iv = (ImageView) findViewById(R.id.origImage);
+//            iv.setImageBitmap(origImage);
 
         }
     }
@@ -184,9 +186,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         System.gc();
 
         if (TEST_FILE != null) {
-            origImage = BitmapFactory.decodeFile(DATA_PATH+"/tessdata/"+TEST_FILE);
-            ImageView iv = (ImageView) findViewById(R.id.origImage);
-            iv.setImageBitmap(origImage);
+            mCurrentPhotoPath = DATA_PATH+"/tessdata/"+TEST_FILE;
+            setPic();
+//            origImage = BitmapFactory.decodeFile(DATA_PATH+"/tessdata/"+TEST_FILE);
+//            ImageView iv = (ImageView) findViewById(R.id.origImage);
+//            iv.setImageBitmap(origImage);
         } else {
             dispatchTakePictureIntent();
         }
@@ -194,6 +198,35 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //        preview.mCamera.takePicture(null, null, jpegCallback);
 
     }
+
+
+    private void setPic() {
+        // Get the dimensions of the View
+        int targetW = 1024;
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor=1;
+        if (photoW >= 2*targetW)
+            scaleFactor = photoW/targetW;
+        Log.d("ScaleFactor", ""+scaleFactor);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        ImageView iv = (ImageView) findViewById(R.id.origImage);
+        iv.setImageBitmap(origImage);
+    }
+
     /*
     ShutterCallback shutterCallback = new ShutterCallback() {
         public void onShutter() {
