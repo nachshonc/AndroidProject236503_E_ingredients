@@ -55,7 +55,8 @@ import static android.hardware.Camera.*;
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
     static final String DATA_FILES[]={
             "eng.traineddata",
-            "heb.traineddata"/*,
+            "heb.traineddata",
+            "bread.jpg"/*,
             "pic1.jpg",
             "pic2.jpg",
             "pic3.jpg",
@@ -73,7 +74,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-//    static String TEST_FILE="pic6.jpg";
+    static String TEST_FILE=null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -182,7 +183,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         binarizedImage = null;
         System.gc();
 
-        dispatchTakePictureIntent();
+        if (TEST_FILE != null) {
+            origImage = BitmapFactory.decodeFile(DATA_PATH+"/tessdata/"+TEST_FILE);
+            ImageView iv = (ImageView) findViewById(R.id.origImage);
+            iv.setImageBitmap(origImage);
+        } else {
+            dispatchTakePictureIntent();
+        }
 
 //        preview.mCamera.takePicture(null, null, jpegCallback);
 
@@ -265,8 +272,12 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 Log.d("word", "#"+word+"#");
                 if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*"))
                     result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
-                else if (word.matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
-                    result.append(word.replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]","0")).append("\n");
+                else {
+                    String[] words = word.split(",");
+                    for (int i=0; i < words.length; i++)
+                        if (words[i].matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
+                            result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
+                }
             } while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD));
 
             String res = result.toString();
