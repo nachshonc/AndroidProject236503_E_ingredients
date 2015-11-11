@@ -47,6 +47,7 @@ import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -284,7 +285,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private class Analyzer extends AsyncTask<Bitmap, Void, String> {
 
         private ProgressDialog dialog = new ProgressDialog(IngredientScanActivity.this);
+        private ArrayList<String> list = new ArrayList<>();
 
+        private void addIngredient(String ingredient){
+            list.add(ingredient);
+        }
         @Override
         protected String doInBackground(Bitmap... params) {
             TessBaseAPI baseApi = new TessBaseAPI();
@@ -304,12 +309,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
                 Log.d("word", "#"+word+"#");
                 if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*"))
-                    result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
+                    addIngredient(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")); //result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
                 else {
                     String[] words = word.split(",");
                     for (int i=0; i < words.length; i++)
                         if (words[i].matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
-                            result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
+                            addIngredient(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0"));
+                            //result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
                 }
             } while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD));
 
@@ -333,9 +339,16 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 dialog.dismiss();
             }
             TextView tv = (TextView) findViewById(R.id.result);
-            if (result.equals(""))
+            if (list.isEmpty())
+                tv.setText("No match found");
+            else {
+                Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
+                i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
+                startActivity(i);
+            }
+            /*if (result.equals(""))
                 result = "No match found";
-            tv.setText(result);
+            tv.setText(result);*/
         }
     }
 

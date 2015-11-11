@@ -1,25 +1,22 @@
 package il.ac.technion.tessa;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AdapterIngredientList extends ArrayAdapter<ModelFoodItem> implements View.OnClickListener {
+public class AdapterIngredientList extends ArrayAdapter<ModelIngredient> implements View.OnClickListener {
 
     private final Context context;
-    private final ArrayList<ModelFoodItem> modelsArrayList;
+    private final ArrayList<ModelIngredient> modelsArrayList;
 
     private final View []views;
-    public AdapterIngredientList(Context context, ArrayList<ModelFoodItem> modelsArrayList, ViewGroup parent) {
+    public AdapterIngredientList(Context context, ArrayList<ModelIngredient> modelsArrayList, ViewGroup parent) {
 
         super(context, R.layout.list_item, modelsArrayList);
 
@@ -37,8 +34,8 @@ public class AdapterIngredientList extends ArrayAdapter<ModelFoodItem> implement
             TextView counterView = (TextView) rowView.findViewById(R.id.item_tag);
 
             // 4. Set the text for textView
-            titleView.setText(modelsArrayList.get(i).getTitle());
-            counterView.setText(modelsArrayList.get(i).getCounter());
+            titleView.setText(modelsArrayList.get(i).getFullName());
+            counterView.setText(modelsArrayList.get(i).getTag());
 
             views[i]=rowView;
         }

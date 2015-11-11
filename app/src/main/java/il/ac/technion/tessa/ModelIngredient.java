@@ -2,32 +2,25 @@ package il.ac.technion.tessa;
 
 /**
  * Created by nachshonc on 11/9/15.
+ * Model class for an ingredient item
  */
 public class ModelIngredient {
-    private int icon;
-    private String title;
-    private String counter;
+    private String tag;
+    private String fullName;
 
-    private boolean isGroupHeader = false;
 
-    public ModelIngredient(String title) {
-        this(-1,title,null);
-        isGroupHeader = true;
-    }
-    public ModelIngredient(int icon, String title) {
+    public ModelIngredient(String tag, String fullName) {
         super();
-        this.icon = icon;
-        this.title = title;
-    }
-    public ModelIngredient(int icon, String title, String counter) {
-        super();
-        this.icon = icon;
-        this.title = title;
-        this.counter = counter;
+        this.fullName=fullName;
+        this.tag=tag;
     }
 
-    public int getIcon(){return icon; }
-    public String getTitle(){return title; }
-    public String getCounter(){return counter; }
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getTag() {
+        return tag;
+    }
 
 }

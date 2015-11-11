@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,35 +15,34 @@ import java.util.ArrayList;
  */
 public class ActIngredientList extends ListActivity implements AdapterView.OnItemClickListener {
 
+    public static final String PARAM_INGREDIENTS = "ingredientList";
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        AdapterFoodList adapter = new AdapterFoodList(this, generateData(), this.getListView());
+        AdapterIngredientList adapter = new AdapterIngredientList(this, generateData(), this.getListView());
         setListAdapter(adapter);
-        getListView().setOnItemClickListener(this);
-    }
-    public static final int []fitems = {};
-    public static final int []fStrItems={};
 
-    private ArrayList<ModelFoodItem> generateData(){
-        ArrayList<ModelFoodItem> models = new ArrayList<ModelFoodItem>();
-        for(int i=0; i<fitems.length; ++i)
-            models.add(new ModelFoodItem(fitems[i], getString(fStrItems[i])));
-        /*models.add(new ModelFoodItem(R.drawable.fries, getString(R.string.food_fries)));
-        models.add(new ModelFoodItem(R.drawable.rice, getString(R.string.food_rice)));
-        models.add(new ModelFoodItem(R.drawable.salad, getString(R.string.food_salad)));
-        models.add(new ModelFoodItem(R.drawable.spaghetti, getString(R.string.food_spaghetti)));
-        models.add(new ModelFoodItem(R.drawable.wings, getString(R.string.food_wings)));*/
+        //getListView().setOnItemClickListener(this);
+    }
+    private ArrayList<ModelIngredient> generateData(){
+        ArrayList<String> list = getIntent().getStringArrayListExtra(PARAM_INGREDIENTS);
+        ArrayList<ModelIngredient> models = new ArrayList<>();
+        Toast.makeText(getApplicationContext(), String.format("size=%d, item=%s", list.size(), list.get(0)), Toast.LENGTH_SHORT).show();
+        //TODO: insert the list of ingredients to the adapter.
+//        for(int i=0; i<fitems.length; ++i)
+//            models.add(new ModelIngredient(fitems[i], getString(fStrItems[i])));
 
         return models;
     }
+
+    //No need to implement in this stage of the project. Probably later...
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Toast.makeText(this.getApplicationContext(), String.format("Item %d chosen. ID=%d", position, id), Toast.LENGTH_SHORT).show();
+        /*//Toast.makeText(this.getApplicationContext(), String.format("Item %d chosen. ID=%d", position, id), Toast.LENGTH_SHORT).show();
         Intent res = new Intent();
         String strres = String.format("%d", position);
         res.putExtra("food", strres);
         setResult(RESULT_OK, res);
-        finish();
+        finish();*/
     }
 }
