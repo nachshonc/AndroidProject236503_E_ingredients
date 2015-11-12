@@ -424,7 +424,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         height = bmpOriginal.getHeight();
         width = bmpOriginal.getWidth();
 
-        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
+        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(bmpGrayscale);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
@@ -441,7 +441,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         height = bmpOriginal.getHeight();
         width = bmpOriginal.getWidth();
 
-        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
+        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(bmpGrayscale);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
