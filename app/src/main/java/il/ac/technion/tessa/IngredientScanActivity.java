@@ -308,14 +308,21 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             do {
                 String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
                 Log.d("word", "#"+word+"#");
-                if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*"))
-                    addIngredient(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")); //result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
-                else {
+                if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*")) {
+                    String toAdd = word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1");
+                    Log.d("toAdd",toAdd);
+                    addIngredient(toAdd); //result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
+                } else {
                     String[] words = word.split(",");
-                    for (int i=0; i < words.length; i++)
-                        if (words[i].matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
-                            addIngredient(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0"));
-                            //result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
+                    for (int i=0; i < words.length; i++) {
+                        Log.d("words","%"+words[i]+"%");
+                        if (words[i].matches("^[^E£5]*[E£5]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$")) {
+                            String toAdd = words[i].replaceAll("^[^E£5]*[E5£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0");
+                            Log.d("toAdd",toAdd);
+                            addIngredient(toAdd);
+                        }
+                        //result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
+                    }
                 }
             } while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD));
 
