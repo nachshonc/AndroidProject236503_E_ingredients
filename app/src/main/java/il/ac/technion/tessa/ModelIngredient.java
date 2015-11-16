@@ -7,6 +7,9 @@ package il.ac.technion.tessa;
 public class ModelIngredient {
     private String tag;
     private String fullName;
+    private boolean allowedInEU;
+    private boolean Banned;
+    private boolean ConsideredDangerous;
 
 
     public ModelIngredient(String tag, String fullName) {
@@ -14,11 +17,34 @@ public class ModelIngredient {
         this.fullName=fullName;
         this.tag=tag;
     }
+    public ModelIngredient(String tag) {
+        super();
+        this.fullName=tag;
+        this.tag=tag;
+    }
+    public ModelIngredient(String tag, String fullName, Boolean allowedInEU, Boolean banned, Boolean consideredDangerous){
+        this.tag=tag;
+        this.fullName=fullName;
+        this.allowedInEU=allowedInEU;
+        this.Banned=banned;
+        this.ConsideredDangerous=consideredDangerous;
+    }
 
+
+    public Boolean getAllowedInEU() {
+        return allowedInEU;
+    }
+
+    public Boolean getBanned() {
+        return Banned;
+    }
+
+    public Boolean getConsideredDangerous() {
+        return ConsideredDangerous;
+    }
     public String getFullName() {
         return fullName;
     }
-
     public String getTag() {
         return tag;
     }

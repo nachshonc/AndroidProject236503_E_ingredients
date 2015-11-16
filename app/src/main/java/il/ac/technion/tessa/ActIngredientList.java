@@ -27,10 +27,8 @@ public class ActIngredientList extends ListActivity implements AdapterView.OnIte
     private ArrayList<ModelIngredient> generateData(){
         ArrayList<String> list = getIntent().getStringArrayListExtra(PARAM_INGREDIENTS);
         ArrayList<ModelIngredient> models = new ArrayList<>();
-        Toast.makeText(getApplicationContext(), String.format("size=%d, item=%s", list.size(), list.get(0)), Toast.LENGTH_SHORT).show();
-        //TODO: insert the list of ingredients to the adapter.
-//        for(int i=0; i<fitems.length; ++i)
-//            models.add(new ModelIngredient(fitems[i], getString(fStrItems[i])));
+        for(int i=0; i<list.size(); ++i)
+            models.add(IngredientDB.getIngredient(list.get(i))); // new ModelIngredient(list.get(i)));
 
         return models;
     }

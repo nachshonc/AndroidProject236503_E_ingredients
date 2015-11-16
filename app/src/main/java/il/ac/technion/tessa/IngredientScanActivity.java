@@ -17,7 +17,6 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +27,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -38,14 +36,10 @@ import com.googlecode.tesseract.android.ResultIterator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.RandomAccessFile;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,6 +51,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
+            "IngredientList.txt",
             "lord_sandwich.jpg"/*,
             "pic1.jpg",
             "pic2.jpg",
@@ -94,7 +89,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         threshold = (SeekBar) findViewById(R.id.threshold);
         threshold.setProgress(80);
         threshold.setOnSeekBarChangeListener(this);
-
+        IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
@@ -195,7 +190,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         } else {
             dispatchTakePictureIntent();
         }
-
 //        preview.mCamera.takePicture(null, null, jpegCallback);
 
     }
