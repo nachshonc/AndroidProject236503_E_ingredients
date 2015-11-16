@@ -1,5 +1,7 @@
 package il.ac.technion.tessa;
 
+import android.util.Log;
+
 /**
  * Created by nachshonc on 11/9/15.
  * Model class for an ingredient item
@@ -49,4 +51,12 @@ public class ModelIngredient {
         return tag;
     }
 
+    public int getColor() {
+        Log.d("getColor", ""+allowedInEU + "" + Banned + "" + ConsideredDangerous);
+        if(!allowedInEU)
+            return 0xFFFF0000; //Strong RED
+        if(Banned || ConsideredDangerous)
+            return 0x80FF0000;
+        return 0; //natural..
+    }
 }

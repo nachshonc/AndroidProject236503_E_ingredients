@@ -37,7 +37,8 @@ public class AdapterIngredientList extends ArrayAdapter<ModelIngredient> impleme
             // 4. Set the text for textView
             titleView.setText(modelsArrayList.get(i).getFullName());
             counterView.setText(modelsArrayList.get(i).getTag());
-
+            rowView.setBackgroundColor(modelsArrayList.get(i).getColor());
+            //titleView.setBackgroundColor(modelsArrayList.get(i).getColor());
             views[i]=rowView;
         }
     }
