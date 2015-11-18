@@ -17,12 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="1">
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="256"
-                android:id="@+id/threshold"
-                />
+
             <ImageView android:id="@+id/origImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

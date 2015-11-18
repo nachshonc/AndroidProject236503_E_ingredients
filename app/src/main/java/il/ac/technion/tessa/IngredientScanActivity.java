@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -21,8 +22,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +33,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -77,7 +82,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
-    SeekBar threshold;
+    int thresholdValue=80;
+    boolean enableBinarize=true, enableGrayscale=true;
     Camera camera;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
@@ -88,10 +94,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         setContentView(R.layout.activity_ingredient_scan);
 
         loadTrainDataFile();
-
-        threshold = (SeekBar) findViewById(R.id.threshold);
-        threshold.setProgress(80);
-        threshold.setOnSeekBarChangeListener(this);
         IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
 //        preview = new Preview(this, this);
 
@@ -310,7 +312,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             iterator.begin(); //crashes my app
             do {
                 String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
-                Log.d("word", "#"+word+"#");
+                if(word==null) break;
+                Log.d("word", "#" + word + "#");
                 if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*")) {
                     String toAdd = word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1");
                     Log.d("toAdd",toAdd);
@@ -392,7 +395,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void grayscale(View v) {
-        if (origImage == null)
+        if (enableGrayscale==false || origImage == null)
             return;
         Bitmap grayscaleImage = toGrayscale(origImage);
         origImage.recycle();
@@ -404,7 +407,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void binarize(View v) {
-        if (origImage == null)
+        if (enableBinarize==false || origImage == null)
             return;
         if (binarizedImage != null)
             binarizedImage.recycle();
@@ -442,7 +445,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         Canvas c = new Canvas(bmpGrayscale);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
-        int thresholdValue = threshold.getProgress();
+        //int thresholdValue = threshold.getProgress();
         float scale = (float)thresholdValue*(float)5.0/(float)256;
         cm.setScale(scale, scale, scale, 1);
         ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
@@ -459,6 +462,42 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         return true;
     }
 
+    private void imageProccessSettings(){
+        Log.d("settings", "called");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Please set the enhancement factor (0--100)");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        builder.setView(input);
+        final CheckBox box = new CheckBox(this);
+        builder.setView(box);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                try {
+                    int val = Integer.parseInt(input.getText().toString());
+                    thresholdValue = val;
+                } catch (NumberFormatException exception) {
+                }
+                ;
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -468,7 +507,20 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            imageProccessSettings();
             return true;
+        }
+        if (id == R.id.action_grayscale){
+            enableGrayscale=!enableGrayscale;
+            item.setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
+            if(enableGrayscale && origImage!=null)
+                grayscale(null);
+        }
+        if (id == R.id.action_enhance){
+            enableBinarize=!enableBinarize;
+            item.setTitle((enableBinarize?getString(R.string.str_dis_bin):getString(R.string.str_en_bin)));
+            if(enableBinarize && origImage!=null)
+                binarize(null);
         }
 
         return super.onOptionsItemSelected(item);

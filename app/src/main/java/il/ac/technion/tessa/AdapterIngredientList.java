@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,15 +29,27 @@ public class AdapterIngredientList extends ArrayAdapter<ModelIngredient> impleme
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.list_item, parent, false);
-        // 3. Get icon,title & counter views from the rowView
-        TextView titleView = (TextView) rowView.findViewById(R.id.item_title);
-        TextView counterView = (TextView) rowView.findViewById(R.id.item_tag);
+        ModelIngredient ingredient = modelsArrayList.get(position);
+        View rowView;
+        TextView titleView;
+        TextView counterView;
+        if(ingredient.getAllowedInEU() && !ingredient.getBanned() && !ingredient.getConsideredDangerous()) {
+            rowView = inflater.inflate(R.layout.list_item, parent, false);
+        }
+        else{
+            rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
+            ImageView image = (ImageView)rowView.findViewById(R.id.item_icon);
+            if(ingredient.getAllowedInEU())
+                image.setImageResource(R.drawable.caution);
+        }
+        titleView = (TextView) rowView.findViewById(R.id.item_title);
+        counterView = (TextView) rowView.findViewById(R.id.item_tag);
+
 
         // 4. Set the text for textView
-        titleView.setText(modelsArrayList.get(position).getFullName());
-        counterView.setText(modelsArrayList.get(position).getTag());
-        rowView.setBackgroundColor(modelsArrayList.get(position).getColor());
+        titleView.setText(ingredient.getFullName());
+        counterView.setText(ingredient.getTag());
+        rowView.setBackgroundColor(ingredient.getColor());
         return rowView;
     }
     public ModelIngredient getModel(int idx){

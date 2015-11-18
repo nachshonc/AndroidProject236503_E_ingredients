@@ -1,10 +1,14 @@
 <resources>
-    <string name="app_name">Tessa</string>
+    <string name="app_name">E-ingredient revealer</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Set enhance factor</string>
     <string name="take_snapshot">Snapshot</string>
     <string name="convert_to_grayscale">Grayscale</string>
     <string name="binarize">Binarize</string>
     <string name="analyze">Analyze</string>
+    <string name="str_dis_gray">disable grayscale</string>
+    <string name="str_en_gray">enable grayscale</string>
+    <string name="str_dis_bin">disable enhancement</string>
+    <string name="str_en_bin">enable enhancement</string>
 </resources>
