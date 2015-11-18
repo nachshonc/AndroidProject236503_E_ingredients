@@ -1,11 +1,14 @@
 package il.ac.technion.tessa;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -47,7 +50,7 @@ import java.util.List;
 
 import static android.hardware.Camera.*;
 
-public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, FrgIngredientList.OnFragmentInteractionListener {
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -223,6 +226,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         analyze(null);
     }
 
+    @Override
+    public void onFragmentInteraction(String id) {
+
+    }
+
     /*
     ShutterCallback shutterCallback = new ShutterCallback() {
         public void onShutter() {
@@ -344,9 +352,19 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else {
-                Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
-                i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
-                startActivity(i);
+                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
+                    fragmentTransaction.replace(R.id.frag_list, fragment);
+                    fragmentTransaction.commit();
+
+                }
+                else {
+                    Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
+                    i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
+                    startActivity(i);
+                }
             }
             /*if (result.equals(""))
                 result = "No match found";
