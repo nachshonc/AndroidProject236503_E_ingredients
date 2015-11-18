@@ -1,40 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".IngredientScanActivity">
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".IngredientScanActivity">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button android:id="@+id/btnSnap"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="snap"
-                    android:text="@string/take_snapshot"/>
-                <Button android:id="@+id/btnGrayscale"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="grayscale"
-                    android:text="@string/convert_to_grayscale"/>
-                <Button android:id="@+id/btnBinarize"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="binarize"
-                    android:text="@string/binarize"/>
-            </LinearLayout>
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,17 +23,22 @@
                 android:id="@+id/threshold"
                 />
             <ImageView android:id="@+id/origImage"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"/>
-            <Button android:id="@+id/btnAnalyze"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:onClick="analyze"
-                android:text="@string/analyze"/>
-            <TextView android:id="@+id/result"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/border"/>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton android:id="@+id/btnSnap"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:onClick="snap"
+        android:src="@android:drawable/ic_menu_camera"
+        android:text="@string/take_snapshot"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        app:layout_anchor="@id/origImage"
+        app:layout_anchorGravity="bottom|right|end"
+        app:backgroundTint="#20FF20"
+        app:rippleColor="#FFF"/>
+
+</android.support.design.widget.CoordinatorLayout>
