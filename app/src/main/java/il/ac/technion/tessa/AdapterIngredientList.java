@@ -16,62 +16,28 @@ public class AdapterIngredientList extends ArrayAdapter<ModelIngredient> impleme
     private final Context context;
     private final ArrayList<ModelIngredient> modelsArrayList;
 
-    private final View []views;
-    public AdapterIngredientList(Context context, ArrayList<ModelIngredient> modelsArrayList, ViewGroup parent) {
+    public AdapterIngredientList(Context context, ArrayList<ModelIngredient> modelsArrayList) {
 
         super(context, R.layout.list_item, modelsArrayList);
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
-
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final int len=modelsArrayList.size();
-        views = new View[len];
-        for(int i=0; i<len; ++i){
-            View rowView = inflater.inflate(R.layout.list_item, parent, false);
-            // 3. Get icon,title & counter views from the rowView
-            TextView titleView = (TextView) rowView.findViewById(R.id.item_title);
-            TextView counterView = (TextView) rowView.findViewById(R.id.item_tag);
-
-            // 4. Set the text for textView
-            titleView.setText(modelsArrayList.get(i).getFullName());
-            counterView.setText(modelsArrayList.get(i).getTag());
-            rowView.setBackgroundColor(modelsArrayList.get(i).getColor());
-            //titleView.setBackgroundColor(modelsArrayList.get(i).getColor());
-            views[i]=rowView;
-        }
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return views[position];
-        // 1. Create inflater
-/*
-        // 2. Get rowView from inflater
-
-        View rowView;
-        if(convertView!=null){
-            rowView = convertView;
-        }
-        else {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.list_item, parent, false);
-        }
-
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.list_item, parent, false);
         // 3. Get icon,title & counter views from the rowView
-        ImageView imgView = (ImageView) rowView.findViewById(R.id.item_icon);
         TextView titleView = (TextView) rowView.findViewById(R.id.item_title);
-        TextView counterView = (TextView) rowView.findViewById(R.id.item_counter);
+        TextView counterView = (TextView) rowView.findViewById(R.id.item_tag);
 
         // 4. Set the text for textView
-        imgView.setImageResource(modelsArrayList.get(position).getIcon());
-        titleView.setText(modelsArrayList.get(position).getTitle());
-        counterView.setText(modelsArrayList.get(position).getCounter());
-
-        // 5. retrn rowView
-        return rowView;*/
+        titleView.setText(modelsArrayList.get(position).getFullName());
+        counterView.setText(modelsArrayList.get(position).getTag());
+        rowView.setBackgroundColor(modelsArrayList.get(position).getColor());
+        return rowView;
     }
     public ModelIngredient getModel(int idx){
         return modelsArrayList.get(idx);

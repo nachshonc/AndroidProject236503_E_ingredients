@@ -1,51 +1,29 @@
 package il.ac.technion.tessa;
 
-import android.app.ListActivity;
-import android.content.Intent;
-import android.net.Uri;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * Created by nachshonc on 11/10/15.
- * Choose food activity
- */
-public class ActIngredientList extends ListActivity implements AdapterView.OnItemClickListener {
-
+public class ActIngredientList extends AppCompatActivity implements FrgIngredientList.OnFragmentInteractionListener{
     public static final String PARAM_INGREDIENTS = "ingredientList";
-    private AdapterIngredientList adapter;
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ingredient_list_layout);
+        FragmentManager fragmentManager=getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ArrayList<String> list = getIntent().getStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS);
+        FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
+        fragmentTransaction.replace(R.id.root, fragment);
+        fragmentTransaction.commit();
 
-        adapter = new AdapterIngredientList(this, generateData(), this.getListView());
-        setListAdapter(adapter);
-
-        getListView().setOnItemClickListener(this);
-    }
-    private ArrayList<ModelIngredient> generateData(){
-        ArrayList<String> list = getIntent().getStringArrayListExtra(PARAM_INGREDIENTS);
-        ArrayList<ModelIngredient> models = new ArrayList<>();
-        for(int i=0; i<list.size(); ++i) {
-            ModelIngredient ingredient = IngredientDB.getIngredient(list.get(i));
-            if(ingredient==null)
-                ingredient=new ModelIngredient(list.get(i), "Unknown additive", true, false, false);
-            models.add(ingredient);
-        }
-
-        return models;
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this.getApplicationContext(), String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
-        String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
-        url = (url + "+" + adapter.getModel(position).getFullName()).replaceAll(" +", "+");
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+    public void onFragmentInteraction(String id) {
+
     }
 }

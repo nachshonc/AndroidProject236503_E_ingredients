@@ -355,7 +355,16 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     public void analyze(View v) {
         if (origImage == null)
-            return; // simply ignore
+        {
+            //FOR DEBUG
+            ArrayList<String> list=new ArrayList<>(4);
+            list.add("E200"); list.add("E101"); list.add("E220"); list.add("E244");
+            Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
+            i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
+            startActivity(i);
+            return;
+        }
+
         if (binarizedImage == null)
             binarizedImage = origImage;
         new Analyzer().execute(binarizedImage);
