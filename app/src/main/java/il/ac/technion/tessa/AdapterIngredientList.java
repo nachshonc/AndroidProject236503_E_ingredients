@@ -73,6 +73,9 @@ public class AdapterIngredientList extends ArrayAdapter<ModelIngredient> impleme
         // 5. retrn rowView
         return rowView;*/
     }
+    public ModelIngredient getModel(int idx){
+        return modelsArrayList.get(idx);
+    }
 
     @Override
     public void onClick(View v) {
