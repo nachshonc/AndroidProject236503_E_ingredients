@@ -220,6 +220,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         ImageView iv = (ImageView) findViewById(R.id.origImage);
         iv.setImageBitmap(origImage);
+        analyze(null);
     }
 
     /*
@@ -328,8 +329,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         @Override
         protected void onPreExecute() {
-            TextView tv = (TextView) findViewById(R.id.result);
-            tv.setText("Analyzing...");
+//            TextView tv = (TextView) findViewById(R.id.result);
+//            tv.setText("Analyzing...");
             this.dialog.setMessage("Please wait");
             this.dialog.show();
         }
@@ -339,10 +340,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            TextView tv = (TextView) findViewById(R.id.result);
-            if (list.isEmpty())
-                tv.setText("No match found");
-            else {
+//            TextView tv = (TextView) findViewById(R.id.result);
+            if (list.isEmpty()) {
+//                tv.setText("No match found");
+            } else {
                 Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
                 i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
                 startActivity(i);
@@ -365,43 +366,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return;
         }
 
+        grayscale(v);
+        binarize(v);
         if (binarizedImage == null)
             binarizedImage = origImage;
         new Analyzer().execute(binarizedImage);
-    }
-
-    public void analyze_old(View v) {
-        TextView tv = (TextView) findViewById(R.id.result);
-
-        TessBaseAPI baseApi = new TessBaseAPI();
-
-        baseApi.setDebug(false);
-        baseApi.init(DATA_PATH, "eng+heb");
-//        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
-        if (binarizedImage == null)
-            binarizedImage = origImage;
-
-        baseApi.setImage(binarizedImage);
-//        baseApi.setImage(b);
-        String recognizedText = baseApi.getUTF8Text();
-
-        Log.d("DATAPATH", DATA_PATH);
-        Log.d("recognized", recognizedText);
-        StringBuffer result = new StringBuffer();
-        final ResultIterator iterator = baseApi.getResultIterator();
-        iterator.begin(); //crashes my app
-        do {
-            String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
-            Log.d("word", "#"+word+"#");
-            if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*"))
-                result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
-            else if (word.matches(".*[E£]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$"))
-                result.append(word.replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]","0")).append("\n");
-        } while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD));
-
-        tv.setText(result.toString());
-        baseApi.end();
-
     }
 
     public void grayscale(View v) {
