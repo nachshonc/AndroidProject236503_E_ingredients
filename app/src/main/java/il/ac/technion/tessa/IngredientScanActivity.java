@@ -71,14 +71,35 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             "test2.png",
             "test3.png",
             "test4.png",
-            "e-num-ingred.jpg",
-            "w2-sandwich-ingredients.jpg",
+            "e-num-ingred.jpg",*/
+            ,"w2-sandwich-ingredients.jpg"/*,
             "salad-dressing.jpg",
             "coconut-milk.jpg"*/
+            ,"T1.jpg"
+            ,"T10.jpg"
+            ,"T11.jpg"
+            ,"T12.jpg"
+            ,"T13.jpg"
+            ,"T14.jpg"
+            ,"T15.jpg"
+            ,"T16.jpg"
+            ,"T17.jpg"
+            ,"T18.jpg"
+            ,"T19.jpg"
+            ,"T2.jpg"
+            ,"T20.jpg"
+            ,"T21.jpg"
+            ,"T3.jpg"
+            ,"T4.jpg"
+            ,"T5.jpg"
+            ,"T6.jpg"
+            ,"T7.jpg"
+            ,"T8.jpg"
+            ,"T9.jpg"
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
+    static String TEST_FILE="T16.jpg"; // "lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -355,19 +376,19 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else {
-                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+//                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                     FragmentManager fragmentManager=getFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
                     fragmentTransaction.replace(R.id.frag_list, fragment);
                     fragmentTransaction.commit();
 
-                }
-                else {
-                    Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
-                    i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
-                    startActivity(i);
-                }
+//                }
+//                else {
+//                    Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
+//                    i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
+//                    startActivity(i);
+//                }
             }
             /*if (result.equals(""))
                 result = "No match found";
