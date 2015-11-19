@@ -472,8 +472,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         builder.setView(input);
-        final CheckBox box = new CheckBox(this);
-        builder.setView(box);
 
 // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
