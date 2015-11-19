@@ -377,6 +377,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //                tv.setText("No match found");
             } else {
 //                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                /*list.add("E101");
+                list.add("E102");
+                list.add("E110");
+                list.add("E105");*/
                     FragmentManager fragmentManager=getFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
@@ -399,12 +403,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public void analyze(View v) {
         if (origImage == null)
         {
-            //FOR DEBUG
-            ArrayList<String> list=new ArrayList<>(4);
-            list.add("E200"); list.add("E101"); list.add("E220"); list.add("E244");
-            Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
-            i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
-            startActivity(i);
             return;
         }
 

@@ -48,7 +48,7 @@ public class IngredientDB {
                             columns[0], columns[1], columns[2], columns[3]);
                     Log.d("parseDB", s);
                     ModelIngredient ingredient = new ModelIngredient(columns[0], columns[1],
-                            columns[3].equals("TRUE"), columns[4].equals("FALSE"), columns[5].equals("TRUE"));
+                            columns[3].equals("TRUE"), columns[4].equals("FALSE"), !columns[5].equals("TRUE"));
                     map.put(columns[0], ingredient);
                 }
             }
