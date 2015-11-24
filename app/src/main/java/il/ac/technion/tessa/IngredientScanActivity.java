@@ -208,43 +208,28 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
 
     private void setPic() {
-        /*
         // Get the dimensions of the View
-        Toast.makeText(getApplicationContext(),"setPic 1", Toast.LENGTH_SHORT).show();
         int targetW = 1024;
 
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
-        Toast.makeText(getApplicationContext(),"setPic 2", Toast.LENGTH_SHORT).show();
         BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        Toast.makeText(getApplicationContext(),"setPic 3", Toast.LENGTH_SHORT).show();
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
-        Toast.makeText(getApplicationContext(),"setPic 4", Toast.LENGTH_SHORT).show();
         int scaleFactor=1;
         if (photoW >= 2*targetW)
             scaleFactor = photoW/targetW;
         Log.d("ScaleFactor", ""+scaleFactor);
-        Toast.makeText(getApplicationContext(),"ScaleFactor =  "+scaleFactor, Toast.LENGTH_SHORT).show();
 
         // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scaleFactor;
         bmOptions.inPurgeable = true;
 
-        Toast.makeText(getApplicationContext(),"Decoding image from "+mCurrentPhotoPath, Toast.LENGTH_SHORT).show();
-        */
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 2;
-
-        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
-        if (origImage == null) {
-            Toast.makeText(getApplicationContext(),"origImage is null", Toast.LENGTH_LONG).show();
-            return;
-        }
+        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         ImageView iv = (ImageView) findViewById(R.id.origImage);
 
         if (iv != null)
@@ -413,12 +398,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public void analyze(View v) {
         if (origImage == null)
         {
-            //FOR DEBUG
-            ArrayList<String> list=new ArrayList<>(4);
-            list.add("E200"); list.add("E101"); list.add("E220"); list.add("E244");
-            Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
-            i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
-            startActivity(i);
             return;
         }
 
@@ -507,8 +486,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         builder.setView(input);
-        final CheckBox box = new CheckBox(this);
-        builder.setView(box);
 
 // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

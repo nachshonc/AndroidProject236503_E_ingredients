@@ -21,7 +21,6 @@ public class IngredientDB {
     public static HashMap<String, ModelIngredient> map = new HashMap<>(500);
 
     public static final String PATH = DATA_PATH+"/tessdata/"+TEST_FILE;
-//    static final Pattern splitter = Pattern.compile("(i+)");
     //return null if key does not exist
     public static ModelIngredient getIngredient(String tag){
         return map.get(tag);
