@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:background="#F3F3F3">
 
     <!-- icon, if found something -->
@@ -9,38 +10,31 @@
         android:id="@+id/item_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:src="@drawable/danger"
+        android:layout_gravity="center_vertical"
         />
     <!-- tag -->
-    <TextView
-        android:id="@+id/item_tag"
-        android:layout_width="40dp"
-        android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ingredient_tag"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
     <!-- title -->
     <TextView
         android:id="@+id/item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="E123456789"
-        android:textSize="18dp"
-        android:layout_alignTop="@+id/item_tag"
-        android:layout_toLeftOf="@+id/item_tag"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/item_icon"
-        android:layout_toEndOf="@+id/item_icon" />
+        android:layout_width="0dp"
+        android:layout_weight="70"
+        android:layout_height="wrap_content"
+        android:text="E123"
+        android:textSize="16dp"
+         />
+
+    <TextView
+        android:id="@+id/item_tag"
+        android:layout_width="0dp"
+        android:layout_weight="20"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ingredient_tag"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_vertical"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 
-</RelativeLayout>
+</LinearLayout>

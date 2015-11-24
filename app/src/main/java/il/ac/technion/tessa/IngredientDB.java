@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 /**
  * Created by nachshonc on 11/16/15.
@@ -20,6 +21,7 @@ public class IngredientDB {
     public static HashMap<String, ModelIngredient> map = new HashMap<>(500);
 
     public static final String PATH = DATA_PATH+"/tessdata/"+TEST_FILE;
+//    static final Pattern splitter = Pattern.compile("(i+)");
     //return null if key does not exist
     public static ModelIngredient getIngredient(String tag){
         return map.get(tag);
@@ -44,12 +46,28 @@ public class IngredientDB {
                     failed = true;
                 }
                 else {
-                    s = String.format("Line %d: [0]=%s, [1]=%s, [2]=%s, [3]=%s", columns.length,
-                            columns[0], columns[1], columns[2], columns[3]);
-                    Log.d("parseDB", s);
-                    ModelIngredient ingredient = new ModelIngredient(columns[0], columns[1],
-                            columns[3].equals("TRUE"), columns[4].equals("FALSE"), columns[5].equals("TRUE"));
-                    map.put(columns[0], ingredient);
+                    String[] sub = columns[1].split(" *\\(i+\\) *");
+                    if (sub.length == 1) {
+                        s = String.format("Line %d: [0]=%s, [1]=%s, [2]=%s, [3]=%s", columns.length,
+                                columns[0], columns[1], columns[2], columns[3]);
+                        Log.d("parseDB", s);
+                        ModelIngredient ingredient = new ModelIngredient(columns[0], columns[1],
+                                columns[3].equals("TRUE"), columns[4].equals("FALSE"), columns[5].equals("TRUE"));
+                        map.put(columns[0], ingredient);
+
+                    } else {
+                        StringBuilder key = new StringBuilder(columns[0]);
+                        for (int i1 = 1; i1 < sub.length; i1++) {
+                            key.append("i");
+                            String description = sub[0] + ": " + sub[i1];
+                            s = String.format("Line %d: [0]=%s, [1]=%s, [2]=%s, [3]=%s", columns.length,
+                                    key.toString(), description, columns[2], columns[3]);
+                            Log.d("parseDB", s);
+                            ModelIngredient ingredient = new ModelIngredient(key.toString(), description,
+                                    columns[3].equals("TRUE"), columns[4].equals("FALSE"), columns[5].equals("TRUE"));
+                            map.put(key.toString(), ingredient);
+                        }
+                    }
                 }
             }
         } catch (FileNotFoundException e) {

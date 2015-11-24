@@ -36,6 +36,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,8 +60,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
-            "IngredientList.txt",
-            "lord_sandwich.jpg"/*,
+            "lord_sandwich.jpg",
+            "P1a.jpg",
+            "P2a.jpg",
+            "P3.jpg"/*,
             "pic1.jpg",
             "pic2.jpg",
             "pic3.jpg",
@@ -75,31 +78,14 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             ,"w2-sandwich-ingredients.jpg"/*,
             "salad-dressing.jpg",
             "coconut-milk.jpg"*/
-            ,"T1.jpg"
-            ,"T10.jpg"
-            ,"T11.jpg"
-            ,"T12.jpg"
-            ,"T13.jpg"
-            ,"T14.jpg"
-            ,"T15.jpg"
-            ,"T16.jpg"
-            ,"T17.jpg"
-            ,"T18.jpg"
-            ,"T19.jpg"
-            ,"T2.jpg"
-            ,"T20.jpg"
-            ,"T21.jpg"
-            ,"T3.jpg"
-            ,"T4.jpg"
-            ,"T5.jpg"
-            ,"T6.jpg"
-            ,"T7.jpg"
-            ,"T8.jpg"
-            ,"T9.jpg"
+    };
+
+    static final String ALWAYS_COPY_DATA_FILES[] = {
+            "IngredientList.txt"
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE="T16.jpg"; // "lord_sandwich.jpg"; //null; //"bread.jpg";
+    static String TEST_FILE="P3.jpg"; // "lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -222,30 +208,48 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
 
     private void setPic() {
+        /*
         // Get the dimensions of the View
+        Toast.makeText(getApplicationContext(),"setPic 1", Toast.LENGTH_SHORT).show();
         int targetW = 1024;
 
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
+        Toast.makeText(getApplicationContext(),"setPic 2", Toast.LENGTH_SHORT).show();
         BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        Toast.makeText(getApplicationContext(),"setPic 3", Toast.LENGTH_SHORT).show();
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
+        Toast.makeText(getApplicationContext(),"setPic 4", Toast.LENGTH_SHORT).show();
         int scaleFactor=1;
         if (photoW >= 2*targetW)
             scaleFactor = photoW/targetW;
         Log.d("ScaleFactor", ""+scaleFactor);
+        Toast.makeText(getApplicationContext(),"ScaleFactor =  "+scaleFactor, Toast.LENGTH_SHORT).show();
 
         // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scaleFactor;
         bmOptions.inPurgeable = true;
 
-        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        Toast.makeText(getApplicationContext(),"Decoding image from "+mCurrentPhotoPath, Toast.LENGTH_SHORT).show();
+        */
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 2;
+
+        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
+        if (origImage == null) {
+            Toast.makeText(getApplicationContext(),"origImage is null", Toast.LENGTH_LONG).show();
+            return;
+        }
         ImageView iv = (ImageView) findViewById(R.id.origImage);
-        iv.setImageBitmap(origImage);
+
+        if (iv != null)
+            iv.setImageBitmap(origImage);
+
         analyze(null);
     }
 
@@ -335,16 +339,16 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 String word = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD);
                 if(word==null) break;
                 Log.d("word", "#" + word + "#");
-                if (word.matches(".*\\([E£5]\\d\\d\\d[a-i]*\\).*")) {
-                    String toAdd = word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1");
+                if (word.matches(".*\\([E£5₪]\\d\\d\\d[a-i]*\\).*")) {
+                    String toAdd = word.replaceAll(".*\\([E£5₪](\\d\\d\\d[a-i]*)\\).*", "E$1");
                     Log.d("toAdd",toAdd);
                     addIngredient(toAdd); //result.append(word.replaceAll(".*\\([E£5](\\d\\d\\d[a-i]*)\\).*", "E$1")).append("\n");
                 } else {
                     String[] words = word.split(",");
                     for (int i=0; i < words.length; i++) {
                         Log.d("words","%"+words[i]+"%");
-                        if (words[i].matches("^[^E£5]*[E£5]-?[\\doO][\\doO][\\doO][a-i]*([^0-9a-zA-Z].*|)$")) {
-                            String toAdd = words[i].replaceAll("^[^E£5]*[E5£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0");
+                        if (words[i].matches("^[^E£5₪]*[E£5₪]-?[\\doOS][\\doOS][\\doOS][a-i]*([^0-9a-zA-Z].*|)$")) {
+                            String toAdd = words[i].replaceAll("^[^E£5₪]*[E5£₪]-?([\\doOS][\\doOS][\\doOS][a-i]*).*", "E$1").replaceAll("[oO]", "0").replaceAll("S","5");
                             Log.d("toAdd",toAdd);
                             addIngredient(toAdd);
                         }
@@ -376,12 +380,22 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else {
+                ListView listView = (ListView) findViewById(R.id.frag_list);
+                ArrayList<ModelIngredient> models = new ArrayList<>();
+                for(int i=0; i<list.size(); ++i) {
+                    ModelIngredient ingredient = IngredientDB.getIngredient(list.get(i));
+                    if(ingredient==null)
+                        ingredient=new ModelIngredient(list.get(i), "Unknown additive", true, false, false);
+                    models.add(ingredient);
+                }
+
+                listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));
 //                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
-                    fragmentTransaction.replace(R.id.frag_list, fragment);
-                    fragmentTransaction.commit();
+//                    FragmentManager fragmentManager=getFragmentManager();
+//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                    FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
+//                    fragmentTransaction.replace(R.id.frag_list, fragment);
+//                    fragmentTransaction.commit();
 
 //                }
 //                else {
@@ -571,11 +585,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     void copyFiles() {
         for (int i=0; i < DATA_FILES.length; i++)
-            copyFile(DATA_FILES[i]);
+            copyFile(DATA_FILES[i], false);
+        for (int i=0; i < ALWAYS_COPY_DATA_FILES.length; i++)
+            copyFile(ALWAYS_COPY_DATA_FILES[i], true);
     }
 
-    void copyFile(String filename) {
-        if (!(new File(DATA_PATH + "tessdata/"+filename))
+    void copyFile(String filename, boolean alwaysCopy) {
+        if (alwaysCopy || !(new File(DATA_PATH + "tessdata/"+filename))
                 .exists()) {
             try {
 
