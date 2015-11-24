@@ -66,7 +66,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             "lord_sandwich.jpg",
             "P1a.jpg",
             "P2a.jpg",
-            "P3.jpg"/*,
+            "P3.jpg",
+            "Q1.jpg",
+            "Q2.jpg"/*,
             "pic1.jpg",
             "pic2.jpg",
             "pic3.jpg",
@@ -88,7 +90,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE="P3.jpg"; // "lord_sandwich.jpg"; //null; //"bread.jpg";
+    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
