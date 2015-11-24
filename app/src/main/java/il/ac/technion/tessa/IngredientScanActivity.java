@@ -96,6 +96,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //    Preview preview;
     int thresholdValue=80;
     boolean enableBinarize=true, enableGrayscale=true;
+    ArrayList<String> ingredientsList;
     Camera camera;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
@@ -116,6 +117,50 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
 
     String mCurrentPhotoPath;
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putString("mCurrentPhotoPath", mCurrentPhotoPath);
+        outState.putInt("thresholdValue", thresholdValue);
+        outState.putBoolean("enableBinarize", enableBinarize);
+        outState.putBoolean("enableGrayscale", enableGrayscale);
+        outState.putStringArrayList("ingredientsList", ingredientsList);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mCurrentPhotoPath = savedInstanceState.getString("mCurrentPhotoPath");
+        thresholdValue = savedInstanceState.getInt("thresholdValue");
+        enableBinarize = savedInstanceState.getBoolean("enableBinarize");
+        enableGrayscale = savedInstanceState.getBoolean("enableGrayscale");
+        ingredientsList = savedInstanceState.getStringArrayList("ingredientsList");
+
+        if (ingredientsList == null) {
+            if (mCurrentPhotoPath != null)
+                setPic(true);
+        } else {
+            if (mCurrentPhotoPath != null)
+                setPic(false);
+            ListView listView = (ListView) findViewById(R.id.frag_list);
+            ArrayList<ModelIngredient> models = new ArrayList<>();
+            for(int i=0; i<ingredientsList.size(); ++i) {
+                ModelIngredient ingredient = IngredientDB.getIngredient(ingredientsList.get(i));
+                if(ingredient==null)
+                    ingredient=new ModelIngredient(ingredientsList.get(i), "Unknown additive", true, false, false);
+                models.add(ingredient);
+            }
+
+            listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));
+        }
+
+
+    }
+
+
 
     private File createImageFile() throws IOException {
         // Create an image file name
@@ -165,6 +210,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         // We need an Editor object to make preference changes.
         SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
         editor.putString("mCurrentPhotoPath", mCurrentPhotoPath);
+        editor.putInt("thresholdValue", thresholdValue);
+        editor.putBoolean("enableBinarize", enableBinarize);
+        editor.putBoolean("enableGrayscale", enableGrayscale);
 
         // Commit the edits!
         editor.commit();
@@ -173,6 +221,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private void restorePreferences() {
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         mCurrentPhotoPath = settings.getString("mCurrentPhotoPath", "");
+        thresholdValue = settings.getInt("thresholdValue", 80);
+        enableGrayscale = settings.getBoolean("enableGrayscale", true);
+        enableBinarize = settings.getBoolean("enableBinarize", true);
+
     }
 
     @Override
@@ -182,7 +234,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 restorePreferences();
 
             Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
-            setPic();
+            setPic(true);
 //            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
 //
 //            ImageView iv = (ImageView) findViewById(R.id.origImage);
@@ -202,7 +254,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         if (TEST_FILE != null) {
             mCurrentPhotoPath = DATA_PATH+"/tessdata/"+TEST_FILE;
-            setPic();
+            setPic(true);
 //            origImage = BitmapFactory.decodeFile(DATA_PATH+"/tessdata/"+TEST_FILE);
 //            ImageView iv = (ImageView) findViewById(R.id.origImage);
 //            iv.setImageBitmap(origImage);
@@ -214,7 +266,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
 
-    private void setPic() {
+    private void setPic(boolean analyzeIt) {
+
+        if (mCurrentPhotoPath == null)
+            return;
         // Get the dimensions of the View
         int targetW = 1024;
 
@@ -239,10 +294,18 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         ImageView iv = (ImageView) findViewById(R.id.origImage);
 
-        if (iv != null)
-            iv.setImageBitmap(origImage);
+        if(enableGrayscale && origImage!=null)
+            grayscale(null);
+        if(enableBinarize && origImage!=null)
+            binarize(null);
+        else
+            binarizedImage = origImage;
 
-        analyze(null);
+        if (iv != null)
+            iv.setImageBitmap(binarizedImage);
+
+        if (analyzeIt)
+            analyze(null);
     }
 
     @Override
@@ -390,6 +453,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else {
+                ingredientsList = list;
                 ListView listView = (ListView) findViewById(R.id.frag_list);
                 ArrayList<ModelIngredient> models = new ArrayList<>();
                 for(int i=0; i<list.size(); ++i) {
@@ -426,8 +490,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return;
         }
 
-        grayscale(v);
-        binarize(v);
+//        grayscale(v);
+//        binarize(v);
         if (binarizedImage == null)
             binarizedImage = origImage;
         new Analyzer().execute(binarizedImage);
@@ -448,7 +512,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public void binarize(View v) {
         if (enableBinarize==false || origImage == null)
             return;
-        if (binarizedImage != null)
+        if (binarizedImage != origImage && binarizedImage != null)
             binarizedImage.recycle();
         binarizedImage = null;
         System.gc();
@@ -498,6 +562,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_ingredient_scan, menu);
+
+        menu.getItem(0).setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
+        menu.getItem(1).setTitle((enableBinarize ? getString(R.string.str_dis_bin) : getString(R.string.str_en_bin)));
+
         return true;
     }
 
@@ -508,6 +576,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
 // Set up the input
         final EditText input = new EditText(this);
+        input.setText(""+thresholdValue);
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         builder.setView(input);
@@ -519,6 +588,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 try {
                     int val = Integer.parseInt(input.getText().toString());
                     thresholdValue = val;
+                    setPic(true);
                 } catch (NumberFormatException exception) {
                 }
                 ;
@@ -550,14 +620,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         if (id == R.id.action_grayscale){
             enableGrayscale=!enableGrayscale;
             item.setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
-            if(enableGrayscale && origImage!=null)
-                grayscale(null);
+            setPic(true);
         }
         if (id == R.id.action_enhance){
             enableBinarize=!enableBinarize;
+            Log.d("626:", "Setting enableBinarize to "+enableBinarize);
             item.setTitle((enableBinarize?getString(R.string.str_dis_bin):getString(R.string.str_en_bin)));
-            if(enableBinarize && origImage!=null)
-                binarize(null);
+            setPic(true);
         }
 
         return super.onOptionsItemSelected(item);
