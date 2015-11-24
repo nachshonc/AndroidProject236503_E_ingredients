@@ -33,6 +33,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -56,7 +58,8 @@ import java.util.List;
 
 import static android.hardware.Camera.*;
 
-public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, FrgIngredientList.OnFragmentInteractionListener {
+public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, FrgIngredientList.OnFragmentInteractionListener,
+            OnItemClickListener {
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -105,6 +108,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
+        ListView listView = (ListView) findViewById(R.id.frag_list);
+        listView.setOnItemClickListener(this);
     }
 
 
@@ -240,6 +245,24 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     @Override
     public void onFragmentInteraction(String id) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+        ListView listView = (ListView) findViewById(R.id.frag_list);
+        AdapterIngredientList adapter = (AdapterIngredientList) listView.getAdapter();
+
+        Toast.makeText(this, String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
+        String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
+        url = (url + "+" + adapter.getModel(position).getFullName()).replaceAll(" +", "+");
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+
+//        if (null != mListener) {
+//            mListener.onFragmentInteraction(adapter.getModel(position).getTag());
+//        }
 
     }
 

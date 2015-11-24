@@ -23,12 +23,21 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/border"/>
         </LinearLayout>
-        <ListView
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sep"/>
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/frag_list"
-            android:orientation="horizontal"/>
+            android:layout_height="fill_parent"
+            android:background="@drawable/border">
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frag_list"
+                android:orientation="horizontal"/>
+        </LinearLayout>
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton android:id="@+id/btnSnap"
         android:layout_height="wrap_content"
@@ -38,8 +47,8 @@
         android:text="@string/take_snapshot"
         android:layout_margin="16dp"
         android:clickable="true"
-        app:layout_anchor="@+id/origImage"
-        app:layout_anchorGravity="bottom|right|end"
+        app:layout_anchor="@id/origImage"
+        app:layout_anchorGravity="bottom|center"
         app:backgroundTint="#20FF20"
         app:rippleColor="#FFF"/>
 
