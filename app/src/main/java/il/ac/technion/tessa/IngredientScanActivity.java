@@ -90,7 +90,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
+    static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
