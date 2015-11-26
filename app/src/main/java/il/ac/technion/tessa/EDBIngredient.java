@@ -7,8 +7,23 @@ public class EDBIngredient {
     private int _id;
     private String key, title, type, warning, banned;
     private String allowedInEU, wiki_notBanned, wiki_notConsideredDangerous;
+    private String classificaiton;
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
+    }
+
+    private String functionDetails;
+    private String origin;
+    private String myAdditivesDescription;
+    private String dietaryRestrictions;
+    private String sideEffects;
+    private String myAdditivesSafetyRating;
     private String description;
-    private String userAnnotations;
 
 
     public EDBIngredient(String key) {
@@ -20,16 +35,14 @@ public class EDBIngredient {
         this.allowedInEU = "";
         this.wiki_notBanned = "";
         this.wiki_notConsideredDangerous = "";
+        this.classificaiton = "";
+        this.functionDetails = "";
+        this.origin = "";
+        this.myAdditivesDescription = "";
+        this.dietaryRestrictions = "";
+        this.sideEffects = "";
+        this.myAdditivesSafetyRating = "";
         this.description = "";
-        this.userAnnotations = "";
-    }
-
-    public void setID(int id) {
-        this._id = id;
-    }
-
-    public int getID() {
-        return this._id;
     }
 
     public void setKey(String key) { this.key = key; }
@@ -68,9 +81,33 @@ public class EDBIngredient {
 
     public String getDescription() { return description; }
 
-    public void setUserAnnotations(String userAnnotations) { this.userAnnotations = userAnnotations; }
+    public void setMyAdditivesSafetyRating(String myAdditivesSafetyRating) { this.myAdditivesSafetyRating = myAdditivesSafetyRating; }
 
-    public String getUserAnnotations() { return userAnnotations; }
+    public String getMyAdditivesSafetyRating() { return myAdditivesSafetyRating; }
+
+    public void setClassification(String classificaiton) { this.classificaiton = classificaiton; }
+
+    public String getClassificaiton() { return classificaiton; }
+
+    public void setFunctionDetails(String functionDetails) { this.functionDetails = functionDetails; }
+
+    public String getFunctionDetails() { return functionDetails; }
+
+    public void setOrigin(String origin) { this.origin = origin; }
+
+    public String getOrigin() { return origin; }
+
+    public void setMyAdditivesDescription(String myAdditivesDescription) { this.myAdditivesDescription = myAdditivesDescription; }
+
+    public String getMyAdditivesDescription() { return myAdditivesDescription; }
+
+    public void setDietaryRestrictions(String dietaryRestrictions) { this.dietaryRestrictions = dietaryRestrictions; }
+
+    public String getDietaryRestrictions() { return dietaryRestrictions; }
+
+    public void setSideEffects(String sideEffects) { this.sideEffects = sideEffects; }
+
+    public String getSideEffects() { return sideEffects; }
 
 
     @Override
@@ -84,7 +121,14 @@ public class EDBIngredient {
                 getAllowedInEU() + ", " +
                 getWiki_notBanned() + ", " +
                 getWiki_notConsideredDangerous() + ", " +
-                getDescription() + ", "+
-                getUserAnnotations() + ")";
+                getClassificaiton() + ", " +
+                getFunctionDetails() + ", " +
+                getOrigin() + ", " +
+                getMyAdditivesDescription() + ", " +
+                getDietaryRestrictions() + ", " +
+                getSideEffects() + ", " +
+                getMyAdditivesSafetyRating() + ", " +
+                getDescription() + ")";
+
     }
 }

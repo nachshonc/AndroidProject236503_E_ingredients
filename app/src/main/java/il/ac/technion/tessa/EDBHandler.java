@@ -26,7 +26,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public static final String FEEDER_PATH = DATA_PATH+"/tessdata/"+FEEDER_FILE;
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "Edb.db";
     private static final String TABLE_INGREDIENTS = "Ingredients";
 
@@ -39,8 +39,14 @@ public class EDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_ALLOWEDINEU = "allowedInEU";
     public static final String COLUMN_WIKINOTBANNED = "wiki_notBanned";
     public static final String COLUMN_WIKINOTCONSIDEREDDANGEROUS = "wiki_notConsideredDangerous";
+    public static final String COLUMN_CLASSIFICATION = "Classification";
+    public static final String COLUMN_FUNCTIONDETAILS = "FunctionDetails";
+    public static final String COLUMN_ORIGIN = "Origin";
+    public static final String COLUMN_MYADDITIVESDESCRIPTION = "MyAdditivesDescription";
+    public static final String COLUMN_DIETARYRESTRICTIONS = "DietaryRestrictions";
+    public static final String COLUMN_SIDEEFFECTS = "SideEffects";
+    public static final String COLUMN_MYADDITIVESSAFETYRATING = "MyAdditivesSafetyRating";
     public static final String COLUMN_DESCRIPTION = "Description";
-    public static final String COLUMN_USERANNOTATIONS = "UserAnnotations";
 
     public EDBHandler(Context context, String name,
                       SQLiteDatabase.CursorFactory factory, int version) {
@@ -50,7 +56,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_INGERDIENTS_TABLE = "CREATE TABLE if not exists " +
+        String CREATE_INGREDIENTS_TABLE = "CREATE TABLE if not exists " +
                 TABLE_INGREDIENTS + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY autoincrement, " +
                 COLUMN_KEY + " TEXT UNIQUE ON CONFLICT REPLACE, " +
@@ -61,9 +67,15 @@ public class EDBHandler extends SQLiteOpenHelper {
                 COLUMN_ALLOWEDINEU + " TEXT, " +
                 COLUMN_WIKINOTBANNED + " TEXT, " +
                 COLUMN_WIKINOTCONSIDEREDDANGEROUS + " TEXT, " +
-                COLUMN_DESCRIPTION + " TEXT, " +
-                COLUMN_USERANNOTATIONS + " TEXT" + ")";
-        db.execSQL(CREATE_INGERDIENTS_TABLE);
+                COLUMN_CLASSIFICATION + " TEXT, " +
+                COLUMN_FUNCTIONDETAILS + " TEXT, " +
+                COLUMN_ORIGIN + " TEXT, " +
+                COLUMN_MYADDITIVESDESCRIPTION + " TEXT, " +
+                COLUMN_DIETARYRESTRICTIONS + " TEXT, " +
+                COLUMN_SIDEEFFECTS + " TEXT, " +
+                COLUMN_MYADDITIVESSAFETYRATING + " TEXT, " +
+                COLUMN_DESCRIPTION + " TEXT " + ")";
+        db.execSQL(CREATE_INGREDIENTS_TABLE);
     }
 
     private void parseDB() {
@@ -113,6 +125,27 @@ public class EDBHandler extends SQLiteOpenHelper {
                     } else if (columns[0].equals("@wiki_notConsideredDangerous@")) {
                         if (columns.length > 1)
                             tmp.setWiki_notConsideredDangerous(columns[1]);
+                    } else if (columns[0].equals("@Classification@")) {
+                        if (columns.length > 1)
+                            tmp.setClassification(columns[1]);
+                    } else if (columns[0].equals("@FunctionDetails@")) {
+                        if (columns.length > 1)
+                            tmp.setFunctionDetails(columns[1]);
+                    } else if (columns[0].equals("@Origin@")) {
+                        if (columns.length > 1)
+                            tmp.setOrigin(columns[1]);
+                    } else if (columns[0].equals("@MyAdditivesDescription@")) {
+                        if (columns.length > 1)
+                            tmp.setMyAdditivesDescription(columns[1]);
+                    } else if (columns[0].equals("@DietaryRestrictions@")) {
+                        if (columns.length > 1)
+                            tmp.setDietaryRestrictions(columns[1]);
+                    } else if (columns[0].equals("@SideEffects@")) {
+                        if (columns.length > 1)
+                            tmp.setSideEffects(columns[1]);
+                    } else if (columns[0].equals("@MyAdditivesSafetyRating@")) {
+                        if (columns.length > 1)
+                            tmp.setMyAdditivesSafetyRating(columns[1]);
                     } else if (columns[0].equals("@Description@")) {
                         description = new StringBuilder();
                     } else if (description != null) {
@@ -157,7 +190,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public void addIngredient(EDBIngredient ingredient) {
 
-        Log.d("EDB", "Adding "+ingredient.toString());
+        Log.d("EDB", "Adding " + ingredient.toString());
         ContentValues values = new ContentValues();
         values.put(COLUMN_KEY, ingredient.getKey());
         values.put(COLUMN_TITLE, ingredient.getTitle());
@@ -167,8 +200,14 @@ public class EDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_ALLOWEDINEU, ingredient.getAllowedInEU());
         values.put(COLUMN_WIKINOTBANNED, ingredient.getWiki_notBanned());
         values.put(COLUMN_WIKINOTCONSIDEREDDANGEROUS, ingredient.getWiki_notConsideredDangerous());
+        values.put(COLUMN_CLASSIFICATION, ingredient.getClassificaiton());
+        values.put(COLUMN_FUNCTIONDETAILS, ingredient.getFunctionDetails());
+        values.put(COLUMN_ORIGIN, ingredient.getOrigin());
+        values.put(COLUMN_MYADDITIVESDESCRIPTION, ingredient.getMyAdditivesDescription());
+        values.put(COLUMN_DIETARYRESTRICTIONS, ingredient.getDietaryRestrictions());
+        values.put(COLUMN_SIDEEFFECTS, ingredient.getSideEffects());
+        values.put(COLUMN_MYADDITIVESSAFETYRATING, ingredient.getMyAdditivesSafetyRating());
         values.put(COLUMN_DESCRIPTION, ingredient.getDescription());
-        values.put(COLUMN_USERANNOTATIONS, ingredient.getUserAnnotations());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -181,7 +220,9 @@ public class EDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_INGREDIENTS,
                 new String[]{COLUMN_ID, COLUMN_KEY, COLUMN_TITLE, COLUMN_TYPE,
                         COLUMN_WARNING, COLUMN_BANNED, COLUMN_ALLOWEDINEU, COLUMN_WIKINOTBANNED,
-                        COLUMN_WIKINOTCONSIDEREDDANGEROUS, COLUMN_DESCRIPTION, COLUMN_USERANNOTATIONS},
+                        COLUMN_WIKINOTCONSIDEREDDANGEROUS, COLUMN_CLASSIFICATION, COLUMN_FUNCTIONDETAILS,
+                        COLUMN_ORIGIN, COLUMN_MYADDITIVESDESCRIPTION, COLUMN_DIETARYRESTRICTIONS,
+                        COLUMN_SIDEEFFECTS, COLUMN_MYADDITIVESSAFETYRATING, COLUMN_DESCRIPTION},
                 COLUMN_KEY + "='"+key+"'", null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -193,8 +234,14 @@ public class EDBHandler extends SQLiteOpenHelper {
             res.setAllowedInEU(cursor.getString(cursor.getColumnIndex(COLUMN_ALLOWEDINEU)));
             res.setWiki_notBanned(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTBANNED)));
             res.setWiki_notConsideredDangerous(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTCONSIDEREDDANGEROUS)));
+            res.setClassification(cursor.getString(cursor.getColumnIndex(COLUMN_CLASSIFICATION)));
+            res.setFunctionDetails(cursor.getString(cursor.getColumnIndex(COLUMN_FUNCTIONDETAILS)));
+            res.setOrigin(cursor.getString(cursor.getColumnIndex(COLUMN_ORIGIN)));
+            res.setMyAdditivesDescription(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESDESCRIPTION)));
+            res.setDietaryRestrictions(cursor.getString(cursor.getColumnIndex(COLUMN_DIETARYRESTRICTIONS)));
+            res.setSideEffects(cursor.getString(cursor.getColumnIndex(COLUMN_SIDEEFFECTS)));
+            res.setMyAdditivesSafetyRating(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESSAFETYRATING)));
             res.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
-            res.setUserAnnotations(cursor.getString(cursor.getColumnIndex(COLUMN_USERANNOTATIONS)));
 
             return res;
         }
@@ -204,9 +251,12 @@ public class EDBHandler extends SQLiteOpenHelper {
     public Cursor fetchAll() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_INGREDIENTS,
-                new String[] { COLUMN_ID, COLUMN_KEY, COLUMN_TITLE, COLUMN_TYPE,
-                COLUMN_WARNING, COLUMN_BANNED, COLUMN_ALLOWEDINEU, COLUMN_WIKINOTBANNED,
-                COLUMN_WIKINOTCONSIDEREDDANGEROUS, COLUMN_DESCRIPTION, COLUMN_USERANNOTATIONS}, null, null, null, null, null);
+                new String[]{COLUMN_ID, COLUMN_KEY, COLUMN_TITLE, COLUMN_TYPE,
+                        COLUMN_WARNING, COLUMN_BANNED, COLUMN_ALLOWEDINEU, COLUMN_WIKINOTBANNED,
+                        COLUMN_WIKINOTCONSIDEREDDANGEROUS, COLUMN_CLASSIFICATION, COLUMN_FUNCTIONDETAILS,
+                        COLUMN_ORIGIN, COLUMN_MYADDITIVESDESCRIPTION, COLUMN_DIETARYRESTRICTIONS,
+                        COLUMN_SIDEEFFECTS, COLUMN_MYADDITIVESSAFETYRATING, COLUMN_DESCRIPTION},
+                null, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
         return cursor;
