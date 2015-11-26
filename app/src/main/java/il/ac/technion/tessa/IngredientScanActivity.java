@@ -86,7 +86,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
     static final String ALWAYS_COPY_DATA_FILES[] = {
-            "IngredientList.txt"
+            "IngredientList.txt",
+            "Edb.txt"
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
@@ -97,7 +98,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     int thresholdValue=80;
     boolean enableBinarize=true, enableGrayscale=true;
     ArrayList<String> ingredientsList;
-    Camera camera;
+//    Camera camera;
+    EDBHandler dbHandler;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
 
@@ -108,6 +110,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         loadTrainDataFile();
         IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
+        dbHandler = new EDBHandler(this, null, null, 1);
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
