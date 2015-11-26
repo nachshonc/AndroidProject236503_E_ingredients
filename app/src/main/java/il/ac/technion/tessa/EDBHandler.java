@@ -178,6 +178,26 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public EDBIngredient findIngredient(String key) {
         SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_INGREDIENTS,
+                new String[]{COLUMN_ID, COLUMN_KEY, COLUMN_TITLE, COLUMN_TYPE,
+                        COLUMN_WARNING, COLUMN_BANNED, COLUMN_ALLOWEDINEU, COLUMN_WIKINOTBANNED,
+                        COLUMN_WIKINOTCONSIDEREDDANGEROUS, COLUMN_DESCRIPTION, COLUMN_USERANNOTATIONS},
+                COLUMN_KEY + "='"+key+"'", null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            EDBIngredient res = new EDBIngredient(key);
+            res.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
+            res.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
+            res.setWarning(cursor.getString(cursor.getColumnIndex(COLUMN_WARNING)));
+            res.setBanned(cursor.getString(cursor.getColumnIndex(COLUMN_BANNED)));
+            res.setAllowedInEU(cursor.getString(cursor.getColumnIndex(COLUMN_ALLOWEDINEU)));
+            res.setWiki_notBanned(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTBANNED)));
+            res.setWiki_notConsideredDangerous(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTCONSIDEREDDANGEROUS)));
+            res.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
+            res.setUserAnnotations(cursor.getString(cursor.getColumnIndex(COLUMN_USERANNOTATIONS)));
+
+            return res;
+        }
         return null;
     }
 

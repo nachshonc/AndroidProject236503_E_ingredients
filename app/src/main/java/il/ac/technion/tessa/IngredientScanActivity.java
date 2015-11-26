@@ -1,15 +1,12 @@
 package il.ac.technion.tessa;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -35,12 +32,10 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.googlecode.tesseract.android.ResultIterator;
@@ -91,7 +86,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
+    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -323,6 +318,17 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         Toast.makeText(this, String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
         String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
+
+        {
+            // FIXME should replace model entirely with EDBIngredient. The following code is for testing purpose only
+            String key = adapter.getModel(position).getTag();
+            EDBIngredient ing = dbHandler.findIngredient(key);
+            if (ing != null)
+                Log.d("EDB", "Found entry for key=" + key + ": " + ing.toString());
+            else
+                Log.d("EDB", "Did not find entry for key=" + key);
+        }
+
         url = (url + "+" + adapter.getModel(position).getFullName()).replaceAll(" +", "+");
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
