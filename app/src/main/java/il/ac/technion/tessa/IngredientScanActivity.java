@@ -152,8 +152,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             // Seems like parseDB needs to happen in a background thread.
             new DBParserTask().execute(dbHandler);
         }
-        // this DB is in memory, so needs to get loaded every time. Eventually, it should be removed entirely
-        //IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
 
 
 
