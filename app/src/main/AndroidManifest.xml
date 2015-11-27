@@ -24,7 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActIngredientList" >
+        <activity
+            android:name=".DetailsViewActivity"
+            android:label="@string/title_activity_details_view"
+            android:parentActivityName=".IngredientScanActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="il.ac.technion.tessa.IngredientScanActivity" />
         </activity>
     </application>
 

@@ -11,4 +11,5 @@
     <string name="str_en_gray">Enable grayscale</string>
     <string name="str_dis_bin">Disable image enhancement</string>
     <string name="str_en_bin">Enable image enhancement</string>
+    <string name="title_activity_details_view">DetailsViewActivity</string>
 </resources>

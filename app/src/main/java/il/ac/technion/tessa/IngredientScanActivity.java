@@ -18,11 +18,13 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,7 +55,7 @@ import java.util.List;
 
 import static android.hardware.Camera.*;
 
-public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, FrgIngredientList.OnFragmentInteractionListener,
+public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
     static final String DATA_FILES[]={
             "eng.traineddata",
@@ -103,9 +105,58 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredient_scan);
 
-        loadTrainDataFile();
-        IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
+        SharedPreferences wmbPreference = PreferenceManager.getDefaultSharedPreferences(this);
         dbHandler = new EDBHandler(this, null, null, 1);
+        boolean isFirstRun = wmbPreference.getBoolean("FIRSTRUN", true);
+        // even if marked false, things may have changed
+        if (!isFirstRun) {
+            String cmpDataFiles = TextUtils.join(":", DATA_FILES);
+            String dataFiles=wmbPreference.getString("DATAFILES", "");
+            if (!cmpDataFiles.equals(dataFiles)) {
+                Log.d("FR", "116");
+                isFirstRun = true;
+                SharedPreferences.Editor editor = wmbPreference.edit();
+                editor.putString("DATAFILES", cmpDataFiles);
+                editor.apply();
+            }
+        }
+        if (!isFirstRun) {
+            String cmpDataFiles = TextUtils.join(":", ALWAYS_COPY_DATA_FILES);
+            String dataFiles=wmbPreference.getString("ALWAYSCOPYDATAFILES", "");
+            if (!cmpDataFiles.equals(dataFiles)) {
+                Log.d("FR", "127");
+                isFirstRun = true;
+                SharedPreferences.Editor editor = wmbPreference.edit();
+                editor.putString("ALWAYSCOPYDATAFILES", cmpDataFiles);
+                editor.apply();
+            }
+        }
+        if (!isFirstRun) {
+            if (wmbPreference.getInt("EDBVERSION", -1) != EDBHandler.DATABASE_VERSION) {
+                Log.d("FR", "136");
+                isFirstRun = true;
+                SharedPreferences.Editor editor = wmbPreference.edit();
+                editor.putInt("EDBVERSION", EDBHandler.DATABASE_VERSION);
+                editor.apply();
+            }
+        }
+
+        if (isFirstRun)
+        {
+            // Code to run once
+            SharedPreferences.Editor editor = wmbPreference.edit();
+            editor.putBoolean("FIRSTRUN", false);
+            editor.apply();
+            loadTrainDataFile();
+
+            // Seems like parseDB needs to happen in a background thread.
+            new DBParserTask().execute(dbHandler);
+        }
+        // this DB is in memory, so needs to get loaded every time. Eventually, it should be removed entirely
+        //IngredientDB.loadDB(); //do we need to loadDB in a background thread? Currently doesn't seem so..
+
+
+
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
@@ -144,11 +195,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (mCurrentPhotoPath != null)
                 setPic(false);
             ListView listView = (ListView) findViewById(R.id.frag_list);
-            ArrayList<ModelIngredient> models = new ArrayList<>();
+            ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
             for(int i=0; i<ingredientsList.size(); ++i) {
-                ModelIngredient ingredient = IngredientDB.getIngredient(ingredientsList.get(i));
-                if(ingredient==null)
-                    ingredient=new ModelIngredient(ingredientsList.get(i), "Unknown additive", true, false, false);
+                EDBIngredient ingredient = dbHandler.findIngredient(ingredientsList.get(i));
+                if(ingredient==null) {
+                    ingredient = new EDBIngredient(ingredientsList.get(i));
+                    ingredient.setTitle("Unknown additive");
+                }
                 models.add(ingredient);
             }
 
@@ -307,32 +360,32 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     @Override
-    public void onFragmentInteraction(String id) {
-
-    }
-
-    @Override
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
         ListView listView = (ListView) findViewById(R.id.frag_list);
         AdapterIngredientList adapter = (AdapterIngredientList) listView.getAdapter();
 
-        Toast.makeText(this, String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
-        String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
+//        Toast.makeText(this, String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
+//        String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
 
         {
             // FIXME should replace model entirely with EDBIngredient. The following code is for testing purpose only
-            String key = adapter.getModel(position).getTag();
+            String key = adapter.getModel(position).getKey();
             EDBIngredient ing = dbHandler.findIngredient(key);
-            if (ing != null)
-                Log.d("EDB", "Found entry for key=" + key + ": " + ing.toString());
-            else
+            if (ing != null) {
+//                Log.d("EDB", "Found entry for key=" + key + ": " + ing.toHTML());
+                Intent intent = new Intent(this, DetailsViewActivity.class);
+                intent.putExtra("key", key);
+                startActivity(intent);
+            } else
                 Log.d("EDB", "Did not find entry for key=" + key);
         }
 
+        /*
         url = (url + "+" + adapter.getModel(position).getFullName()).replaceAll(" +", "+");
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
+        */
 
 //        if (null != mListener) {
 //            mListener.onFragmentInteraction(adapter.getModel(position).getTag());
@@ -392,6 +445,32 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
     };
     */
+
+
+    private class DBParserTask extends AsyncTask<EDBHandler, Void, Void> {
+        private ProgressDialog dialog;
+
+        @Override
+        protected Void doInBackground(EDBHandler... params) {
+            EDBHandler dbHandler = params[0];
+            dbHandler.parseDB();
+            return null;
+        }
+
+        protected void onPreExecute() {
+            this.dialog = new ProgressDialog(IngredientScanActivity.this);
+            this.dialog.setMessage("Please wait while the database is being initialized...");
+            this.dialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
+        }
+    }
 
 
     private class Analyzer extends AsyncTask<Bitmap, Void, String> {
@@ -462,34 +541,27 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else {
+                list.add("E102");
+                list.add("E104");
+                list.add("E140");
+                list.add("E160c");
+                list.add("E282");
+                list.add("E330");
+                list.add("E476");
                 ingredientsList = list;
                 ListView listView = (ListView) findViewById(R.id.frag_list);
-                ArrayList<ModelIngredient> models = new ArrayList<>();
+                ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
                 for(int i=0; i<list.size(); ++i) {
-                    ModelIngredient ingredient = IngredientDB.getIngredient(list.get(i));
-                    if(ingredient==null)
-                        ingredient=new ModelIngredient(list.get(i), "Unknown additive", true, false, false);
+                    EDBIngredient ingredient = dbHandler.findIngredient(list.get(i));
+                    if(ingredient==null) {
+                        ingredient = new EDBIngredient(list.get(i));
+                        ingredient.setTitle("Unknown additive");
+                    }
                     models.add(ingredient);
                 }
 
                 listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));
-//                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-//                    FragmentManager fragmentManager=getFragmentManager();
-//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                    FrgIngredientList fragment = FrgIngredientList.newInstance(list);//DEBUGItemFragment.newInstance("param1", "param2"); //
-//                    fragmentTransaction.replace(R.id.frag_list, fragment);
-//                    fragmentTransaction.commit();
-
-//                }
-//                else {
-//                    Intent i = new Intent(IngredientScanActivity.this, ActIngredientList.class);
-//                    i.putStringArrayListExtra(ActIngredientList.PARAM_INGREDIENTS, list);
-//                    startActivity(i);
-//                }
             }
-            /*if (result.equals(""))
-                result = "No match found";
-            tv.setText(result);*/
         }
     }
 
