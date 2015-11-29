@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#F3F3F3">
+
+    <!-- icon, if found something -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        />
+    <!-- tag -->
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="0dp"
+        android:layout_weight="70"
+        android:layout_height="wrap_content"
+        android:text="E123"
+        android:textSize="16dp"
+        />
+
+    <Button
+        android:id="@+id/item_button_add"
+        android:layout_width="0dp"
+        android:layout_weight="20"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_vertical"
+        android:text="Add"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -7,8 +7,8 @@
 
     <!-- icon, if found something -->
     <View
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="center_vertical"
         />
     <!-- tag -->

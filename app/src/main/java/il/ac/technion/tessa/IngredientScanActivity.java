@@ -38,6 +38,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.googlecode.tesseract.android.ResultIterator;
@@ -50,6 +51,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -57,6 +59,8 @@ import static android.hardware.Camera.*;
 
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
+    static final boolean MOCK_OSR = true;
+    static final ArrayList<String> MOCK_LIST = new ArrayList<>();//Arrays.asList("E100", "E102", "E110", "E121",       "E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -481,6 +485,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
         @Override
         protected String doInBackground(Bitmap... params) {
+            if(MOCK_OSR){
+                list=MOCK_LIST;
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {  }
+                return "";
+            }
             TessBaseAPI baseApi = new TessBaseAPI();
 
             baseApi.setDebug(false);
@@ -536,17 +547,12 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 dialog.dismiss();
             }
 //            TextView tv = (TextView) findViewById(R.id.result);
-            if (list.isEmpty()) {
+            /*if (list.isEmpty()) {
 //                tv.setText("No match found");
-            } else {
-                list.add("E102");
-                list.add("E104");
-                list.add("E140");
-                list.add("E160c");
-                list.add("E282");
-                list.add("E330");
-                list.add("E476");
+            } else*/ {
                 ingredientsList = list;
+                int sz = ingredientsList.size();
+                Log.d("post exec. ", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
                 ListView listView = (ListView) findViewById(R.id.frag_list);
                 ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
                 for(int i=0; i<list.size(); ++i) {
@@ -556,6 +562,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                         ingredient.setTitle("Unknown additive");
                     }
                     models.add(ingredient);
+                }
+                if(list.isEmpty()){
+                    models.add(EDBIngredient.notFound);
                 }
 
                 listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));

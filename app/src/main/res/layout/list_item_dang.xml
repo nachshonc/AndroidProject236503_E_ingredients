@@ -8,8 +8,8 @@
     <!-- icon, if found something -->
     <ImageView
         android:id="@+id/item_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/danger"
         android:layout_gravity="center_vertical"
         />

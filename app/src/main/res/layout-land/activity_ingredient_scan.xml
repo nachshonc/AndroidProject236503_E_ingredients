@@ -37,12 +37,20 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
-            android:background="@drawable/border">
+            android:background="@drawable/border"
+            android:orientation="vertical">
+
             <ListView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/frag_list"
                 android:orientation="horizontal"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/editText"
+                android:text="Add" />
         </LinearLayout>
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton android:id="@+id/btnSnap"

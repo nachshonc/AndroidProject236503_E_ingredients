@@ -16,6 +16,7 @@ public class EDBIngredient {
     private String myAdditivesSafetyRating;
     private String everbumDescription, everbumSafetyRating;
     private String description;
+    public static final EDBIngredient notFound = new EDBIngredient("Not found");
 
 
     public EDBIngredient(String key) {

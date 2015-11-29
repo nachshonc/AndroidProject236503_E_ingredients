@@ -1,6 +1,8 @@
 package il.ac.technion.tessa;
 
 import android.content.Context;
+import android.graphics.AvoidXfermode;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
+        Log.d("create list", String.format("sz=%d, eq=%s", modelsArrayList.size(), modelsArrayList.get(0).equals(EDBIngredient.notFound)));
     }
 
     @Override
@@ -34,7 +37,11 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         TextView titleView;
         TextView counterView;
         int color=0;
-        if((ingredient.isSafe() || ingredient.isSuspect()) && !ingredient.isBanned() && !ingredient.isUnhealthy()) {
+        Log.d("getView", String.format("%s, %d", ingredient.equals(EDBIngredient.notFound)?"true": "false", position));
+        if(ingredient.equals(EDBIngredient.notFound)){
+            rowView = inflater.inflate(R.layout.list_item_empty, parent, false);
+        }
+        else if((ingredient.isSafe() || ingredient.isSuspect()) && !ingredient.isBanned() && !ingredient.isUnhealthy()) {
             rowView = inflater.inflate(R.layout.list_item, parent, false);
         }
         else{
@@ -49,13 +56,19 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
             }
         }
         titleView = (TextView) rowView.findViewById(R.id.item_title);
-        counterView = (TextView) rowView.findViewById(R.id.item_tag);
+        if(ingredient.equals(EDBIngredient.notFound)){
+            titleView.setText("Could not detect any E-ingredients");
+            titleView.setTypeface(null, Typeface.ITALIC);
+
+        }
+        else {
+            counterView = (TextView) rowView.findViewById(R.id.item_tag);
+            counterView.setText(ingredient.getKey());
+            titleView.setText(ingredient.getTitle());
+        }
 
 
         // 4. Set the text for textView
-        titleView.setText(ingredient.getTitle());
-        counterView.setText(ingredient.getKey());
-
         rowView.setBackgroundColor(color);
         return rowView;
     }

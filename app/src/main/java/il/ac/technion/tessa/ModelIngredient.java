@@ -1,5 +1,6 @@
 package il.ac.technion.tessa;
 
+import android.graphics.AvoidXfermode;
 import android.util.Log;
 
 /**
@@ -12,18 +13,9 @@ public class ModelIngredient {
     private boolean allowedInEU;
     private boolean Banned;
     private boolean ConsideredDangerous;
+    public static final ModelIngredient notFound = new ModelIngredient("", "No match found", true, false, false);
 
 
-    public ModelIngredient(String tag, String fullName) {
-        super();
-        this.fullName=fullName;
-        this.tag=tag;
-    }
-    public ModelIngredient(String tag) {
-        super();
-        this.fullName=tag;
-        this.tag=tag;
-    }
     public ModelIngredient(String tag, String fullName, Boolean allowedInEU, Boolean banned, Boolean consideredDangerous){
         this.tag=tag;
         this.fullName=fullName;
