@@ -33,7 +33,7 @@
             android:layout_width="8dp"
             android:layout_height="match_parent"
             android:id="@+id/sep"/>
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -44,14 +44,30 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/frag_list"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal"
+                android:layout_above="@+id/txtAdd"
+                android:layout_alignParentTop="true" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/editText"
-                android:text="Add" />
-        </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAdd"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/button_add"
+                android:layout_toStartOf="@+id/button_add"
+                android:hint="Enter an ingredient" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:id="@+id/button_add"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton android:id="@+id/btnSnap"
         android:layout_height="wrap_content"

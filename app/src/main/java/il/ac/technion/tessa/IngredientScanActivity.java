@@ -60,7 +60,7 @@ import static android.hardware.Camera.*;
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
     static final boolean MOCK_OSR = true;
-    static final ArrayList<String> MOCK_LIST = new ArrayList<>();//Arrays.asList("E100", "E102", "E110", "E121",       "E151", "E270", "E266"));
+    static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121",       "E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
