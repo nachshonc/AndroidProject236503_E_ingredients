@@ -25,7 +25,6 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
-        Log.d("create list", String.format("sz=%d, eq=%s", modelsArrayList.size(), modelsArrayList.get(0).equals(EDBIngredient.notFound)));
     }
 
     @Override
@@ -37,7 +36,6 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         TextView titleView;
         TextView counterView;
         int color=0;
-        Log.d("getView", String.format("%s, %d", ingredient.equals(EDBIngredient.notFound)?"true": "false", position));
         if(ingredient.equals(EDBIngredient.notFound)){
             rowView = inflater.inflate(R.layout.list_item_empty, parent, false);
         }
@@ -75,6 +73,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
     public EDBIngredient getModel(int idx){
         return modelsArrayList.get(idx);
     }
+    public int getSize(){return modelsArrayList.size();}
 
     @Override
     public void onClick(View v) {

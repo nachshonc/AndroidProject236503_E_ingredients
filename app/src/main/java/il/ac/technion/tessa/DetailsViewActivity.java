@@ -1,5 +1,6 @@
 package il.ac.technion.tessa;
 
+import android.app.VoiceInteractor;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.telecom.Call;
 import android.util.Log;
@@ -20,7 +22,7 @@ import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
 
-public class DetailsViewActivity extends AppCompatActivity {
+public class DetailsViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     WebView webView;
     EDBHandler dbHandler = new EDBHandler(DetailsViewActivity.this, null, null, 1);
@@ -95,23 +97,43 @@ public class DetailsViewActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    final static int TYPE_KEY = 0;
+    private static enum Options{DANG, UNHEALTHY, SAFE, DEFAULT};
     private void setPreferences() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick your preferences");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate( R.layout.user_choice, null, false);
+        View x;
+        x=v.findViewById(R.id.choice_dang);     x.setOnClickListener(this); x.setTag(Options.DANG);
+        x=v.findViewById(R.id.choice_unhealth); x.setOnClickListener(this); x.setTag(Options.UNHEALTHY);
+        x=v.findViewById(R.id.choice_safe);     x.setOnClickListener(this); x.setTag(Options.SAFE);
+        x=v.findViewById(R.id.choice_default);  x.setOnClickListener(this); x.setTag(Options.DEFAULT);
+
         builder.setView(v);
-
-/*        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });*/
-
         builder.show();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Options o = (Options)v.getTag();
+        switch(o){
+            case DANG:
+                Log.d("onClick", "dang");
+                break;
+            case UNHEALTHY:
+                Log.d("onClick", "UNHEALTHY");
+                break;
+            case SAFE:
+                Log.d("onClick", "SAFE");
+                break;
+            case DEFAULT:
+                Log.d("onClick", "DEFAULT");
+                break;
+
+        }
 
     }
 

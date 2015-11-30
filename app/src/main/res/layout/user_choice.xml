@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#ff0000">
+            android:background="#ff0000"
+            android:id="@+id/choice_dang">
 
             <ImageView
                 android:layout_width="50dp"
@@ -41,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#7fff0000">
+            android:background="#7fff0000"
+            android:id="@+id/choice_unhealth">
 
             <ImageView
                 android:layout_width="50dp"
@@ -66,7 +68,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4600dd00">
+            android:background="#4600dd00"
+            android:id="@+id/choice_safe">
 
             <ImageView
                 android:layout_width="50dp"
@@ -90,7 +93,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:id="@+id/choice_default">
 
             <ImageView
                 android:layout_width="50dp"

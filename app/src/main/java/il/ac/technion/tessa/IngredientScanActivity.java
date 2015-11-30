@@ -103,6 +103,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     EDBHandler dbHandler;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
+    private EditText txtAdd;
+    private ListView listView;
+    private AdapterIngredientList adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,8 +165,12 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
-        ListView listView = (ListView) findViewById(R.id.frag_list);
+        listView = (ListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
+        txtAdd = (EditText) findViewById(R.id.txtAdd);
+        adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
+        listView.setAdapter(adapter);
+
     }
 
 
@@ -395,6 +402,28 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     }
 
+    public void addIngredient(View view) {
+        String txtToAdd = txtAdd.getText().toString();
+        Log.d("addIngredient", txtToAdd);
+        EDBIngredient ingredient = dbHandler.findIngredient(txtToAdd);
+        if(ingredient==null){
+            Toast.makeText(getApplicationContext(), "Unknown additive", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        adapter.add(ingredient);
+        adapter.notifyDataSetChanged();
+        Log.d("addIngredient", "after notify");
+        if(adapter.getSize()>1) {
+            listView.post(new Runnable() {
+                @Override
+                public void run() {
+                    // Select the last row so it will scroll into view...
+                    listView.setSelection(adapter.getSize() - 1);
+                }
+            });
+        }
+    }
+
     /*
     ShutterCallback shutterCallback = new ShutterCallback() {
         public void onShutter() {
@@ -566,8 +595,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 if(list.isEmpty()){
                     models.add(EDBIngredient.notFound);
                 }
-
-                listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));
+                adapter = new AdapterIngredientList(listView.getContext(), models);
+                listView.setAdapter(adapter);
             }
         }
     }
