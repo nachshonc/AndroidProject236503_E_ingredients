@@ -135,7 +135,16 @@ public class EDBIngredient {
                 getDescription() + ")";
 
     }
-
+    public Options getOptions(){
+        Options opt;
+        if(this.isDangerous())
+            opt=Options.DANG;
+        else if(this.isUnhealthy() || this.isBanned())
+            opt=Options.UNHEALTHY;
+        else
+            opt=Options.SAFE;
+        return opt;
+    }
     // a few heuristics based on al the data
     boolean isBanned() {
         return (getWiki_notBanned().equals("FALSE")

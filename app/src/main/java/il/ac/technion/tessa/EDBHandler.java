@@ -16,9 +16,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * Created by arietal on 11/17/15.
- */
 public class EDBHandler extends SQLiteOpenHelper {
 
     public static final String DATA_PATH = Environment
@@ -56,6 +53,14 @@ public class EDBHandler extends SQLiteOpenHelper {
                       SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
+/*    private static EDBHandler singleton;
+    public static EDBHandler createNew(Context context, String name,
+                       SQLiteDatabase.CursorFactory factory, int version) {
+        if(singleton==null)
+            singleton=new EDBHandler(context, name, factory, version);
+        return singleton;
+    }*/
+
 
 
     @Override
@@ -100,70 +105,74 @@ public class EDBHandler extends SQLiteOpenHelper {
 
                 String[] columns = line.split(feederSplitBy);
                 if (columns.length > 0) {
-                    if (columns[0].equals("@MAGIC-ADD@")) {
-                        if (tmp != null) {
-                            if (description != null)
-                                tmp.setDescription(description.toString());
-                            addIngredient(tmp);
+                    try {
+                        if (columns[0].equals("@MAGIC-ADD@")) {
+                            if (tmp != null) {
+                                if (description != null)
+                                    tmp.setDescription(description.toString());
+                                addIngredient(tmp);
+                            }
+                            tmp = null;
+                            description = null;
+                        } else if (columns[0].equals("@Key@")) {
+                            tmp = new EDBIngredient(columns[1]);
+                        } else if (columns[0].equals("@Title@")) {
+                            if (columns.length > 1)
+                                tmp.setTitle(columns[1]);
+                        } else if (columns[0].equals("@Type@")) {
+                            if (columns.length > 1)
+                                tmp.setType(columns[1]);
+                        } else if (columns[0].equals("@Warning@")) {
+                            if (columns.length > 1)
+                                tmp.setWarning(columns[1]);
+                        } else if (columns[0].equals("@Banned@")) {
+                            if (columns.length > 1)
+                                tmp.setBanned(columns[1]);
+                        } else if (columns[0].equals("@allowedInEU@")) {
+                            if (columns.length > 1)
+                                tmp.setAllowedInEU(columns[1]);
+                        } else if (columns[0].equals("@wiki_notBanned@")) {
+                            if (columns.length > 1)
+                                tmp.setWiki_notBanned(columns[1]);
+                        } else if (columns[0].equals("@wiki_notConsideredDangerous@")) {
+                            if (columns.length > 1)
+                                tmp.setWiki_notConsideredDangerous(columns[1]);
+                        } else if (columns[0].equals("@Classification@")) {
+                            if (columns.length > 1)
+                                tmp.setClassification(columns[1]);
+                        } else if (columns[0].equals("@FunctionDetails@")) {
+                            if (columns.length > 1)
+                                tmp.setFunctionDetails(columns[1]);
+                        } else if (columns[0].equals("@Origin@")) {
+                            if (columns.length > 1)
+                                tmp.setOrigin(columns[1]);
+                        } else if (columns[0].equals("@MyAdditivesDescription@")) {
+                            if (columns.length > 1)
+                                tmp.setMyAdditivesDescription(columns[1]);
+                        } else if (columns[0].equals("@DietaryRestrictions@")) {
+                            if (columns.length > 1)
+                                tmp.setDietaryRestrictions(columns[1]);
+                        } else if (columns[0].equals("@SideEffects@")) {
+                            if (columns.length > 1)
+                                tmp.setSideEffects(columns[1]);
+                        } else if (columns[0].equals("@MyAdditivesSafetyRating@")) {
+                            if (columns.length > 1)
+                                tmp.setMyAdditivesSafetyRating(columns[1]);
+                        } else if (columns[0].equals("@EverbumDescription@")) {
+                            if (columns.length > 1)
+                                tmp.setEverbumDescription(columns[1]);
+                        } else if (columns[0].equals("@EverbumSafetyRating@")) {
+                            if (columns.length > 1)
+                                tmp.setEverbumSafetyRating(columns[1]);
+                        } else if (columns[0].equals("@Description@")) {
+                            description = new StringBuilder();
+                        } else if (description != null) {
+                            description.append(line).append("\n");
                         }
-                        tmp = null;
-                        description = null;
-                    } else if (columns[0].equals("@Key@")) {
-                        tmp = new EDBIngredient(columns[1]);
-                    } else if (columns[0].equals("@Title@")) {
-                        if (columns.length > 1)
-                            tmp.setTitle(columns[1]);
-                    } else if (columns[0].equals("@Type@")) {
-                        if (columns.length > 1)
-                            tmp.setType(columns[1]);
-                    } else if (columns[0].equals("@Warning@")) {
-                        if (columns.length > 1)
-                            tmp.setWarning(columns[1]);
-                    } else if (columns[0].equals("@Banned@")) {
-                        if (columns.length > 1)
-                            tmp.setBanned(columns[1]);
-                    } else if (columns[0].equals("@allowedInEU@")) {
-                        if (columns.length > 1)
-                            tmp.setAllowedInEU(columns[1]);
-                    } else if (columns[0].equals("@wiki_notBanned@")) {
-                        if (columns.length > 1)
-                            tmp.setWiki_notBanned(columns[1]);
-                    } else if (columns[0].equals("@wiki_notConsideredDangerous@")) {
-                        if (columns.length > 1)
-                            tmp.setWiki_notConsideredDangerous(columns[1]);
-                    } else if (columns[0].equals("@Classification@")) {
-                        if (columns.length > 1)
-                            tmp.setClassification(columns[1]);
-                    } else if (columns[0].equals("@FunctionDetails@")) {
-                        if (columns.length > 1)
-                            tmp.setFunctionDetails(columns[1]);
-                    } else if (columns[0].equals("@Origin@")) {
-                        if (columns.length > 1)
-                            tmp.setOrigin(columns[1]);
-                    } else if (columns[0].equals("@MyAdditivesDescription@")) {
-                        if (columns.length > 1)
-                            tmp.setMyAdditivesDescription(columns[1]);
-                    } else if (columns[0].equals("@DietaryRestrictions@")) {
-                        if (columns.length > 1)
-                            tmp.setDietaryRestrictions(columns[1]);
-                    } else if (columns[0].equals("@SideEffects@")) {
-                        if (columns.length > 1)
-                            tmp.setSideEffects(columns[1]);
-                    } else if (columns[0].equals("@MyAdditivesSafetyRating@")) {
-                        if (columns.length > 1)
-                            tmp.setMyAdditivesSafetyRating(columns[1]);
-                    } else if (columns[0].equals("@EverbumDescription@")) {
-                        if (columns.length > 1)
-                            tmp.setEverbumDescription(columns[1]);
-                    } else if (columns[0].equals("@EverbumSafetyRating@")) {
-                        if (columns.length > 1)
-                            tmp.setEverbumSafetyRating(columns[1]);
-                    } else if (columns[0].equals("@Description@")) {
-                        description = new StringBuilder();
-                    } else if (description != null) {
-                        description.append(line).append("\n");
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
                     }
-                } else if (description != null) {
+                    } else if (description != null) {
                     description.append(line).append("\n");
                 }
             }

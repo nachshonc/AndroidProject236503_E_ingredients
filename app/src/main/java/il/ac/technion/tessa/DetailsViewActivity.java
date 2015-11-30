@@ -20,6 +20,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -29,9 +30,12 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
     EDBHandler dbHandler = new EDBHandler(DetailsViewActivity.this, null, null, 1);
     ArrayList<String> keyStack = new ArrayList<>();
     AlertDialog dialog;
+    SharedPreferences preferences;
+    MenuItem menuItemSetPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = UserPreferences.get(getApplicationContext());
         setContentView(R.layout.activity_details_view);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         webView = (WebView) findViewById(R.id.webView);
@@ -59,6 +63,9 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
     public void showPageForKey(String key, boolean push) {
         if (push)
             keyStack.add(key);
+        if(menuItemSetPref!=null){
+            setPictureForKey(key); 
+        }
 
         ActionBar ab = getSupportActionBar();
         if (ab != null)
@@ -78,10 +85,23 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         // TODO: Update action bar here as well
     }
 
+    private void setPictureForKey(String key) {
+        Options opt;
+        if(preferences.contains(key)) {
+            Log.d("getView: preferences ", String.format("%d", preferences.getInt(key, -1)));
+            opt = Options.getOpt(preferences.getInt(key, -1));
+        }
+        else
+            opt = dbHandler.findIngredient(key).getOptions(); //ONLY THE DEFAULT.
+        menuItemSetPref.setIcon(opt.getPic());
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_details_view, menu);
+        menuItemSetPref = menu.findItem(R.id.action_set_preferences);
+        setPictureForKey(keyStack.get(0));
         return true;
         //return super.onCreateOptionsMenu(menu);
     }
@@ -95,14 +115,14 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_set_preferences) {
-            setPreferences(); 
+            openPreferencesDialog();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
     final static int TYPE_KEY = 0;
-    private void setPreferences() {
+    private void openPreferencesDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick your preferences");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
@@ -113,6 +133,8 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         x=v.findViewById(R.id.choice_unhealth); x.setOnClickListener(this); x.setTag(Options.UNHEALTHY);
         x=v.findViewById(R.id.choice_safe);     x.setOnClickListener(this); x.setTag(Options.SAFE);
         x=v.findViewById(R.id.choice_default);  x.setOnClickListener(this); x.setTag(Options.DEFAULT);
+        ImageView imgDefault = (ImageView)x.findViewById(R.id.imageViewDefault);
+        imgDefault.setImageResource(dbHandler.findIngredient(keyStack.get(keyStack.size() - 1)).getOptions().getPic());
 
         builder.setView(v);
         dialog = builder.show();
@@ -120,7 +142,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        SharedPreferences preferences = UserPreferences.get(getApplicationContext());
         String key = keyStack.get(keyStack.size() - 1);
         Options o = (Options)v.getTag();
         SharedPreferences.Editor edit = preferences.edit();
@@ -129,6 +150,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         else
             edit.putInt(key, o.value);
         edit.commit();
+        setPictureForKey(key);
         switch(o){
             case DANG:
                 Log.d("onClick", "DANG");

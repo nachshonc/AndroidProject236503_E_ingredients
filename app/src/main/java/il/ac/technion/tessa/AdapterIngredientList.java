@@ -39,13 +39,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         TextView titleView;
         TextView counterView;
         int color=0;
-        Options opt;
-        if(ingredient.isDangerous())
-            opt=Options.DANG;
-        else if(ingredient.isUnhealthy() || ingredient.isBanned())
-            opt=Options.UNHEALTHY;
-        else
-            opt=Options.SAFE;
+        Options opt = ingredient.getOptions();
         Log.d("getView: preferences ", preferences.contains(ingredient.getKey())?"true":"false");
         if(preferences.contains(ingredient.getKey())) {
             Log.d("getView: preferences ", String.format("%d", preferences.getInt(ingredient.getKey(), -1)));
