@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Surface;
@@ -54,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static android.hardware.Camera.*;
 
@@ -204,7 +204,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (mCurrentPhotoPath != null)
                 setPic(false);
             ListView listView = (ListView) findViewById(R.id.frag_list);
-            ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
+            ArrayList<EDBIngredient> models = new ArrayList<>();
             for(int i=0; i<ingredientsList.size(); ++i) {
                 EDBIngredient ingredient = dbHandler.findIngredient(ingredientsList.get(i));
                 if(ingredient==null) {
@@ -224,7 +224,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String imageFileName = "JPEG_" + timeStamp;
         File storageDir = new File(DATA_PATH+"tessdata");
 //        File image = new File(DATA_PATH+"tessdata/" + imageFileName + ".jpg");
@@ -338,7 +338,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         bmOptions.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
         int scaleFactor=1;
@@ -523,7 +522,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if(MOCK_OCR){
                 list=MOCK_LIST;
                 try {
-                    Thread.sleep(000);
+                    Thread.sleep(0);
                 } catch (InterruptedException e) {  }
                 return "";
             }

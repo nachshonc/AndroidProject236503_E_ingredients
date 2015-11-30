@@ -1,24 +1,17 @@
 package il.ac.technion.tessa;
 
-import android.app.VoiceInteractor;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
-import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.telecom.Call;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.EditText;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
@@ -121,7 +114,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
         return super.onOptionsItemSelected(item);
     }
-    final static int TYPE_KEY = 0;
     private void openPreferencesDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick your preferences");
@@ -149,7 +141,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
             edit.remove(key);
         else
             edit.putInt(key, o.value);
-        edit.commit();
+        edit.apply();
         setPictureForKey(key);
         switch(o){
             case DANG:
