@@ -1,13 +1,16 @@
 package il.ac.technion.tessa;
 
+import android.app.VoiceInteractor;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.telecom.Call;
 import android.util.Log;
@@ -20,11 +23,13 @@ import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
 
-public class DetailsViewActivity extends AppCompatActivity {
+public class DetailsViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     WebView webView;
     EDBHandler dbHandler = new EDBHandler(DetailsViewActivity.this, null, null, 1);
     ArrayList<String> keyStack = new ArrayList<>();
+    public static String PREFERENCES_KEY = "UserChoice";
+    AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,23 +102,50 @@ public class DetailsViewActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    final static int TYPE_KEY = 0;
     private void setPreferences() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick your preferences");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.user_choice, null, false);
+        View v = inflater.inflate( R.layout.user_choice, null, false);
+        View x;
+        x=v.findViewById(R.id.choice_dang);     x.setOnClickListener(this); x.setTag(Options.DANG);
+        x=v.findViewById(R.id.choice_unhealth); x.setOnClickListener(this); x.setTag(Options.UNHEALTHY);
+        x=v.findViewById(R.id.choice_safe);     x.setOnClickListener(this); x.setTag(Options.SAFE);
+        x=v.findViewById(R.id.choice_default);  x.setOnClickListener(this); x.setTag(Options.DEFAULT);
+
         builder.setView(v);
+        dialog = builder.show();
+    }
 
-/*        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });*/
+    @Override
+    public void onClick(View v) {
+        SharedPreferences preferences = getSharedPreferences(PREFERENCES_KEY, 0);
+        String key = keyStack.get(keyStack.size() - 1);
+        Options o = (Options)v.getTag();
+        SharedPreferences.Editor edit = preferences.edit();
+        if(o == Options.DEFAULT)
+            edit.remove(key);
+        else
+            edit.putInt(key, Options.DANG.value);
+        edit.commit();
+        switch(o){
+            case DANG:
+                Log.d("onClick", "DANG");
+                break;
+            case UNHEALTHY:
+                Log.d("onClick", "UNHEALTHY");
+                break;
+            case SAFE:
+                Log.d("onClick", "SAFE");
+                break;
+            case DEFAULT:
+                Log.d("onClick", "DEFAULT");
+                break;
 
-        builder.show();
+        }
+        dialog.dismiss();
 
     }
 

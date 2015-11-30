@@ -241,6 +241,8 @@ public class EDBHandler extends SQLiteOpenHelper {
                 COLUMN_KEY + "='"+key+"'", null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
+            if(cursor.isAfterLast())
+                return null;
             EDBIngredient res = new EDBIngredient(key);
             res.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
             res.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
