@@ -1,6 +1,7 @@
 package il.ac.technion.tessa;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.AvoidXfermode;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
     private final Context context;
     private final ArrayList<EDBIngredient> modelsArrayList;
+    private SharedPreferences preferences;
 
     public AdapterIngredientList(Context context, ArrayList<EDBIngredient> modelsArrayList) {
 
@@ -25,6 +27,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
+        this.preferences = context.getSharedPreferences(DetailsViewActivity.PREFERENCES_KEY, 0);
     }
 
     @Override
@@ -36,19 +39,30 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         TextView titleView;
         TextView counterView;
         int color=0;
+        Options opt;
+        if(ingredient.isDangerous())
+            opt=Options.DANG;
+        else if(ingredient.isUnhealthy() || ingredient.isBanned())
+            opt=Options.UNHEALTHY;
+        else
+            opt=Options.SAFE;
+        if(preferences.contains(ingredient.getKey())) {
+            opt = Options.getOpt(preferences.getInt(ingredient.getKey(), -1));
+        }
+
         if(ingredient.equals(EDBIngredient.notFound)){
             rowView = inflater.inflate(R.layout.list_item_empty, parent, false);
         }
-        else if((ingredient.isSafe() || ingredient.isSuspect()) && !ingredient.isBanned() && !ingredient.isUnhealthy()) {
+        else if(opt==Options.SAFE) {
             rowView = inflater.inflate(R.layout.list_item, parent, false);
         }
         else{
             rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
             ImageView image = (ImageView)rowView.findViewById(R.id.item_icon);
-            if (ingredient.isDangerous()) {
+            if (opt==Options.DANG) {
                 image.setImageResource(R.drawable.danger);
                 color = 0xFFFF0000; //Strong RED
-            } else if(ingredient.isUnhealthy() || ingredient.isBanned()) {
+            } else {
                 image.setImageResource(R.drawable.caution);
                 color = 0x80FF0000;
             }

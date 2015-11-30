@@ -3,6 +3,7 @@ package il.ac.technion.tessa;
 import android.app.VoiceInteractor;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -27,6 +28,8 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
     WebView webView;
     EDBHandler dbHandler = new EDBHandler(DetailsViewActivity.this, null, null, 1);
     ArrayList<String> keyStack = new ArrayList<>();
+    public static String PREFERENCES_KEY = "UserChoice";
+    AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +101,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         return super.onOptionsItemSelected(item);
     }
     final static int TYPE_KEY = 0;
-    private static enum Options{DANG, UNHEALTHY, SAFE, DEFAULT};
     private void setPreferences() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick your preferences");
@@ -112,16 +114,23 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         x=v.findViewById(R.id.choice_default);  x.setOnClickListener(this); x.setTag(Options.DEFAULT);
 
         builder.setView(v);
-        builder.show();
-
+        dialog = builder.show();
     }
 
     @Override
     public void onClick(View v) {
+        SharedPreferences preferences = getSharedPreferences(PREFERENCES_KEY, 0);
+        String key = keyStack.get(keyStack.size() - 1);
         Options o = (Options)v.getTag();
+        SharedPreferences.Editor edit = preferences.edit();
+        if(o == Options.DEFAULT)
+            edit.remove(key);
+        else
+            edit.putInt(key, Options.DANG.value);
+        edit.commit();
         switch(o){
             case DANG:
-                Log.d("onClick", "dang");
+                Log.d("onClick", "DANG");
                 break;
             case UNHEALTHY:
                 Log.d("onClick", "UNHEALTHY");
@@ -134,6 +143,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
                 break;
 
         }
+        dialog.dismiss();
 
     }
 
