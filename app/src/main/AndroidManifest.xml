@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".IngredientScanActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +28,8 @@
         <activity
             android:name=".DetailsViewActivity"
             android:label="@string/title_activity_details_view"
-            android:parentActivityName=".IngredientScanActivity" >
+            android:parentActivityName=".IngredientScanActivity"
+            android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="il.ac.technion.tessa.IngredientScanActivity" />

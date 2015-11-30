@@ -484,10 +484,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
         @Override
         protected String doInBackground(Bitmap... params) {
-            if(MOCK_OSR){
+            if(MOCK_OCR){
                 list=MOCK_LIST;
                 try {
-                    Thread.sleep(4000);
+                    Thread.sleep(000);
                 } catch (InterruptedException e) {  }
                 return "";
             }
