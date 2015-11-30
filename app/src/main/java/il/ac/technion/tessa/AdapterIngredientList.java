@@ -27,7 +27,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
-        this.preferences = context.getSharedPreferences(DetailsViewActivity.PREFERENCES_KEY, 0);
+        this.preferences = UserPreferences.get(context);
     }
 
     @Override
@@ -46,7 +46,9 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
             opt=Options.UNHEALTHY;
         else
             opt=Options.SAFE;
+        Log.d("getView: preferences ", preferences.contains(ingredient.getKey())?"true":"false");
         if(preferences.contains(ingredient.getKey())) {
+            Log.d("getView: preferences ", String.format("%d", preferences.getInt(ingredient.getKey(), -1)));
             opt = Options.getOpt(preferences.getInt(ingredient.getKey(), -1));
         }
 

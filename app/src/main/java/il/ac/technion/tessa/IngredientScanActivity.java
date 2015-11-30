@@ -854,15 +854,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         super.onPause();
         releaseCameraAndPreview();
     }
-
+*/
     @Override
     public void onResume() {
         super.onResume();
-        safeCameraOpen(0);
-        preview.setCamera(camera);
- //       preview.mCamera = camera;
+        Log.d("onResume", "main activity");
+        adapter.notifyDataSetChanged();
     }
-    */
 
 
 }
