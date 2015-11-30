@@ -38,7 +38,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.googlecode.tesseract.android.ResultIterator;
@@ -59,8 +58,8 @@ import static android.hardware.Camera.*;
 
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
-    static final boolean MOCK_OSR = true;
-    static final ArrayList<String> MOCK_LIST = new ArrayList<>();//Arrays.asList("E100", "E102", "E110", "E121",       "E151", "E270", "E266"));
+    static final boolean MOCK_OCR = true;
+    static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -485,7 +484,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
         @Override
         protected String doInBackground(Bitmap... params) {
-            if(MOCK_OSR){
+            if(MOCK_OCR){
                 list=MOCK_LIST;
                 try {
                     Thread.sleep(4000);

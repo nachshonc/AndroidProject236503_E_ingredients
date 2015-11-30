@@ -18,22 +18,22 @@
 @EverbumDescription@	Natural colour isolated from the roots and stem of Yellowroot (Curcuma longa and Curcuma domestica). Turmeric is the crude extract, whereas curcumin is the purified compound. It imparts the yellow colour to curry powder. Largely used in India and other Asian countries in traditional medicine and has many benefits.  Daily intake: Up to 1 mg/kg body weight for curcumin, and 0.3 mg/kg for turmeric.  It is safe for consumption but caution with large quantities, some people can experience nausea or diarrhea. Turmeric can make gallbladder problems worse. Don't use turmeric if you have gallstones or a bile duct obstruction or if you are pregnant because it is an uterine stimulant.
 @EverbumSafetyRating@	suspicious
 @Description@
-				<a href="#Anchor-E110-51834"> </a><a name="Anchor-E100-49950"></a></font><b><i><font size="6" color="red" face="Times New Roman">E100<br>
+				<a href="#E110"> </a><a name="Anchor-E100-49950"></a></font><b><i><font size="6" color="red" face="Times New Roman">E100<br>
 					</font></i></b><font size="5" color="red">Curcumin, turmeric</font></div>
 		<p><br>
 			Turmeric is an essential flavouring spice of Indian and other cuisine. The Turmeric rhizome provides the typical yellow colour of many curry dishes and helps to make the food more digestible.</p>
 		<p>It is also used in product systems that are packaged to protect them from sunlight. The oleoresin is used for oil-containing products. The curcumin / polysorbate solution or curcumin powder dissolved in alcohol is used for water containing products. Over-colouring, such as in pickles, relishes and mustard, is sometimes used to compensate for fading.</p>
-		<p>Turmeric has found application in canned beverages, baked products, dairy products, ice cream, yoghurts, yellow cakes, biscuits, popcorn-colour, sweets, cake icings, cereals, sauces, gelatines, direct compression tablets, etc. In combination with Annatto, <a href="E141-E160.html#Anchor-E160b-11481">E160b</a>, it has been used to colour cheeses, dry mixes, salad dressings, winter butter and margarine.</p>
+		<p>Turmeric has found application in canned beverages, baked products, dairy products, ice cream, yoghurts, yellow cakes, biscuits, popcorn-colour, sweets, cake icings, cereals, sauces, gelatines, direct compression tablets, etc. In combination with Annatto, <a href="#E160b">E160b</a>, it has been used to colour cheeses, dry mixes, salad dressings, winter butter and margarine.</p>
 		<p>Investigations into the low incidence of colo-rectal cancer amongst ethnic groups with a large intake of curries compared with the indigenous population have discovered that some active ingredients of Turmeric appear to have anti-cancer properties. Second stage trials of a Turmeric-based drug to treat cancer are currently underway.</p>
 		<h5><i><font color="#ff0000"><b>Caution: Large doses not recommended in cases of gallstones, obstructive jaundice, acute bilious colic and toxic liver disorders.</b></font></i><br>
 		</h5>
 		<p><font size="4">For further information try:<br>
 				<br>
-			</font><a href="http://www-ang.kfunigraz.ac.at/%7Ekatzer/engl/generic_frame.html?Curc_dom.html"><font size="3">http://www-ang.kfunigraz.ac.at/~katzer/engl/Curc_dom.html</font></a></p>
-		<p><a href="http://www.indianspices.com/html/s062etur.htm"><font size="3">http://www.indianspices.com/html/s062etur.htm</font></a></p>
-		<p><a href="http://www.mystherb.com/uses/r/tumeric.htm"><font size="3">http://www.mystherb.com/uses/r/tumeric.htm</font></a></p>
-		<p><a href="http://www.suprahealth.com/turmeric.htm"><font size="3">http://www.suprahealth.com/turmeric.htm</font></a></p>
-		<p><a href="http://www.arthritis-relief.com/passwater.html"><font size="3">http://www.arthritis-relief.com/passwater.html</font></a></p>
+			</font></p>
+		
+		
+		
+		
 		<div align="left">
 
 @MAGIC-ADD@
@@ -68,10 +68,10 @@
 				<br>
 				Riboflavin is yellow or orange-yellow in colour and in addition to being used as a food colouring it is also used to fortify some foods. It can be found in such foods as baby foods, breakfast cereals, sauces, processed cheese, fruit drinks and vitamin-enriched milk products as well as being widely used in vitamin supplements.<br>
 				<br>
-				It is difficult to incorporate Riboflavin into many liquid products as it has poor solubility. Hence the requirement for <a href="#Anchor-E101a-35882">E101a</a> Riboflavin-5'-phosphate, a more expensive but more soluble form of Riboflavin.</p>
+				It is difficult to incorporate Riboflavin into many liquid products as it has poor solubility. Hence the requirement for <a href="#E101a">E101a</a> Riboflavin-5'-phosphate, a more expensive but more soluble form of Riboflavin.</p>
 			<p><font size="2"><font size="4">For further information try:</font></font></p>
-			<p><font size="2"><a href="http://www.cybervitamins.com/vitamin_b2.htm"><font size="3">http://www.cybervitamins.com/vitamin_b2.htm</font></a></font></p>
-			<p><font size="2"><a href="http://www.solsticepoint.com/riboflvn.htm"><font size="3">http://www.solsticepoint.com/riboflvn.htm</font></a></font></p>
+			<p><font size="2"></font></p>
+			<p><font size="2"></font></p>
 
 @MAGIC-ADD@
 @Key@	E101a
@@ -96,7 +96,7 @@
 						</i></b></font><font size="5" color="red">Riboflavin-5'-Phosphate</font></p>
 		</div>
 		<div align="left">
-			<p>A more expensive but more soluble form of <a href="#Anchor-E101-14210">E101</a>, Riboflavin.<br>
+			<p>A more expensive but more soluble form of <a href="#E101">E101</a>, Riboflavin.<br>
 				<br>
 				
 				Consists mainly of the monosodium salt of the 5'-monophosphate ester of riboflavin dihydrate obtained from chemical action on E101 Riboflavin. It is rapidly turned to free riboflavin after ingestion.</p>
@@ -127,10 +127,10 @@
 @Description@
 			<p align="center"><a name="Anchor-22316"></a><a name="Anchor-49897"></a><a name="Anchor-60133"></a><a name="Anchor-36621"></a><a name="Anchor-5185"></a><a name="Anchor-53555"></a><a name="Anchor-E102-6296"></a><font face="Times New Roman" size="6" color="red"><b><i>E102<br>
 						</i></b></font><font size="5" color="red">Tartrazine, FD&amp;C Yellow 5</font></p>
-			<p>A synthetic yellow azo dye found in fruit squash, fruit cordial, coloured fizzy drinks, instant puddings, cake mixes, custard powder, soups, sauces, ice cream, ice lollies, sweets, chewing gum, marzipan, jam, jelly, marmalade, mustard, yogurt and many convenience foods together with glycerin, lemon and honey products. It can also be found in the shells of medicinal capsules. It can also be used with <a href="E131-E140.html#Anchor-E133-23240">E133</a> Brilliant Blue FCF or <a href="E141-E160.html#Anchor-E142-3800">E142</a> Green S to produce various green shades e.g. for tinned processed peas.<br>
+			<p>A synthetic yellow azo dye found in fruit squash, fruit cordial, coloured fizzy drinks, instant puddings, cake mixes, custard powder, soups, sauces, ice cream, ice lollies, sweets, chewing gum, marzipan, jam, jelly, marmalade, mustard, yogurt and many convenience foods together with glycerin, lemon and honey products. It can also be found in the shells of medicinal capsules. It can also be used with <a href="#E142">E142</a> Green S to produce various green shades e.g. for tinned processed peas.<br>
 				<br>
 				
-				It appears to cause the most allergic and/or intolerance reactions of all the azo dyes, particularly amongst those with an aspirin intolerance and asthmatics. Other reactions can include migraine, blurred vision, itching, rhinitis and purple skin patches, (because of this more use is now being made of <a href="E141-E160.html#Anchor-E160b-11481">E160b</a>, Annatto). In conjunction with <a href="E201-220.html#Anchor-E210-35326">E210</a>, Benzoic acid, tartrazine appears to create an overactivity in children and is one of the colours that the Hyperactive Children's Support Group recommends be eliminated from the diet of children.<br>
+				It appears to cause the most allergic and/or intolerance reactions of all the azo dyes, particularly amongst those with an aspirin intolerance and asthmatics. Other reactions can include migraine, blurred vision, itching, rhinitis and purple skin patches, (because of this more use is now being made of <a href="#E210">E210</a>, Benzoic acid, tartrazine appears to create an overactivity in children and is one of the colours that the Hyperactive Children's Support Group recommends be eliminated from the diet of children.<br>
 				<br>
 				
 				Whilst being a very commonly used colour in the UK its use is banned in Norway and Austria.<br>
@@ -337,7 +337,7 @@ Together with ammonium carmine they can be found in alcoholic drinks, bakery pro
 			A purplish-red (blackcurrant) synthetic coal tar or azo dye found in ice creams, gravy granules, jams, jelly, tinned fruit pie fillings and prawns and packeted cake mixes, soups and trifles.</p>
 		<p>It appears to cause allergic and/or intolerance reactions, similar to nettle rash, particularly amongst those with an aspirin intolerance or asthmatics.</p>
 		<p>It is one of the colours that the Hyperactive Children's Support Group recommends be eliminated from the diet of children.</p>
-		<p>It is banned in Norway and the United States (see <a href="#Anchor-E129-44867">E129</a>) with a very restricted use in France and Italy (caviar only).<br>
+		<p>It is banned in Norway and the United States (see <a href="#E129">E129</a>) with a very restricted use in France and Italy (caviar only).<br>
 		</p>
 
 @MAGIC-ADD@
@@ -442,7 +442,7 @@ Together with ammonium carmine they can be found in alcoholic drinks, bakery pro
 @Description@
 		<p align="center"><a name="Anchor-10421"></a><a name="Anchor-E129-44867"></a><font face="Times New Roman" size="6" color="red"><b><i>E129<br>
 					</i></b></font><font size="5"><font color="red">Allura Red AC, FD&amp;C Red 40</font> </font></p>
-		<p>A red synthetic azo dye to replace Amaranth, <a href="#Anchor-E123-33869">E123</a>, in the United States of America where E123 is prohibited.</p>
+		<p>A red synthetic azo dye to replace Amaranth, <a href="#E123">E123</a>, in the United States of America where E123 is prohibited.</p>
 		<p>May have slightly less allergy/intolerance reaction by aspirin intolerant people and asthmatics than most of the azo dyes, although those with skin sensitivities should be careful.</p>
 @MAGIC-ADD@
 @Key@	E131
@@ -522,7 +522,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @Description@
 		<p align="center"><a name="Anchor-57423"></a><a name="Anchor-E133-23240"></a><font face="Times New Roman" size="6" color="red"><b><i>E133<br>
 					</i></b></font><font size="5" color="red">Brilliant Blue FCF, FD&amp;C Blue 1</font></p>
-		<p>A blue synthetic coal tar dye often used in conjunction with <a href="E100-E110.html#Anchor-E102-6296">E102</a>, Tartrazine, to produce various shades of green.</p>
+		<p>A blue synthetic coal tar dye often used in conjunction with <a href="#E102">E102</a>, Tartrazine, to produce various shades of green.</p>
 		<p>Can be found in tinned processed peas.</p>
 		<p>It is one of the colours that the Hyperactive Children's Support Group recommends be eliminated from the diet of children.</p>
 		<p>Prohibited in Argentina, Bulgaria, Czech Republic, France, Hungary, Italy, Mauritius, Morocco, Poland, Portugal, Trinidad and Turkey.<br>
@@ -549,8 +549,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @Description@
 		<p align="center"><a name="Anchor-31709"></a><a name="Anchor-36876"></a><a name="Anchor-E140-47383"></a><font face="Times New Roman" size="6" color="red"><b><i>E140<br>
 					</i></b></font><font size="5"><font color="red">Chlorophylls and Chlorophyllins: (i) Chlorophylls (ii) Chlorophyllins</font></font></p>
-		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="E141-E160.html#Anchor-E141-48213">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
-		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="E161-170.html#Anchor-E161b-37516">E161b</a>, may be extracted at the same time.</p>
+		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="#E141">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
+		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="#E161b">E161b</a>, may be extracted at the same time.</p>
 		<p>Can be found in chewing gum, fats and oils, ice cream, soaps, soups, sweets and, obviously, green vegetables.</p>
 		<p>Has no maximum recommended daily intake and is not subject to any prohibitions.<br>
 		</p>
@@ -575,8 +575,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @Description@
 		<p align="center"><a name="Anchor-31709"></a><a name="Anchor-36876"></a><a name="Anchor-E140-47383"></a><font face="Times New Roman" size="6" color="red"><b><i>E140<br>
 					</i></b></font><font size="5"><font color="red">Chlorophylls and Chlorophyllins: (i) Chlorophylls (ii) Chlorophyllins</font></font></p>
-		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="E141-E160.html#Anchor-E141-48213">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
-		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="E161-170.html#Anchor-E161b-37516">E161b</a>, may be extracted at the same time.</p>
+		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="#E141">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
+		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="#E161b">E161b</a>, may be extracted at the same time.</p>
 		<p>Can be found in chewing gum, fats and oils, ice cream, soaps, soups, sweets and, obviously, green vegetables.</p>
 		<p>Has no maximum recommended daily intake and is not subject to any prohibitions.<br>
 		</p>
@@ -601,8 +601,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @Description@
 		<p align="center"><a name="Anchor-31709"></a><a name="Anchor-36876"></a><a name="Anchor-E140-47383"></a><font face="Times New Roman" size="6" color="red"><b><i>E140<br>
 					</i></b></font><font size="5"><font color="red">Chlorophylls and Chlorophyllins: (i) Chlorophylls (ii) Chlorophyllins</font></font></p>
-		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="E141-E160.html#Anchor-E141-48213">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
-		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="E161-170.html#Anchor-E161b-37516">E161b</a>, may be extracted at the same time.</p>
+		<p>A fairly unstable olive to dark green dye, which tends to fade easily (see <a href="#E141">E141</a>). Naturally occuring in the cells of plant leaves and responsible for photosynthesis. Not easy to obtain in a pure form and commercially available chloroyphyll usually contains other plant material impurities.</p>
+		<p>The usual sources are nettles, spinach and grass with the chloroyphyll being extracted using acetone, ethanol, light petroleum, methylethylketone and diachloromethane. Lutein, <a href="#E161b">E161b</a>, may be extracted at the same time.</p>
 		<p>Can be found in chewing gum, fats and oils, ice cream, soaps, soups, sweets and, obviously, green vegetables.</p>
 		<p>Has no maximum recommended daily intake and is not subject to any prohibitions.<br>
 		</p>
@@ -732,7 +732,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @Description@
 		<p align="center"><a name="Anchor-56456"></a><a name="Anchor-47897"></a><a name="Anchor-61748"></a><a name="Anchor-E150a-57453"></a><font face="Times New Roman" size="6" color="red"><b><i>E150a<br>
 					</i></b></font><font size="5" color="red">Plain Caramel</font></p>
-		<p>This colouring, which ranges from dark brown to black, is made by controlled heat treatment of sugar, with or without the presence of alkalis or acids. The caramel group of colours (see also <a href="#Anchor-E150b-7905">E150b</a>, <a href="#Anchor-E150c-32006">E150c</a> and <a href="#Anchor-E150d-9880">E150d</a>) are the most widely used group of colours, comprising some 98% of all colours used.</p>
+		<p>This colouring, which ranges from dark brown to black, is made by controlled heat treatment of sugar, with or without the presence of alkalis or acids. The caramel group of colours (see also <a href="#E150d">E150d</a>) are the most widely used group of colours, comprising some 98% of all colours used.</p>
 		<p>Between them they can be found in beer, brown bread, buns, chocolate, biscuits, brandy, chocolate flavoured flour based confectionery, coatings, decorations, fillings and toppings, crisps, dessert mixes, doughnuts, fish and shellfish spreads, frozen desserts, glucose tablets, gravy browning, ice cream, jams, milk desserts, pancakes, pickles, sauces and dressings, soft drinks particularly cola drinks, stouts, sweets, vinegar, whisky and wines.</p>
 		<p>The most common source is sugar beet or sugar cane but as it is possible to use sugar from maize starch it may come from a Genetically Modified crop.</p>
 
@@ -758,7 +758,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 			<p><a name="Anchor-28263"></a><a name="Anchor-39677"></a><a name="Anchor-39073"></a><a name="Anchor-E150b-7905"></a><FONT FACE="Times New Roman" SIZE="6" color="red"><B><I>E150b<br>
 						</I></B></FONT><FONT SIZE="5" color="red">Caustic sulphite caramel</FONT></p>
 		</div>
-		<p>This colouring, which ranges from dark brown to black, is made by controlled heat treatment of sugar with sulphur dioxide. The caramel group of colours (see also <a href="#Anchor-E150a-57453">E150a</a>, <a href="#Anchor-14177">E150c</a> and <a href="#Anchor-57343">E150d</a>) are the most widely used group of colours, comprising some 98% of all colours used.</p>
+		<p>This colouring, which ranges from dark brown to black, is made by controlled heat treatment of sugar with sulphur dioxide. The caramel group of colours (see also <a href="#E150a">E150a</a>, <a href="#Anchor-14177">E150c</a> and <a href="#Anchor-57343">E150d</a>) are the most widely used group of colours, comprising some 98% of all colours used.</p>
 		<p>Between them they can be found in beer, brown bread, buns, chocolate, biscuits, brandy, chocolate flavoured flour based confectionery, coatings, decorations, fillings and toppings, crisps, dessert mixes, doughnuts, fish and shellfish spreads, frozen desserts, glucose tablets, gravy browning, ice cream, jams, milk desserts, pancakes, pickles, sauces and dressings, soft drinks particularly cola drinks, stouts, sweets, vinegar, whisky and wines.</p>
 		<p>The most common source is sugar beet or sugar cane but as it is possible to use sugar from maize starch it may come from a Genetically Modified crop.<br>
 		</p>
@@ -986,7 +986,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 		<p>&nbsp; A yellow, peach or red vegetable dye obtained from the seed coat of the fruit of the Annatto tree, <i>Bixa orellana</i>. May be either oil-soluble or water soluble and is stable in processing, baking and brine.</p>
 		<p>Mechanical abrasion using food grade vegetable oil produces oil-soluble Annatto. Bixin can then extracted by solvents such as acetone, hexane or methanol, with further processing with an aqueous alkali producing Norbixin. Water soluble Annatto, containing both Norbixin and Bixin which can then be extracted, is obtained by agitation with an aqueous alkali.</p>
 		<p>Currently being used in place of the highly allergenic tartrazine, <a href="E100-E110.html#Anchor-49897">E102</a>, although the Hyperactive Children's Support Group believe there is a possibility of an allergic reaction to Annatto.</p>
-		<p>Used, sometimes in combination with <a href="E100-E110.html#Anchor-E100-36279">E100</a>, in cheese (Cheshire, Double Gloucester and Red Leicester), coleslaw, crisps, custard, fish fingers, flavoured instant mashed potato, fruit and cream fillings and toppings, frying oil, ice cream and lollies, icings, liqueurs, low calorie spreads, margarine, meat balls, salad cream and mayonnaise, smoked fish, soft drinks, sponge cakes and puddings, steak and kidney pie pastry and yoghurt.</p>
+		<p>Used, sometimes in combination with <a href="#E100">E100</a>, in cheese (Cheshire, Double Gloucester and Red Leicester), coleslaw, crisps, custard, fish fingers, flavoured instant mashed potato, fruit and cream fillings and toppings, frying oil, ice cream and lollies, icings, liqueurs, low calorie spreads, margarine, meat balls, salad cream and mayonnaise, smoked fish, soft drinks, sponge cakes and puddings, steak and kidney pie pastry and yoghurt.</p>
 
 @MAGIC-ADD@
 @Key@	E160c
@@ -1139,7 +1139,7 @@ The E161 group are Xanthophylls, <I>(from the Greek, Xanthos - yellow)</I>. They
 		<p>E161 group are Xanthophylls, <i>(from the Greek, Xanthos - yellow)</i>. They are yellow pigments, although <a href="#Anchor-21683">E161g</a> is more orange, and related to carotene. Extracted using the solvent hexane they normally contain other source plant material.<br>
 			<br>
 			Lutein is found in egg yolks, fat cells and green leaves.</p>
-		<p>Can be obtained from the same sources and at the same time as Chlorophyll, <a href="E131-E140.html#Anchor-E140-47383">E140</a>, and is often used in poultry feed to enhance the colour of egg yolks (see also <a href="E141-E160.html#Anchor-E160c-46919">E160c</a>).</p>
+		<p>Can be obtained from the same sources and at the same time as Chlorophyll, <a href="#E160c">E160c</a>).</p>
 
 @MAGIC-ADD@
 @Key@	E161c
@@ -1369,7 +1369,6 @@ The E161 group are Xanthophylls, <I>(from the Greek, Xanthos - yellow)</I>. They
 		<P>
 White in colour, Titanium dioxide is extracted from the  naturally occurring mineral ilmenite, (named after the  Ilmen Mountains in Russia), an iron-black, heavy, metallic oxide mineral, composed of iron and titanium oxide. </P>
 		<P>Thought not to be easily absorbed, although detectable amounts can be found in the blood, brain and glands with the highest concentrations being in the lymph nodes and lungs, it is excreted from the body with urine.</P>
-
 <P>Can be found in tablets and capsules, cottage and Mozzarella cheeses,  horseradish cream and sauces, lemon curd and sweets where it is often used to provide a barrier between different colours. It is also used to increase opacity in some sauces.</P>
 		<P>Banned in Germany.<BR>
 		</P>
@@ -1532,10 +1531,10 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @Description@
 		<p align="center"><a name="Anchor-16068"></a><a name="Anchor-58521"></a><a name="Anchor-59125"></a><a name="Anchor-E200-43793"></a><font face="Times New Roman" size="6" color="red"><b><i>E200<br>
 					</i></b></font><font color="White" size="5"><font color="red">Sorbic acid</font></font></p>
-		<p>Occurring naturally in some fruits Sorbic acid can be commercially manufactured synthetically from the toxic, irritant, colourless gas ketene.(See also <a href="E201-220.html#Anchor-E201-5677">E201</a>, <a href="E201-220.html#Anchor-E202-2821">E202</a> and <a href="E201-220.html#Anchor-E203-45656">E203</a>)</p>
+		<p>Occurring naturally in some fruits Sorbic acid can be commercially manufactured synthetically from the toxic, irritant, colourless gas ketene.(See also <a href="#E203">E203</a>)</p>
 		<p>As a preservative it effectively inhibits the growth of yeasts and moulds whilst allowing bacterial activity, e.g. in cheese, both non-processed and processed. Also may be used in sweet wine making but can sometimes produce 'off flavours'.</p>
 		<p>In addition to its use in these areas it can also be found in candied peel, cider, dessert sauces, fillings and toppings, fermented milks, frozen pizzas, fruit salads, gelatin capsules, soft drinks, soup concentrates, sweets and yoghurt.</p>
-		<p></p>
+		
 @MAGIC-ADD@
 @Key@	E201
 @Title@	Sodium sorbate 
@@ -1916,7 +1915,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 		<p align="center"><font color="red" size="5">Fatty acid esters of ascorbic acid (i) Ascorbyl palmitate (ii) Ascorbyl stearate</font></p>
 		<p>&nbsp;Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vessels and aiding the absorption of iron, is found naturally in many fresh fruits and vegetables.</p>
 		<p>E304, ascorbic acid ester comprising ascorbic acid and palmitic acid, is prepared synthetically and, like <a href="E251-300.html#Anchor-41681">E300</a>, it is used as an antioxidant, a colour preservative and as a vitamin supplement but with the added advantage of being fat-soluble at high temperatures.</p>
-		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#Anchor-E306-30408">E306</a> and <a href="#Anchor-E307-30189">E307</a> it is likely to be found in combination with these.</p>
+		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#E307">E307</a> it is likely to be found in combination with these.</p>
 		<p>It can be found in baby formula, chicken stock cubes, pork pies, sausages, scotch eggs and tinned baby food.</p>
 
 @MAGIC-ADD@
@@ -1943,7 +1942,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 		<p align="center"><font color="red" size="5">Fatty acid esters of ascorbic acid (i) Ascorbyl palmitate (ii) Ascorbyl stearate</font></p>
 		<p>&nbsp;Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vessels and aiding the absorption of iron, is found naturally in many fresh fruits and vegetables.</p>
 		<p>E304, ascorbic acid ester comprising ascorbic acid and palmitic acid, is prepared synthetically and, like <a href="E251-300.html#Anchor-41681">E300</a>, it is used as an antioxidant, a colour preservative and as a vitamin supplement but with the added advantage of being fat-soluble at high temperatures.</p>
-		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#Anchor-E306-30408">E306</a> and <a href="#Anchor-E307-30189">E307</a> it is likely to be found in combination with these.</p>
+		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#E307">E307</a> it is likely to be found in combination with these.</p>
 		<p>It can be found in baby formula, chicken stock cubes, pork pies, sausages, scotch eggs and tinned baby food.</p>
 
 @MAGIC-ADD@
@@ -1970,7 +1969,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 		<p align="center"><font color="red" size="5">Fatty acid esters of ascorbic acid (i) Ascorbyl palmitate (ii) Ascorbyl stearate</font></p>
 		<p>&nbsp;Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vessels and aiding the absorption of iron, is found naturally in many fresh fruits and vegetables.</p>
 		<p>E304, ascorbic acid ester comprising ascorbic acid and palmitic acid, is prepared synthetically and, like <a href="E251-300.html#Anchor-41681">E300</a>, it is used as an antioxidant, a colour preservative and as a vitamin supplement but with the added advantage of being fat-soluble at high temperatures.</p>
-		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#Anchor-E306-30408">E306</a> and <a href="#Anchor-E307-30189">E307</a> it is likely to be found in combination with these.</p>
+		<p>Because of its antioxidant synergy with the alpha-tocopherols <a href="#E307">E307</a> it is likely to be found in combination with these.</p>
 		<p>It can be found in baby formula, chicken stock cubes, pork pies, sausages, scotch eggs and tinned baby food.</p>
 
 @MAGIC-ADD@
@@ -1995,11 +1994,11 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 		<p align="center"><a name="Anchor-21683"></a><a name="Anchor-4711"></a><a name="Anchor-39842"></a><a name="Anchor-57"></a><a name="Anchor-E306-30408"></a><font face="Times New Roman" size="6" color="red"><b><i>E306<br>
 					</i></b></font><font color="red" size="5">Tocopherol-rich extract (natural)</font></p>
 		<p>&nbsp;</p>
-		<p>Vitamin E, known as the anti-sterility vitamin - from the Greek <i>tokos</i> (child) and <i>pherein</i> (bear), is fat-soluble and is a mixture of alpha-, beta-, gamma- and delta- tocopherols. Although eight chemically similar substances have Vitamin E activity, alpha-tocopherol is the most active of these with 100%, followed by beta- (15-40%), gamma- (1-20% then delta (1%). Found in most foods, it is abundant in, amongst other things, whole grain cereals, corn and cottonseed oils, egg yolks, meat and milk. (See also <a href="#Anchor-17761">E307</a>, <a href="#Anchor-E308-59404">E308</a> and <a href="#Anchor-E309-38219">E309</a>).</p>
+		<p>Vitamin E, known as the anti-sterility vitamin - from the Greek <i>tokos</i> (child) and <i>pherein</i> (bear), is fat-soluble and is a mixture of alpha-, beta-, gamma- and delta- tocopherols. Although eight chemically similar substances have Vitamin E activity, alpha-tocopherol is the most active of these with 100%, followed by beta- (15-40%), gamma- (1-20% then delta (1%). Found in most foods, it is abundant in, amongst other things, whole grain cereals, corn and cottonseed oils, egg yolks, meat and milk. (See also <a href="#E309">E309</a>).</p>
 		<p>It is essential to the life of red blood cells and helps the supply of oxygen to the heart and muscles. Its requirement is increased by high intakes of polyunsaturated fats but, as the body stores about a year's supply, Vitamin E deficiency that produces signs and symptoms is rare. It is possible that generous intakes protect cell membranes from oxidation damage and consequent degenerative diseases.</p>
 		<p>E306 is an antioxidant for polyunsaturated fatty acids in tissue fats and is used in meat pies, desert toppings and vegetable oils as well as a vitamin supplement. Has a greater antioxidant effect than gamma-tocopherol (<a href="#Anchor-43266">E308</a>) in animals but not in cells or non-biological matter. It also protects other nutrients, such as Vitamin A, from oxidation but is largely destroyed by freezing.</p>
 		<p>Commercially it can be extracted, by distillation in a vacuum, from cottonseed, maize, rice germ, soya been oil, wheat germ, or green leaves and may, therefore, come from Genetically Modified sources.</p>
-		<p>Because of its antioxidant synergy with Ascorbyl palmitate it is likely to be found in combination with <a href="#Anchor-E304-54325">E304</a>.</p>
+		<p>Because of its antioxidant synergy with Ascorbyl palmitate it is likely to be found in combination with <a href="#E304">E304</a>.</p>
 
 @MAGIC-ADD@
 @Key@	E307
@@ -2134,9 +2133,9 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @Description@
 		<p align="center"><a name="Anchor-E325-51540"></a><font face="Times New Roman" size="6" color="red"><b><i>E325<br>
 					</i></b></font><font size="5" color="red">Sodium lactate</font><font size="5"> </font></p>
-		<p>&nbsp;The sodium salt of Lactic acid (<a href="E251-300.html#Anchor-E270-51689">E270</a>).</p>
+		<p>&nbsp;The sodium salt of Lactic acid (<a href="#E270">E270</a>).</p>
 		<p>It is hygroscopic and used in such products as sponge cakes and Swiss rolls where its ability to absorb moisture helps to retain the moisture content and thereby extend shelf-life.</p>
-		<p>It is also used for its synergistic effect on other substances antioxidant effect and sometimes as a substitute for glycerol (<a href="E420-440.html#Anchor-E422-8389">E422</a>).</p>
+		<p>It is also used for its synergistic effect on other substances antioxidant effect and sometimes as a substitute for glycerol (<a href="#E422">E422</a>).</p>
 		<p>Found in cheese, sponge cakes and Swiss rolls, ice cream, jams, jellies, margarine, marmalades and sweets.</p>
 		<p>Vegetarians should be aware that as the source, <a href="E251-300.html#Anchor-34289">E270</a>, Lactic acid, is a naturally occurring animal product it could conceivably be of animal origin.<br>
 		</p>
@@ -2670,7 +2669,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @Description@
 		<p align="center"><a name="Anchor-E442-52467"></a><font face="Times New Roman" size="6" color="red"><b><i>E442<br>
 					</i></b></font><font size="5" color="red">Ammonium phosphatides</font></p>
-		<p>&nbsp;Used mainly as an emulsifier, to lower the surface tension of water so allowing the better combining of oils, fats and water, and as a stabiliser, to prevent separation. Similar in use to Lecithin (<a href="E321-380.html#Anchor-E322-60059">E322</a>). Limited use as an antioxidant.</p>
+		<p>&nbsp;Used mainly as an emulsifier, to lower the surface tension of water so allowing the better combining of oils, fats and water, and as a stabiliser, to prevent separation. Similar in use to Lecithin (<a href="#E322">E322</a>). Limited use as an antioxidant.</p>
 		<p>Found in cocoa and chocolate products.</p>
 		<p>Manufactured either synthetically or from a mixture of Glycerol (<a href="E420-440.html#Anchor-30797">E422</a>) and partially hardened rape seed oil.</p>
 		<p>Vegetarians should note that although industrial manufacturing based on propylene or sugar accounts for a large percentage of glycerol production it can be obtained as a by-product in making soap from animal and vegetable fats and oils.</p>
@@ -2762,7 +2761,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @Description@
 		<p align="center"><a name="Anchor-E472a-30815"></a><font face="Times New Roman" size="6" color="red"><b><i>E472a<br>
 					</i></b></font><font size="5" color="red">Acetic acid esters of mono- and diglycerides of fatty acids</font></p>
-		<p>&nbsp;Prepared from mixing esters of glycerol (see <a href="E420-440.html#Anchor-30198">E422</a>) with edible fats and acetic acid (see <a href="E251-300.html#Anchor-E260-34807">E260</a>).</p>
+		<p>&nbsp;Prepared from mixing esters of glycerol (see <a href="#E260">E260</a>).</p>
 		<p>Improves aeration properties of high fat recipes and produces a stable foam in whipped products by collecting together the fat globules.</p>
 		<p>Because it is capable of forming a very thin, flexible and stretchable film it is also used as coating for meat products, nuts and fruits where it improves appearance and extends shelf life.</p>
 		<p>Can also be found in bread, dessert toppings and cheesecake and mousse mixes</p>
@@ -2862,7 +2861,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @Description@
 		<p align="center"><a name="Anchor-E472e-30189"></a><font face="Times New Roman" size="6" color="red"><b><i>E472e<br>
 					</i></b></font><font size="5" color="red">Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids</font></p>
-		<p>&nbsp;Prepared from esters of glycerol (see <a href="E420-440.html#Anchor-42728">E422</a>) with tartaric acid (<a href="E321-380.html#Anchor-E334-52385">E334</a>).</p>
+		<p>&nbsp;Prepared from esters of glycerol (see <a href="#E334">E334</a>).</p>
 		<p>Its main use is as a dough conditioner in yeast-raised bakery products although it also finds use in hot chocolate mix, gravy granules and frozen pizza..</p>
 		<p>Vegetarians bewar</p>
 
@@ -3331,7 +3330,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @Description@
 		<p align="center"><a name="Anchor-E572-37448"></a><font face="Times New Roman" size="6" color="red"><b><i>E572<br>
 					</i></b></font><font size="5" color="red">Magnesium stearate, calcium stearate</font></p>
-		<p>Prepared synthetically from Stearic acid (<a href="#Anchor-E570-30974">E570</a>).<br>
+		<p>Prepared synthetically from Stearic acid (<a href="#E570">E570</a>).<br>
 			<br>
 			Used as an anti-caking agent and emulsifier with no known problems as a food additive.<br>
 			<br>
@@ -3384,7 +3383,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 		<p align="center"><a name="Anchor-8389"></a><a name="Anchor-6873"></a><a name="Anchor-E620-14549"></a><font face="Times New Roman" size="6" color="red"><b><i>E620<br>
 					</i></b></font><font size="5" color="red">Glutamic acid<br>
 			</font><br>
-			A non-essential amino acid, first isolated in 1865. It is the predominant amino acid in most proteins, occurring as a product of the hydrolysis of the glutamine contained in proteins, playing a vital part in brain function. The various forms of glutamic acid are known as glutamates with probably the best known being monosodium glutamate (<a href="#Anchor-E621-29677">E621</a>).</p>
+			A non-essential amino acid, first isolated in 1865. It is the predominant amino acid in most proteins, occurring as a product of the hydrolysis of the glutamine contained in proteins, playing a vital part in brain function. The various forms of glutamic acid are known as glutamates with probably the best known being monosodium glutamate (<a href="#E621">E621</a>).</p>
 		<p>Natural sources include meat, fish, poultry and milk, with human milk containing ten times that in cow's milk. As a food additive it is used as a flavour enhancer and salt substitute but it is reported to have the same problems as monosodium glutamate (<a href="#Anchor-52645">E621</a>). It too has been discontinued voluntarily from baby foods.</p>
 		<p>Recent research has proposed that excessive brain receptor cell activation, caused by too much glutamate, can destroy the cells. It has been further suggested that this could play a part in neurodegenerative diseases such as Alzheimer's, Parkinson's and Huntingdon's but the part that dietary glutamates contribute is still controversial.</p>
 
@@ -3410,7 +3409,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 		<p align="center"><a name="Anchor-34289"></a><a name="Anchor-40878"></a><a name="Anchor-7200"></a><a name="Anchor-37201"></a><a name="Anchor-3523"></a><a name="Anchor-52645"></a><a name="Anchor-E621-29677"></a><font face="Times New Roman" size="6" color="red"><b><i>E621<br>
 					</i></b></font><font size="5" color="red">Monosodium glutamate</font><br>
 		</p>
-		<p>Often referred to as MSG, Monosodium glutamate is a white crystalline substance, the sodium salt of the amino acid glutamic acid (<a href="#Anchor-E620-14549">E620</a>).</p>
+		<p>Often referred to as MSG, Monosodium glutamate is a white crystalline substance, the sodium salt of the amino acid glutamic acid (<a href="#E620">E620</a>).</p>
 		<p>It was first identified as a flavour enhancer in 1908 by Professor Kikunae Ikeda of Tokyo University, Japan, who found that soup stocks made from Laminaria japonica (a seaweed which had been added to soups for centuries in Japan), contained high levels of the substance.</p>
 		<p>Ikeda decided that the unique taste, which he called <i>umami</i>, (delicious), was so different from the four basic tastes (bitter, salty, sour and sweet) that it was in fact a fifth taste. This view is still widely held although others say it actually only enhances the four basic tastes.</p>
 		<p>His discovery led to MSG becoming the first flavour enhancer to be used commercially. Originally production was from seaweed although it is now produced using a bacterial fermentation process with molasses (around 90% of production) or starch (10%) as carbon sources and ammonium salts as nitrogen sources.</p>
@@ -3422,7 +3421,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 		<p>The substance is naturally present in its bound state, the single amino acid L-glutamic acid, in plant and animal tissues, particularly in fish, meat, milk, poultry and at high levels in tomatoes and Parmesan cheese. It is alleged that it is because, as an additive, it is in a 'free processsed' state, which comprises L-glutamic acid and D-glutamic acid together with a variety of other chemical contaminants, that it gives rise to the reported problems. The contaminants vary depending on the method of manufacture but some, such as mono and dichloro propanols and heterocyclic amines are known to be carcinogenic.</p>
 		<p>This hypersensitive reaction, Kwok's disease, first reported by Dr. Robert Ho Man Kwok in 1968, is commonly called &quot;Chinese restaurant syndrome&quot; because cooks in some Chinese restaurants were thought to use MSG extravagantly, (some 20% of production is used in restaurants and hotels). Some Chinese meals have been recorded as containing between 5 and 10g of MSG. It has been suggested by some research that a lack of Vitamin B6 contributes to these MSG symptoms.</p>
 		<p>However subsequent studies, including blind tests, have shown no conclusive link between the syndrome and the consumption of normal levels of MSG, around 2g daily, although tests have shown the possibility of brain cell damage in guinea pigs, hamsters, monkeys, rabbits and rats, particularly in the young. Some research appears to show that a lack of calcium appears to exacerbate the damage in adults.</p>
-		<p>Also, some research has proposed that as it is an excitotoxin, excessive brain receptor cell activation, caused by too much glutamate, can destroy the cells. It has been further suggested that this could play a part in neurodegenerative diseases such as Alzheimer's, Parkinson's and Huntingdon's but the part that dietary glutamates contribute is still controversial. (Excitotoxins are a class of chemicals that can produce brain damage by 'over exciting' neurons into firing their impulses very rapidly until they reach a state of extreme exhaustion. Several hours later these neurons can suddenly die. See also <a href="E901-970.html#Anchor-E951-24819">E951</a>)</p>
+		<p>Also, some research has proposed that as it is an excitotoxin, excessive brain receptor cell activation, caused by too much glutamate, can destroy the cells. It has been further suggested that this could play a part in neurodegenerative diseases such as Alzheimer's, Parkinson's and Huntingdon's but the part that dietary glutamates contribute is still controversial. (Excitotoxins are a class of chemicals that can produce brain damage by 'over exciting' neurons into firing their impulses very rapidly until they reach a state of extreme exhaustion. Several hours later these neurons can suddenly die. See also <a href="#E951">E951</a>)</p>
 		<p>Recent Japanese research (October 2002) at Hirosaki University has shown that high levels fed to rats has shown vision loss and retina damage. Although these high levels would not be reached with normal additive levels, there is concern that these same effects could result from the cumulative effect of smaller amounts over a longer period of time. Lead researcher Hiroshi Ohguro says the findings might explain why, in eastern Asia, there is a high rate of normal-tension glaucoma, a form of the eye disease that leads to blindness without the usual increase in pressure inside the eyeball. The higher rate, however, could also be due to genetics.</p>
 		<p>Many food manufacturers voluntarily stopped adding MSG to baby foods.</p>
 		<p>For those trying to avoid Glutamic acid and its associated glutamates (<a href="#Anchor-6873">E620</a> to E625) you should be aware that MSG is in most savoury products (especially convenience foods) and can also be hidden under many names. Anything with the word 'protein' or 'yeast' attached to it such as 'Hydrolysed protein' or 'Autolysed yeast' should be viewed with caution, as should the words 'seasoning' and 'natural flavour'.</p>
@@ -3431,20 +3430,20 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 		<p>&nbsp;<br>
 		</p>
 		<p><font size="4">For further information on hyperactivity try:</font></p>
-		<p><a href="http://www.hacsg.org.uk/">Hyperactive Children's Support Group</a><br>
+		<p><br>
 			<br>
-			<a href="http://www.btinternet.com/%7Eblack.ice/addnet/">ADDNet</a><br>
 			<br>
-			<a href="http://www.adders.org/">Adders Org</a><br>
 			<br>
-			<a href="http://www.healthcentre.org.uk/hc/default.htm">The Health Centre</a><br>
+			<br>
+			<br>
+			<br>
 		</p>
 		<br>
 		<br>
 		<p><font size="4">For further information on MSG try:</font></p>
-		<p><a href="http://www.truthinlabeling.org/">Truth In Labeling</a><br>
+		<p><br>
 			<br>
-			<a href="http://www.holisticmed.com/msg/">Holistic Healing</a><br>
+			<br>
 		</p>
 		<div align="left">
 
@@ -3587,7 +3586,7 @@ May cause skin irritation.<BR>
 					</i></b></font><font size="5" color="red">L-cysteine</font></p>
 		<p>A naturally occuring sulphur containing amino acid, derived from cystine, that the body needs to produce Glutathione, one of the body's major antioxidants.</p>
 		<p>Natural sources of cysteine include eggs, meat, dairy products and some cereals although it is commercially produced from hair, both animal and human, (which is around 12% cysteine) and feathers.</p>
-		<p>In compound form (<a href="#Anchor-E920-48219">E920</a> and <a href="#Anchor-E921-15354">E921</a>) it is used in flour and bakery products (except wholemeal) where it is used as an improving agent and in chicken stock cubes where it is used as a flavour.</p>
+		<p>In compound form (<a href="#E921">E921</a>) it is used in flour and bakery products (except wholemeal) where it is used as an improving agent and in chicken stock cubes where it is used as a flavour.</p>
 		<p>Diabetics should be aware that there are some reports that it may interfere with insulin and there are anecdotal reports that it can react with monosodium glutamate (<a href="E541-640.html#Anchor-3523">E621</a>) in individuals who suffer from the so called Chinese restaurant syndrome, a set of symptoms, including headache, burning sensations, dizziness and disorientation.</p>
 
 @MAGIC-ADD@
@@ -3611,7 +3610,7 @@ May cause skin irritation.<BR>
 @Description@
 		<p align="center"><a name="Anchor-60059"></a><a name="Anchor-E920-48219"></a><font face="Times New Roman" size="6" color="red"><b><i>E920<br>
 					</i></b></font><font size="5" color="red">L-cysteine hydrochloride</font></p>
-		<p>A compound produced from L-cysteine (<a href="#Anchor-E910-54380">E910</a>) a naturally occuring sulphur containing amino acid that the body needs to produce Glutathione, one of the body's major antioxidants.</p>
+		<p>A compound produced from L-cysteine (<a href="#E910">E910</a>) a naturally occuring sulphur containing amino acid that the body needs to produce Glutathione, one of the body's major antioxidants.</p>
 		<p>Commercially produced from hair and feathers.</p>
 		<p>Found in flour and bakery products (except wholemeal) where it is used as an improving agent and in chicken stock cubes where it is used as a flavour.</p>
 		<p>Diabetics should be aware that there are some reports that it may interfere with insulin and there are anecdotal reports that it can react with monosodium glutamate (<a href="E541-640.html#Anchor-37201">E621</a>) in individuals who suffer from the so called Chinese restaurant syndrome, a set of symptoms, including headache, burning sensations, dizziness and disorientation.</p>
@@ -3684,11 +3683,6 @@ May cause skin irritation.<BR>
 			Also, researchers from King's College, London are currently investigating the effects of Aspartame to see if it is linked to an increased risk of malignant brain tumours.<br>
 			<br>
 			Until the truth of the matter is ascertained this is one additive probably best avoided.<br>
-			<br>
-			MORE INFO ON ASPARTAME: <br>
-			<br>
-			La Leva's Food section:<br>
-			<a href="../food.html">http://www.laleva.cc/food/food.html</a><br>
 			<br>
 		</p>
 
