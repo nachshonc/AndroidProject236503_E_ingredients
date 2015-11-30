@@ -65,6 +65,8 @@ public class DetailsViewActivity extends AppCompatActivity {
                 ab.setSubtitle(ingredient.getTitle());
             Log.d("SPFK", "Loading data for key "+key);
             webView.loadUrl("about:blank");
+            webView.clearHistory();
+            webView.clearCache(false);
             webView.loadData(ingredient.toHTML(), "text/html", null);
         } else {
             webView.loadData("<html><body><i>Ingredient "+key+" not found in DB</i></body></html>", "text/html", null);
@@ -101,7 +103,7 @@ public class DetailsViewActivity extends AppCompatActivity {
         builder.setTitle("Pick your preferences");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate( R.layout.user_choice, null, false);
+        View v = inflater.inflate(R.layout.user_choice, null, false);
         builder.setView(v);
 
 /*        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
