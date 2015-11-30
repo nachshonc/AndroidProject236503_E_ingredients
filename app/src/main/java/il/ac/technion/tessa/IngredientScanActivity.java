@@ -403,11 +403,17 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void addIngredient(View view) {
+        if(txtAdd==null) Log.d("addIngredient", "txt is null");
+        if(txtAdd.getText() == null) Log.d("addIngredient", "the test itself is null");
         String txtToAdd = txtAdd.getText().toString();
         Log.d("addIngredient", txtToAdd);
         EDBIngredient ingredient = dbHandler.findIngredient(txtToAdd);
         if(ingredient==null){
             Toast.makeText(getApplicationContext(), "Unknown additive", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(adapter.exists(txtToAdd)){
+            Toast.makeText(getApplicationContext(), "Additive already appears in the list", Toast.LENGTH_SHORT).show();
             return;
         }
         adapter.add(ingredient);

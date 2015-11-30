@@ -84,6 +84,22 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         return modelsArrayList.get(idx);
     }
     public int getSize(){return modelsArrayList.size();}
+    public boolean exists(EDBIngredient ingredient){
+        for (EDBIngredient T:
+             modelsArrayList) {
+            if(ingredient.equals(T))
+                return true;
+        }
+        return false;
+    }
+    public boolean exists(String ingredient){
+        for (EDBIngredient T:
+                modelsArrayList) {
+            if(ingredient.equals(T.getKey()))
+                return true;
+        }
+        return false;
+    }
 
     @Override
     public void onClick(View v) {

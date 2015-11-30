@@ -63,14 +63,15 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText"
+                    android:id="@+id/txtAdd"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:hint="Enter an ingredient"
                     android:layout_toLeftOf="@+id/imageButton"
                     android:layout_toStartOf="@+id/imageButton"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:lines="1" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
