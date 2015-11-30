@@ -28,7 +28,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
     WebView webView;
     EDBHandler dbHandler = new EDBHandler(DetailsViewActivity.this, null, null, 1);
     ArrayList<String> keyStack = new ArrayList<>();
-    public static String PREFERENCES_KEY = "UserChoice";
     AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,14 +120,14 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        SharedPreferences preferences = getSharedPreferences(PREFERENCES_KEY, 0);
+        SharedPreferences preferences = UserPreferences.get(getApplicationContext());
         String key = keyStack.get(keyStack.size() - 1);
         Options o = (Options)v.getTag();
         SharedPreferences.Editor edit = preferences.edit();
         if(o == Options.DEFAULT)
             edit.remove(key);
         else
-            edit.putInt(key, Options.DANG.value);
+            edit.putInt(key, o.value);
         edit.commit();
         switch(o){
             case DANG:
