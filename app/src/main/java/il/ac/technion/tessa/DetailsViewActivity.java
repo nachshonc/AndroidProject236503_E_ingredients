@@ -1,10 +1,17 @@
 package il.ac.technion.tessa;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.EditText;
 
 public class DetailsViewActivity extends AppCompatActivity {
 
@@ -39,10 +46,30 @@ public class DetailsViewActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_set_preferences) {
+            setPreferences(); 
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setPreferences() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Pick your preferences");
+        LayoutInflater inflater = (LayoutInflater) getApplicationContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate( R.layout.user_choice, null, false);
+        builder.setView(v);
+
+/*        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });*/
+
+        builder.show();
+
     }
 }

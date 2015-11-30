@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usrChoice"
+        android:layout_weight="0.27">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#ff0000">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleY="0.6"
+                android:scaleX="0.6"
+                android:id="@+id/imageView"
+                android:src="@drawable/danger" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dangerous"
+                android:id="@+id/textView" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/border"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#7fff0000">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView2"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:src="@drawable/caution" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unhealthy"
+                android:id="@+id/textView2" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/border"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4600dd00">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:id="@+id/imageView3"
+                android:src="@drawable/v"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Safe"
+                android:id="@+id/textView3" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/border"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageView4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default"
+                android:id="@+id/textView4" />
+        </LinearLayout>
+
+    </RadioGroup>
+</LinearLayout>
