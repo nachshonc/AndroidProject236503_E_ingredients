@@ -116,7 +116,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
     }
     private void openPreferencesDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Pick your preferences");
+        builder.setTitle("Modify safety rating:");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate( R.layout.user_choice, null, false);

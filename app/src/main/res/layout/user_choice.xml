@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:weightSum="1">
 
     <RadioGroup
@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dangerous"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/textView" />
         </LinearLayout>
         <View
@@ -57,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Unhealthy"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/textView2" />
         </LinearLayout>
         <View
@@ -83,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Safe"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/textView3" />
         </LinearLayout>
         <View
@@ -107,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Default"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/textView4" />
         </LinearLayout>
 
