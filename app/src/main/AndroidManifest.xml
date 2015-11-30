@@ -10,6 +10,8 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,8 +30,7 @@
         <activity
             android:name=".DetailsViewActivity"
             android:label="@string/title_activity_details_view"
-            android:parentActivityName=".IngredientScanActivity"
-            android:launchMode="singleTop">
+            android:parentActivityName=".IngredientScanActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="il.ac.technion.tessa.IngredientScanActivity" />
