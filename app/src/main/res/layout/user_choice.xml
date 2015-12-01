@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#ff0000"
+            android:background="@drawable/gradient_bg_dang"
             android:id="@+id/choice_dang">
 
             <ImageView
@@ -23,14 +23,15 @@
                 android:scaleY="0.6"
                 android:scaleX="0.6"
                 android:id="@+id/imageView"
-                android:src="@drawable/danger" />
+                android:src="@drawable/poisonicon" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Dangerous"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/textView" />
+                android:id="@+id/textView"
+                android:textColor="#000000"/>
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
@@ -42,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#7fff0000"
+            android:background="@drawable/gradient_bg_warning"
             android:id="@+id/choice_unhealth">
 
             <ImageView
@@ -51,14 +52,15 @@
                 android:id="@+id/imageView2"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
-                android:src="@drawable/caution" />
+                android:src="@drawable/warningicon" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Unhealthy"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView2"
+                android:textColor="#000000"/>
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
@@ -69,7 +71,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4600dd00"
+            android:background="@drawable/gradient_bg_safe"
             android:id="@+id/choice_safe">
 
             <ImageView
@@ -78,14 +80,15 @@
                 android:scaleX="0.6"
                 android:scaleY="0.6"
                 android:id="@+id/imageView3"
-                android:src="@drawable/v"/>
+                android:src="@drawable/okicon"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Safe"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/textView3" />
+                android:id="@+id/textView3"
+                android:textColor="#000000"/>
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
@@ -107,7 +110,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Default"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/textView4"

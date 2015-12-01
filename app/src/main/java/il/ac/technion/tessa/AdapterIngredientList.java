@@ -46,36 +46,29 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
         if(ingredient.equals(EDBIngredient.notFound)){
             rowView = inflater.inflate(R.layout.list_item_empty, parent, false);
-        }
-        else if(opt==Options.SAFE) {
-            rowView = inflater.inflate(R.layout.list_item, parent, false);
-        }
-        else{
-            rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
-            ImageView image = (ImageView)rowView.findViewById(R.id.item_icon);
-            if (opt==Options.DANG) {
-                image.setImageResource(R.drawable.danger);
-                color = 0xFFFF0000; //Strong RED
-            } else {
-                image.setImageResource(R.drawable.caution);
-                color = 0x80FF0000;
-            }
-        }
-        titleView = (TextView) rowView.findViewById(R.id.item_title);
-        if(ingredient.equals(EDBIngredient.notFound)){
+            titleView = (TextView) rowView.findViewById(R.id.item_title);
             titleView.setText("Could not detect any E-ingredients");
             titleView.setTypeface(null, Typeface.ITALIC);
 
-        }
-        else {
+        } else {
+            rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
+            ImageView image = (ImageView)rowView.findViewById(R.id.item_icon);
+            if (opt == Options.SAFE) {
+                image.setImageResource(R.drawable.okicon);
+                rowView.setBackgroundResource(R.drawable.gradient_bg_safe);
+            } else if (opt == Options.DANG) {
+                image.setImageResource(R.drawable.poisonicon);
+                rowView.setBackgroundResource(R.drawable.gradient_bg_dang);
+            } else {
+                image.setImageResource(R.drawable.warningicon);
+                rowView.setBackgroundResource(R.drawable.gradient_bg_warning);
+            }
+            titleView = (TextView) rowView.findViewById(R.id.item_title);
             counterView = (TextView) rowView.findViewById(R.id.item_tag);
             counterView.setText(ingredient.getKey());
             titleView.setText(ingredient.getTitle());
         }
 
-
-        // 4. Set the text for textView
-        rowView.setBackgroundColor(color);
         return rowView;
     }
     public EDBIngredient getModel(int idx){

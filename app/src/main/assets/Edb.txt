@@ -603,7 +603,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(i) Copper complexes of chlorophylls<br>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(ii) Copper complexes of chlorophyllins</FONT></FONT></P>
 		<P>These colours are (i) an olive green oil soluble colour and (ii) water soluble green colour.</P>
-		<P>They are derived from Chlorophyll, <A HREF="<a href="http://fake.com/#E131">E131</a>-<a href="http://fake.com/#E140">E140</a>.html#Anchor-36876"><a href="http://fake.com/#E140">E140</a></A>, by substitution of copper for the magnesium, which increases their stability.</P>
+		<P>They are derived from Chlorophyll, <a href="http://fake.com/#E140">E140</a>, by substitution of copper for the magnesium, which increases their stability.</P>
 		<P>Can be found in some types of cheese, chewing gum, ice cream, Parsley sauce, soups and green vegetables and fruits preserved in liquids.</P>
 @MAGIC-ADD@
 @Key@	E141i
@@ -629,7 +629,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(i) Copper complexes of chlorophylls<br>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(ii) Copper complexes of chlorophyllins</FONT></FONT></P>
 		<P>These colours are (i) an olive green oil soluble colour and (ii) water soluble green colour.</P>
-		<P>They are derived from Chlorophyll, <A HREF="<a href="http://fake.com/#E131">E131</a>-<a href="http://fake.com/#E140">E140</a>.html#Anchor-36876"><a href="http://fake.com/#E140">E140</a></A>, by substitution of copper for the magnesium, which increases their stability.</P>
+		<P>They are derived from Chlorophyll, <a href="http://fake.com/#E140">E140</a>, by substitution of copper for the magnesium, which increases their stability.</P>
 		<P>Can be found in some types of cheese, chewing gum, ice cream, Parsley sauce, soups and green vegetables and fruits preserved in liquids.</P>
 @MAGIC-ADD@
 @Key@	E141ii
@@ -655,7 +655,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(i) Copper complexes of chlorophylls<br>
 				</FONT></FONT><FONT SIZE="5"><FONT color="red">(ii) Copper complexes of chlorophyllins</FONT></FONT></P>
 		<P>These colours are (i) an olive green oil soluble colour and (ii) water soluble green colour.</P>
-		<P>They are derived from Chlorophyll, <A HREF="<a href="http://fake.com/#E131">E131</a>-<a href="http://fake.com/#E140">E140</a>.html#Anchor-36876"><a href="http://fake.com/#E140">E140</a></A>, by substitution of copper for the magnesium, which increases their stability.</P>
+		<P>They are derived from Chlorophyll, <a href="http://fake.com/#E140">E140</a>, by substitution of copper for the magnesium, which increases their stability.</P>
 		<P>Can be found in some types of cheese, chewing gum, ice cream, Parsley sauce, soups and green vegetables and fruits preserved in liquids.</P>
 @MAGIC-ADD@
 @Key@	E142
@@ -1066,7 +1066,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 					</I></B></FONT><FONT SIZE="5" color="red">Flavoxanthin</FONT></P>
 		<div align="left">
 			<p>
-The <a href="http://fake.com/#E161">E161</a> group are Xanthophylls, <I>(from the Greek, Xanthos - yellow)</I>. They are yellow pigments, although <A HREF="#Anchor-<a href="http://fake.com/#E161g">E161g</a>-23522"><a href="http://fake.com/#E161g">E161g</a></A> is more orange, found in plants and related to carotene. Extracted  using the solvent hexane they normally contain other source plant material. </p>
+The <a href="http://fake.com/#E161">E161</a> group are Xanthophylls, <I>(from the Greek, Xanthos - yellow)</I>. They are yellow pigments, although <a href="http://fake.com/#E161g">E161g</a> is more orange, found in plants and related to carotene. Extracted  using the solvent hexane they normally contain other source plant material. </p>
 		</div>
 		<P>Flavoxanthin is not presently commercially available but is obviously eaten as part of a normal diet.<br>
 		</P>
@@ -1499,7 +1499,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 						</I></B></FONT><FONT color="red" SIZE="5">Sodium sorbate</FONT>&nbsp;
 </p>
 		</div>
-		<P>Preservative, manufactured by neutralisation of Sorbic acid, <A HREF="<a href="http://fake.com/#E171">E171</a>-<a href="http://fake.com/#E200">E200</a>.html#Anchor-<a href="http://fake.com/#E200">E200</a>-43793"><a href="http://fake.com/#E200">E200</a></A>.(See also <A HREF="#Anchor-7638"><a href="http://fake.com/#E202">E202</a></A> and <A HREF="#Anchor-63368"><a href="http://fake.com/#E203">E203</a></A>)</P>
+		<P>Preservative, manufactured by neutralisation of Sorbic acid, <a href="http://fake.com/#E200">E200</a>.(See also <a href="http://fake.com/#E202">E202</a> and <a href="http://fake.com/#E203">E203</a>)</P>
 		<P>It can be found in candied peel, cheese, cider, dessert sauces, dried apricots, fillings and toppings, fermented milks, frozen pizzas, fruit salads, gelatin capsules, margarine, processed cheese spreads and slices, soft drinks, soup concentrates, sweets and yoghurt.</P>
 @MAGIC-ADD@
 @Key@	E202
@@ -1793,7 +1793,7 @@ A naturally occurring mineral generally caused by the oxidation of nitrogenous m
 					</I></B></FONT><FONT color="red" SIZE="5">Sodium ascorbate</FONT></P>
 		<P>&nbsp;
 Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vessels and aiding the absorption of iron, is found naturally in many fresh fruits and vegetables.</P>
-		<P>E301, prepared synthetically, is the sodium salt of ascorbic acid (<A HREF="<a href="http://fake.com/#E251">E251</a>-300.html#Anchor-Ascorbic-30815"><a href="http://fake.com/#E300">E300</a></A>) and, like <a href="http://fake.com/#E300">E300</a>, it is used as an antioxidant,  a colour preservative and as a vitamin supplement.</P>
+		<P>E301, prepared synthetically, is the sodium salt of ascorbic acid (<a href="http://fake.com/#E300">E300</a>) and, like <a href="http://fake.com/#E300">E300</a>, it is used as an antioxidant,  a colour preservative and as a vitamin supplement.</P>
 		<P>It can be found in pork pies, quick-frozen fish and lobster, sausages, scotch eggs,  smoked frankfurters, tinned meats and both tinned and cereal based baby foods.<BR>
 		</P>
 @MAGIC-ADD@
@@ -2031,7 +2031,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 		<P>Commercial lecithin, most of which comes from soya bean oil, which may be GM, contains a mixture of phosphoglycerides containing principally lecithin, cephalin and phosphatidyl inositol. Other sources are egg yolk, from where it was originally obtained, and leguminous seeds, including peanuts and maize, which also may be GM. As it can also be obtained from animal fat, vegetarians should be careful.</P>
 <P>In cells lecithin protects the membranes and the polyunsaturated fats within the cells from oxygen attack.</P>
 <P>As an emulsifier it lowers the surface tension of water allowing the better combining of oils, fats and water in such foods as chocolate, ice cream, margarine and mayonnaise. In bread and bakery products it increases volume and also acts as an anti-staling agent thereby extending shelf life.</P>
-<P>In margarine it has the added advantage of preventing water leakage, so preventing spitting when frying, and protecting beta-carotene (<A HREF="<a href="http://fake.com/#E141">E141</a>-<a href="http://fake.com/#E160">E160</a>.html#Anchor-<a href="http://fake.com/#E160a">E160a</a>-23269"><a href="http://fake.com/#E160a">E160a</a></A> Vitamin A). In chocolate it allows a reduction in the cocoa butter content, prevents crystals forming and reduces viscosity (see <A HREF="<a href="http://fake.com/#E471">E471</a>-480.html#Anchor-<a href="http://fake.com/#E476">E476</a>-37448"><a href="http://fake.com/#E476">E476</a></A>). Soya lecithin has the same binding ability as egg yolk lecithin and can be used in place of eggs in many products. It also helps powders mix quickly and easily in milk or water.</P>
+<P>In margarine it has the added advantage of preventing water leakage, so preventing spitting when frying, and protecting beta-carotene (<a href="http://fake.com/#E160a">E160a</a> Vitamin A). In chocolate it allows a reduction in the cocoa butter content, prevents crystals forming and reduces viscosity (see <a href="http://fake.com/#E476">E476</a>). Soya lecithin has the same binding ability as egg yolk lecithin and can be used in place of eggs in many products. It also helps powders mix quickly and easily in milk or water.</P>
 <P>Lecithin is also a good synergist to antioxidants in fats and oils so is often used in combination with them.</P>
 		<P>For a time it was thought that lecithin supplements could help Alzheimer sufferers but this line of research did not lead anywhere.<BR>
 		</P>
@@ -2239,7 +2239,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 Sorbitol is converted to sugar in the bloodstream, but as it is only absorbed slowly not requiring insulin, it is a useful source of sugar for diabetics.<BR>
 			<BR>
 			
-Used as  a sweetening agent and substitute for glycerol (<A HREF="#Anchor-36803"><a href="http://fake.com/#E422">E422</a></A>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
+Used as  a sweetening agent and substitute for glycerol (<a href="http://fake.com/#E422">E422</a>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
 			<BR>
 			
 Found in chocolates, diabetic soft drinks, ice cream, diabetic jams, pastries and cakes, raisins and sweets.<BR>
@@ -2281,7 +2281,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 Sorbitol is converted to sugar in the bloodstream, but as it is only absorbed slowly not requiring insulin, it is a useful source of sugar for diabetics.<BR>
 			<BR>
 			
-Used as  a sweetening agent and substitute for glycerol (<A HREF="#Anchor-36803"><a href="http://fake.com/#E422">E422</a></A>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
+Used as  a sweetening agent and substitute for glycerol (<a href="http://fake.com/#E422">E422</a>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
 			<BR>
 			
 Found in chocolates, diabetic soft drinks, ice cream, diabetic jams, pastries and cakes, raisins and sweets.<BR>
@@ -2323,7 +2323,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 Sorbitol is converted to sugar in the bloodstream, but as it is only absorbed slowly not requiring insulin, it is a useful source of sugar for diabetics.<BR>
 			<BR>
 			
-Used as  a sweetening agent and substitute for glycerol (<A HREF="#Anchor-36803"><a href="http://fake.com/#E422">E422</a></A>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
+Used as  a sweetening agent and substitute for glycerol (<a href="http://fake.com/#E422">E422</a>). Sorbitol also masks the bitter after taste of saccharin in drinks and helps to maintain the physical texture of chewy sweets. Also used as a humectant to preserve moisture, colour dilutent, stabiliser and texturiser.  Extends the shelf life of syrups containing sucrose as it reduces the tendency to deposit crystals on storage <BR>
 			<BR>
 			
 Found in chocolates, diabetic soft drinks, ice cream, diabetic jams, pastries and cakes, raisins and sweets.<BR>
@@ -2640,7 +2640,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @Description@
 			<FONT FACE="Times New Roman" SIZE="6" color="red"><B><I>E471<br>
 					</I></B></FONT><FONT SIZE="5" color="red">Mono- and diglycerides of fatty acids (glyceryl monostearate, glyceryl distearate)</FONT></P>
-		<P>&nbsp;A normal part of digestion, prepared commercially  from glycerin (see <A HREF="<a href="http://fake.com/#E420">E420</a>-440.html#Anchor-17209"><a href="http://fake.com/#E422">E422</a></A>) and fatty acids. These are normally obtained from hydrogenated soya bean oil so may be GM.</P>
+		<P>&nbsp;A normal part of digestion, prepared commercially  from glycerin (see <a href="http://fake.com/#E422">E422</a>) and fatty acids. These are normally obtained from hydrogenated soya bean oil so may be GM.</P>
 		<P>Used where the foaming power of egg protein needs to be retained in the presence of fat and in baked goods as an 'anti-staling' agent where it prevents the loss of water from starches.</P>
 		<P>Reportedly the most commonly used emulsifier in the food industry it can be found in, amongst other foods,  Black Forest gateau mix, cakes, hot-chocolate mix, aerosol creams, shaped crisps, quick custard mix, packet dessert topping, dehydrated potato and sponge puddings.</P>
 		<P>Vegetarians beware - although unlikely, could conceivably be of animal origin.</P>

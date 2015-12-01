@@ -121,7 +121,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         builder.setTitle("Modify safety rating:");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        /*
         View v = inflater.inflate( R.layout.user_choice, null, false);
         View x;
         x=v.findViewById(R.id.choice_dang);     if (x != null) { x.setOnClickListener(this); x.setTag(Options.DANG); }
@@ -134,7 +133,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
         builder.setView(v);
         dialog = builder.show();
-        */
     }
 
     @Override

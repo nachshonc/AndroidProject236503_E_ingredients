@@ -25,7 +25,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public static final String FEEDER_PATH = DATA_PATH+"/tessdata/"+FEEDER_FILE;
 
-    public static final int DATABASE_VERSION = 10;
+    public static final int DATABASE_VERSION = 11;
     private static final String DATABASE_NAME = "Edb.db";
     private static final String TABLE_INGREDIENTS = "Ingredients";
 

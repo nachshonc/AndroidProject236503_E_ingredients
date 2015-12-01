@@ -38,6 +38,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.googlecode.tesseract.android.ResultIterator;
@@ -60,7 +61,7 @@ import static android.hardware.Camera.*;
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
     static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
-    static final boolean MOCK_OCR = true;
+    static final boolean MOCK_OCR = false;
     static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
@@ -329,8 +330,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     private void setPic(boolean analyzeIt) {
 
-        if (mCurrentPhotoPath == null)
+        if (mCurrentPhotoPath == null) {
             return;
+        }
         // Get the dimensions of the View
         int targetW = 1024;
 
@@ -363,6 +365,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         if (iv != null)
             iv.setImageBitmap(binarizedImage);
+
+        TextView tv = (TextView)findViewById(R.id.cameraMessage);
+        tv.setText("");
 
         if (analyzeIt)
             analyze(null);

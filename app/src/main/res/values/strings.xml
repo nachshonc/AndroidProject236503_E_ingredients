@@ -11,5 +11,7 @@
     <string name="str_en_gray">Enable grayscale</string>
     <string name="str_dis_bin">Disable image enhancement</string>
     <string name="str_en_bin">Enable image enhancement</string>
+    <string name="cameraMessageBottom">Click the camera button to take a snapshot of the ingredients list of a product. The list of identified ingredients will appear on the bottom.</string>
+    <string name="cameraMessageRight">Click the camera button to take a snapshot of the ingredients list of a product. The list of identified ingredients will appear on the right.</string>
     <string name="title_activity_details_view">DetailsViewActivity</string>
 </resources>
