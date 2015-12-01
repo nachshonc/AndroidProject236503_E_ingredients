@@ -404,9 +404,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     public void addIngredient(View view) {
         String txtToAdd = txtAdd.getText().toString();
-        Log.d("addIngredient", txtToAdd);
         txtToAdd = txtToAdd.replaceFirst("^e", "E");
-        Log.d("addIngredient: regx", txtToAdd);
+        if(!txtToAdd.startsWith("E"))
+            txtToAdd = "E".concat(txtToAdd);
+        Log.d("addIngredient: ", txtToAdd);
         EDBIngredient ingredient = dbHandler.findIngredient(txtToAdd);
         if(ingredient==null){
             Toast.makeText(getApplicationContext(), "Unknown additive", Toast.LENGTH_SHORT).show();
@@ -416,12 +417,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             Toast.makeText(getApplicationContext(), "Additive already appears in the list", Toast.LENGTH_SHORT).show();
             return;
         }
-        Log.d("addIngredient", String.format("%d", adapter.getSize()));
         ingredientsList.add(txtToAdd);
         adapter.add(ingredient);
         adapter.notifyDataSetChanged();
         listView.deferNotifyDataSetChanged();
-        Log.d("addIngredient", String.format("%d", adapter.getSize()));
         if(adapter.getSize()>1) {
             listView.post(new Runnable() {
                 @Override
@@ -527,7 +526,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 list=MOCK_LIST;
                 try {
                     Thread.sleep(0);
-                } catch (InterruptedException e) {  }
+                } catch (InterruptedException e) { Log.d("sleep", "ignored");  }
                 return "";
             }
             TessBaseAPI baseApi = new TessBaseAPI();
@@ -716,8 +715,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     thresholdValue = val;
                     setPic(true);
                 } catch (NumberFormatException exception) {
+                    Log.d("Set enhance factor", "not a valid number");
                 }
-                ;
 
             }
         });

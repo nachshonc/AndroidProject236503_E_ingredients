@@ -181,8 +181,6 @@ public class EDBHandler extends SQLiteOpenHelper {
                     tmp.setDescription(description.toString());
                 addIngredient(tmp);
             }
-        } catch (FileNotFoundException e) {
-            failed=true;
         } catch (IOException e) {
             failed=true;
         } finally {
@@ -248,35 +246,42 @@ public class EDBHandler extends SQLiteOpenHelper {
                         COLUMN_SIDEEFFECTS, COLUMN_MYADDITIVESSAFETYRATING, COLUMN_EVERBUMDESCRIPTION,
                         COLUMN_EVERBUMSAFETYRATING, COLUMN_DESCRIPTION},
                 COLUMN_KEY + "='"+key+"'", null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-            if(cursor.isAfterLast())
-                return null;
-            EDBIngredient res = new EDBIngredient(key);
-            res.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
-            res.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
-            res.setWarning(cursor.getString(cursor.getColumnIndex(COLUMN_WARNING)));
-            res.setBanned(cursor.getString(cursor.getColumnIndex(COLUMN_BANNED)));
-            res.setAllowedInEU(cursor.getString(cursor.getColumnIndex(COLUMN_ALLOWEDINEU)));
-            res.setWiki_notBanned(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTBANNED)));
-            res.setWiki_notConsideredDangerous(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTCONSIDEREDDANGEROUS)));
-            res.setClassification(cursor.getString(cursor.getColumnIndex(COLUMN_CLASSIFICATION)));
-            res.setFunctionDetails(cursor.getString(cursor.getColumnIndex(COLUMN_FUNCTIONDETAILS)));
-            res.setOrigin(cursor.getString(cursor.getColumnIndex(COLUMN_ORIGIN)));
-            res.setMyAdditivesDescription(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESDESCRIPTION)));
-            res.setDietaryRestrictions(cursor.getString(cursor.getColumnIndex(COLUMN_DIETARYRESTRICTIONS)));
-            res.setSideEffects(cursor.getString(cursor.getColumnIndex(COLUMN_SIDEEFFECTS)));
-            res.setMyAdditivesSafetyRating(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESSAFETYRATING)));
-            res.setEverbumDescription(cursor.getString(cursor.getColumnIndex(COLUMN_EVERBUMDESCRIPTION)));
-            res.setEverbumSafetyRating(cursor.getString(cursor.getColumnIndex(COLUMN_EVERBUMSAFETYRATING)));
-            res.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
+        try {
+            if (cursor != null) {
+                cursor.moveToFirst();
+                if (cursor.isAfterLast())
+                    return null;
+                EDBIngredient res = new EDBIngredient(key);
+                res.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
+                res.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
+                res.setWarning(cursor.getString(cursor.getColumnIndex(COLUMN_WARNING)));
+                res.setBanned(cursor.getString(cursor.getColumnIndex(COLUMN_BANNED)));
+                res.setAllowedInEU(cursor.getString(cursor.getColumnIndex(COLUMN_ALLOWEDINEU)));
+                res.setWiki_notBanned(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTBANNED)));
+                res.setWiki_notConsideredDangerous(cursor.getString(cursor.getColumnIndex(COLUMN_WIKINOTCONSIDEREDDANGEROUS)));
+                res.setClassification(cursor.getString(cursor.getColumnIndex(COLUMN_CLASSIFICATION)));
+                res.setFunctionDetails(cursor.getString(cursor.getColumnIndex(COLUMN_FUNCTIONDETAILS)));
+                res.setOrigin(cursor.getString(cursor.getColumnIndex(COLUMN_ORIGIN)));
+                res.setMyAdditivesDescription(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESDESCRIPTION)));
+                res.setDietaryRestrictions(cursor.getString(cursor.getColumnIndex(COLUMN_DIETARYRESTRICTIONS)));
+                res.setSideEffects(cursor.getString(cursor.getColumnIndex(COLUMN_SIDEEFFECTS)));
+                res.setMyAdditivesSafetyRating(cursor.getString(cursor.getColumnIndex(COLUMN_MYADDITIVESSAFETYRATING)));
+                res.setEverbumDescription(cursor.getString(cursor.getColumnIndex(COLUMN_EVERBUMDESCRIPTION)));
+                res.setEverbumSafetyRating(cursor.getString(cursor.getColumnIndex(COLUMN_EVERBUMSAFETYRATING)));
+                res.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
 
-            return res;
+                return res;
+            }
+            return null;
         }
-        return null;
+        finally{
+            if(cursor!=null && !cursor.isClosed())
+                cursor.close();
+            db.close();
+        }
     }
 
-    public Cursor fetchAll() {
+    /*public Cursor fetchAll() { WHO IS RESPONSIBLE FOR CLOSING CURSOR AND THE DATABASE???
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_INGREDIENTS,
                 new String[]{COLUMN_ID, COLUMN_KEY, COLUMN_TITLE, COLUMN_TYPE,
@@ -289,5 +294,5 @@ public class EDBHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
         return cursor;
-    }
+    }*/
 }
