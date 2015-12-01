@@ -59,6 +59,7 @@ import static android.hardware.Camera.*;
 
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
+    static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
     static final boolean MOCK_OCR = true;
     static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
@@ -92,7 +93,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
-    static String TEST_FILE="lord_sandwich.jpg"; //null; //"bread.jpg";
 
     Bitmap origImage, binarizedImage;
 //    Preview preview;
@@ -402,10 +402,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void addIngredient(View view) {
-        if(txtAdd==null) Log.d("addIngredient", "txt is null");
-        if(txtAdd.getText() == null) Log.d("addIngredient", "the test itself is null");
         String txtToAdd = txtAdd.getText().toString();
         Log.d("addIngredient", txtToAdd);
+        txtToAdd = txtToAdd.replaceFirst("^e", "E");
+        Log.d("addIngredient: regx", txtToAdd);
         EDBIngredient ingredient = dbHandler.findIngredient(txtToAdd);
         if(ingredient==null){
             Toast.makeText(getApplicationContext(), "Unknown additive", Toast.LENGTH_SHORT).show();
@@ -417,7 +417,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
         adapter.add(ingredient);
         adapter.notifyDataSetChanged();
-        Log.d("addIngredient", "after notify");
         if(adapter.getSize()>1) {
             listView.post(new Runnable() {
                 @Override

@@ -51,6 +51,18 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
 
         String key = getIntent().getExtras().getString("key");
         showPageForKey(key, true);
+        if(menuItemSetPref!=null)
+            setPictureForKey(key);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_details_view, menu);
+        menuItemSetPref = menu.findItem(R.id.action_set_preferences);
+        if(keyStack.isEmpty()==false)
+            setPictureForKey(keyStack.get(0));
+        return true;
+        //return super.onCreateOptionsMenu(menu);
     }
 
     public void showPageForKey(String key, boolean push) {
@@ -87,16 +99,6 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         else
             opt = dbHandler.findIngredient(key).getOptions(); //ONLY THE DEFAULT.
         menuItemSetPref.setIcon(opt.getPic());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_details_view, menu);
-        menuItemSetPref = menu.findItem(R.id.action_set_preferences);
-        setPictureForKey(keyStack.get(0));
-        return true;
-        //return super.onCreateOptionsMenu(menu);
     }
 
     @Override

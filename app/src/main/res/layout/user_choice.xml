@@ -7,8 +7,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/usrChoice"
-        android:layout_weight="0.27">
+        android:id="@+id/usrChoice">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -28,7 +27,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Dangerous"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/textView" />
@@ -56,7 +55,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Unhealthy"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/textView2" />
@@ -83,7 +82,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Safe"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/textView3" />
@@ -108,10 +107,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Default"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/textView4" />
+                android:id="@+id/textView4"
+                android:textColor="#000000" />
         </LinearLayout>
 
     </RadioGroup>

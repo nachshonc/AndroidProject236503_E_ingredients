@@ -40,9 +40,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
         TextView counterView;
         int color=0;
         Options opt = ingredient.getOptions();
-        Log.d("getView: preferences ", preferences.contains(ingredient.getKey())?"true":"false");
         if(preferences.contains(ingredient.getKey())) {
-            Log.d("getView: preferences ", String.format("%d", preferences.getInt(ingredient.getKey(), -1)));
             opt = Options.getOpt(preferences.getInt(ingredient.getKey(), -1));
         }
 

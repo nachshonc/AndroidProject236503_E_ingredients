@@ -82,7 +82,8 @@
                     android:layout_toLeftOf="@+id/button_add"
                     android:layout_toStartOf="@+id/button_add"
                     android:layout_weight="1"
-                    android:lines="1" />
+                    android:lines="1"
+                    android:singleLine="true" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
