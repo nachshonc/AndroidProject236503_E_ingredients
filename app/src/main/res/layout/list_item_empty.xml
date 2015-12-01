@@ -18,6 +18,7 @@
         android:layout_weight="70"
         android:layout_height="wrap_content"
         android:text="E123"
+        android:layout_gravity="center_vertical"
         android:textSize="16dp"
         />
 
