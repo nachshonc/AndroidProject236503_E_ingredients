@@ -98,7 +98,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //    Preview preview;
     int thresholdValue=80;
     boolean enableBinarize=true, enableGrayscale=true;
-    ArrayList<String> ingredientsList;
+    ArrayList<String> ingredientsList = new ArrayList<>();
 //    Camera camera;
     EDBHandler dbHandler;
     public static final String DATA_PATH = Environment
@@ -168,7 +168,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         listView = (ListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
         txtAdd = (EditText) findViewById(R.id.txtAdd);
-        if(adapter==null) {
+        if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
             adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
             listView.setAdapter(adapter);
         }
@@ -214,8 +214,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 }
                 models.add(ingredient);
             }
-
-            listView.setAdapter(new AdapterIngredientList(listView.getContext(), models));
+            adapter = new AdapterIngredientList(listView.getContext(), models);
+            listView.setAdapter(adapter);
         }
 
 
@@ -417,6 +417,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return;
         }
         Log.d("addIngredient", String.format("%d", adapter.getSize()));
+        ingredientsList.add(txtToAdd);
         adapter.add(ingredient);
         adapter.notifyDataSetChanged();
         listView.deferNotifyDataSetChanged();
