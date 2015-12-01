@@ -168,9 +168,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         listView = (ListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
         txtAdd = (EditText) findViewById(R.id.txtAdd);
-        adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
-        listView.setAdapter(adapter);
-
+        if(adapter==null) {
+            adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
+            listView.setAdapter(adapter);
+        }
     }
 
 
@@ -415,8 +416,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             Toast.makeText(getApplicationContext(), "Additive already appears in the list", Toast.LENGTH_SHORT).show();
             return;
         }
+        Log.d("addIngredient", String.format("%d", adapter.getSize()));
         adapter.add(ingredient);
         adapter.notifyDataSetChanged();
+        listView.deferNotifyDataSetChanged();
+        Log.d("addIngredient", String.format("%d", adapter.getSize()));
         if(adapter.getSize()>1) {
             listView.post(new Runnable() {
                 @Override
