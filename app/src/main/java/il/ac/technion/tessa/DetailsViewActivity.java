@@ -121,17 +121,20 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         builder.setTitle("Modify safety rating:");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        /*
         View v = inflater.inflate( R.layout.user_choice, null, false);
         View x;
-        x=v.findViewById(R.id.choice_dang);     x.setOnClickListener(this); x.setTag(Options.DANG);
-        x=v.findViewById(R.id.choice_unhealth); x.setOnClickListener(this); x.setTag(Options.UNHEALTHY);
-        x=v.findViewById(R.id.choice_safe);     x.setOnClickListener(this); x.setTag(Options.SAFE);
-        x=v.findViewById(R.id.choice_default);  x.setOnClickListener(this); x.setTag(Options.DEFAULT);
-        ImageView imgDefault = (ImageView)x.findViewById(R.id.imageViewDefault);
-        imgDefault.setImageResource(dbHandler.findIngredient(keyStack.get(keyStack.size() - 1)).getOptions().getPic());
+        x=v.findViewById(R.id.choice_dang);     if (x != null) { x.setOnClickListener(this); x.setTag(Options.DANG); }
+        x=v.findViewById(R.id.choice_unhealth); if (x != null) { x.setOnClickListener(this); x.setTag(Options.UNHEALTHY); }
+        x=v.findViewById(R.id.choice_safe);     if (x != null) { x.setOnClickListener(this); x.setTag(Options.SAFE); }
+        x=v.findViewById(R.id.choice_default);  if (x != null) { x.setOnClickListener(this); x.setTag(Options.DEFAULT); }
+        ImageView imgDefault = (ImageView)v.findViewById(R.id.imageViewDefault);
+        if (imgDefault != null)
+            imgDefault.setImageResource(dbHandler.findIngredient(keyStack.get(keyStack.size() - 1)).getOptions().getPic());
 
         builder.setView(v);
         dialog = builder.show();
+        */
     }
 
     @Override
