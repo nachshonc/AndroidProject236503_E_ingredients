@@ -306,13 +306,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void snap(View v) {
-        if (origImage != null)
+        /*if (origImage != null)
             origImage.recycle();
         origImage = null;
         if (binarizedImage != null)
             binarizedImage.recycle();
         binarizedImage = null;
-        System.gc();
+        System.gc();*/
 
         if (TEST_FILE != null) {
             mCurrentPhotoPath = DATA_PATH+"/tessdata/"+TEST_FILE;
@@ -441,7 +441,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void imageClick(View view) {
-        Toast.makeText(getApplicationContext(), "click on image", Toast.LENGTH_SHORT).show();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("");
 
