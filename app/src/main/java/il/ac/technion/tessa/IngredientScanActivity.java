@@ -61,8 +61,8 @@ import static android.hardware.Camera.*;
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
     static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
-    static final boolean MOCK_OCR = false;
-    static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
+    static final boolean MOCK_OCR = true;
+    static final ArrayList<String> MOCK_LIST = new ArrayList<>(); //Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -423,6 +423,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return;
         }
         ingredientsList.add(txtToAdd);
+        if(adapter.getSize()>=1 && adapter.getModel(0)==EDBIngredient.notFound){
+            adapter.remove(EDBIngredient.notFound);
+        }
         adapter.add(ingredient);
         adapter.notifyDataSetChanged();
         listView.deferNotifyDataSetChanged();
