@@ -441,6 +441,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void imageClick(View view) {
+        if(origImage==null)
+            return;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("");
 
@@ -625,7 +627,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     EDBIngredient ingredient = dbHandler.findIngredient(list.get(i));
                     if(ingredient==null) {
                         ingredient = new EDBIngredient(list.get(i));
-                        ingredient.setTitle("Unknown additive");
+                        ingredient.setTitle("Unknown ingredient");
                     }
                     models.add(ingredient);
                 }
