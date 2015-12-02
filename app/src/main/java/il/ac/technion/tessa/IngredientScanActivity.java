@@ -559,11 +559,20 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     String[] words = word.split(",");
                     for (int i=0; i < words.length; i++) {
                         Log.d("words","%"+words[i]+"%");
-                        if (words[i].matches("^[^E£5₪]*[E£5₪]-?[\\doOS][\\doOS][\\doOS][a-i]*([^0-9a-zA-Z].*|)$")) {
-                            String toAdd = words[i].replaceAll("^[^E£5₪]*[E5£₪]-?([\\doOS][\\doOS][\\doOS][a-i]*).*", "E$1").replaceAll("[oO]", "0").replaceAll("S","5");
+                        if (words[i].matches("^[^E£5₪]*[E£5₪]-?[\\doOSD][\\doOSD][\\doOSD][a-i]*([^0-9a-zA-Z].*|)$")) {
+                            String toAdd = words[i].replaceAll("^[^E£5₪]*[E5£₪]-?([\\doOSD][\\doOSD][\\doOSD][a-i]*).*", "E$1").
+                                    replaceAll("[oOD]", "0").
+                                    replaceAll("S","5");
+                            Log.d("toAdd",toAdd);
+                            addIngredient(toAdd);
+                        } else if (words[i].matches("^[\\doOSD][\\doOSD][\\doOSD][a-i]*([^0-9a-zA-Z].*|)-?[^E£5₪]*[E£5₪]$")) {
+                            String toAdd = words[i].replaceAll("^[^E£5₪]*[E5£₪]-?([\\doOSD][\\doOSD][\\doOSD][a-i]*).*", "E$1").
+                                    replaceAll("[oOD]", "0").
+                                    replaceAll("S","5");
                             Log.d("toAdd",toAdd);
                             addIngredient(toAdd);
                         }
+
                         //result.append(words[i].replaceAll(".*[E£]-?([\\doO][\\doO][\\doO][a-i]*).*", "E$1").replaceAll("[oO]", "0")).append("\n");
                     }
                 }

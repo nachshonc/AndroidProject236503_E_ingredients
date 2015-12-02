@@ -11,4 +11,9 @@ public enum Options{DANG(0), UNHEALTHY(1), SAFE(2), DEFAULT(3);
         else if(this==UNHEALTHY) return R.drawable.warningicon;
         else return R.drawable.okicon;
     }
+    public int getMenuPic(){
+        if(this==DANG) return R.drawable.poisonmenu;
+        else if(this==UNHEALTHY) return R.drawable.warningmenu;
+        else return R.drawable.okmenu;
+    }
 }

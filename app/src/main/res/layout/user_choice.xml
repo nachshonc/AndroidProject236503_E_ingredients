@@ -23,7 +23,7 @@
                 android:scaleY="0.6"
                 android:scaleX="0.6"
                 android:id="@+id/imageView"
-                android:src="@drawable/poisonicon" />
+                android:src="@drawable/poisonmenu" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
                 android:id="@+id/imageView2"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
-                android:src="@drawable/warningicon" />
+                android:src="@drawable/warningmenu" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                 android:scaleX="0.6"
                 android:scaleY="0.6"
                 android:id="@+id/imageView3"
-                android:src="@drawable/okicon"/>
+                android:src="@drawable/okmenu"/>
 
             <TextView
                 android:layout_width="wrap_content"

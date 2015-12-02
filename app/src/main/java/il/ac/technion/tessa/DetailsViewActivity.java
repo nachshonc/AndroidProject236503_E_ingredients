@@ -102,7 +102,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         }
         else
             opt = dbHandler.findIngredient(key).getOptions(); //ONLY THE DEFAULT.
-        menuItemSetPref.setIcon(opt.getPic());
+        menuItemSetPref.setIcon(opt.getMenuPic());
     }
 
     @Override
@@ -149,7 +149,7 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
         x=v.findViewById(R.id.choice_default);  if (x != null) { x.setOnClickListener(this); x.setTag(Options.DEFAULT); }
         ImageView imgDefault = (ImageView)v.findViewById(R.id.imageViewDefault);
         if (imgDefault != null)
-            imgDefault.setImageResource(dbHandler.findIngredient(keyStack.get(keyStack.size() - 1)).getOptions().getPic());
+            imgDefault.setImageResource(dbHandler.findIngredient(keyStack.get(keyStack.size() - 1)).getOptions().getMenuPic());
 
         builder.setView(v);
         dialog = builder.show();
