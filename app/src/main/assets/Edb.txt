@@ -589,8 +589,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Colour
-@FunctionDetails@	Green food colour. E141 (i) is soluble in water, whereas E141 (ii) is soluble in oil
-@Origin@	Synthetic copper complex of chlorophyll (E140), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
+@FunctionDetails@	Green food colour. <a href="http://fake.com/#E141i">E141i</a> is soluble in water, whereas <a href="http://fake.com/#E141ii">E141ii</a> is soluble in oil
+@Origin@	Synthetic copper complex of chlorophyll (<a href="http://fake.com/#E140">E140</a>), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None; E141 can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions
@@ -615,8 +615,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Colour
-@FunctionDetails@	Green food colour. E141 (i) is soluble in water, whereas E141 (ii) is soluble in oil
-@Origin@	Synthetic copper complex of chlorophyll (E140), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
+@FunctionDetails@	Green food colour. <a href="http://fake.com/#E141i">E141i</a> is soluble in water, whereas <a href="http://fake.com/#E141ii">E141ii</a> is soluble in oil
+@Origin@	Synthetic copper complex of chlorophyll (<a href="http://fake.com/#E140">E140</a>), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None; E141 can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions
@@ -641,8 +641,8 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Colour
-@FunctionDetails@	Green food colour. E141 (i) is soluble in water, whereas E141 (ii) is soluble in oil
-@Origin@	Synthetic copper complex of chlorophyll (E140), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
+@FunctionDetails@	Green food colour. <a href="http://fake.com/#E141i">E141i</a> is soluble in water, whereas <a href="http://fake.com/#E141ii">E141ii</a> is soluble in oil
+@Origin@	Synthetic copper complex of chlorophyll (<a href="http://fake.com/#E140">E140</a>), a natural green colour, which is present in all plants and algae. E141 is commercially extracted from nettles, grass and alfalfa. Due to chemical de-esterification of chlorophyll, phaeophytins are formed
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None; E141 can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions
@@ -693,7 +693,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @FunctionDetails@	Brown to black colours. Soluble in water and with a specific, sometimes bitter, taste
 @Origin@	Complex brown colour mixtures, made by dry heating and burning of sugars in the presence of alkali, ammonia, sulphite or combinations thereof
 @MyAdditivesDescription@	Dark brown to black liquids or solids having an odour of burnt sugar
-@DietaryRestrictions@	None; E150 can be consumed by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None; <a href="http://fake.com/#E150">E150</a> can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Cancer, Reduce Vitamin Absorbption
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Plain caramel, caustic caramel, spirit caramel. Used in whiskey among many.The caramel group of colours are the oldest and the most widely used group of colours. Caramel colouring may be derived from a variety of source products that are themselves common allergens, such as lactose, dextrose, starch hydrolysates, or malt syrup. As such, persons with known sensitivities or allergies to food products are advised to avoid foods including generic caramel colouring.
@@ -717,7 +717,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @FunctionDetails@	Brown to black colours. Soluble in water and with a specific, sometimes bitter, taste
 @Origin@	Complex brown colour mixtures, made by dry heating and burning of sugars in the presence of alkali, ammonia, sulphite or combinations thereof
 @MyAdditivesDescription@	
-@DietaryRestrictions@	None; E150 can be consumed by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None; <a href="http://fake.com/#E150">E150</a> can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Cancer, Reduce Vitamin Absorbption
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Used in Cognac. The caramel group of colours are the oldest and the most widely used group of colours. Caramel colouring may be derived from a variety of source products that are themselves common allergens, such as lactose, dextrose, starch hydrolysates, or malt syrup. As such, persons with known sensitivities or allergies to food products are advised to avoid foods including generic caramel colouring.
@@ -743,7 +743,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @FunctionDetails@	Brown to black colours. Soluble in water and with a specific, sometimes bitter, taste
 @Origin@	Complex brown colour mixtures, made by dry heating and burning of sugars in the presence of alkali, ammonia, sulphite or combinations thereof
 @MyAdditivesDescription@	
-@DietaryRestrictions@	None; E150 can be consumed by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None; <a href="http://fake.com/#E150">E150</a> can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Cancer, Reduce Vitamin Absorbption
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel. Used in beer, sauces, and confectionary. The caramel group of colours are the oldest and the most widely used group of colours. Daily intake: Up to 200 mg/kg body weight. Caramel colouring may be derived from a variety of source products that are themselves common allergens, such as lactose, dextrose, starch hydrolysates, or malt syrup. As such, persons with known sensitivities or allergies to food products are advised to avoid foods including generic caramel colouring. Intestinal problems may occur after ingestion of large amounts.
@@ -769,7 +769,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @FunctionDetails@	Brown to black colours. Soluble in water and with a specific, sometimes bitter, taste
 @Origin@	Complex brown colour mixtures, made by dry heating and burning of sugars in the presence of alkali, ammonia, sulphite or combinations thereof
 @MyAdditivesDescription@	
-@DietaryRestrictions@	None; E150 can be consumed by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None; <a href="http://fake.com/#E150">E150</a> can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Cancer, Reduce Vitamin Absorbption
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Sulfite ammonia caramel, acid-proof caramel, soft-drink caramel. Used in soft drinks. The caramel group of colours are the oldest and the most widely used group of colours. Daily intake: Up to 200 mg/kg body weight. Caramel colouring may be derived from a variety of source products that are themselves common allergens, such as lactose, dextrose, starch hydrolysates, or malt syrup. As such, persons with known sensitivities or allergies to food products are advised to avoid foods including generic caramel colouring. Intestinal problems may occur after ingestion of large amounts.
@@ -1031,7 +1031,7 @@ A dark bluish-violet synthetic coal tar dye.</P>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Colour
 @FunctionDetails@	Dark red food colour, which is slightly soluble in water
-@Origin@	Natural colour, present in many plants. It is made commercially from E160e or isolated from plants
+@Origin@	Natural colour, present in many plants. It is made commercially from <a href="http://fake.com/#E160e">E160e</a> or isolated from plants
 @MyAdditivesDescription@	Red to violet-red crystals or crystalline powder; sensitive to oxygen and light and should therefore be kept in a light-resistant container under inert gas
 @DietaryRestrictions@	None; E160f can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -1253,7 +1253,7 @@ The <a href="http://fake.com/#E161">E161</a> group are Xanthophylls, <I>(from th
 @wiki_notBanned@	FALSE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Colour
-@FunctionDetails@	E163a cyanidin: red E163b delphinidin: blue E163c malvidin: purple E164d pelargonidin: orange E164e peonidin: red-brown E165f petunidin: dark red
+@FunctionDetails@	<a href="http://fake.com/#E163a">E163a</a> cyanidin: red <a href="http://fake.com/#E163b">E163b</a> delphinidin: blue <a href="http://fake.com/#E163c">E163c</a> malvidin: purple <a href="http://fake.com/#E164d">E164d</a> pelargonidin: orange <a href="http://fake.com/#E164e">E164e</a> peonidin: red-brown <a href="http://fake.com/#E165f">E165f</a> petunidin: dark red
 @Origin@	Anthocyanins and anthocyanidins are a large group of natural colours. The colour of most fruits, flowers and berries is made up from a combination of anthocyanins and anthocyanidins. Anthocyanins always contain a carbohydrate molecule, whereas anthocyanidins lack this molecule. The individual compounds are isolated from different plant species. E163(i)-(iii) are mixtures
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None, all compounds can be consumed by vegans and vegetarians and all religious groups except Jews, as these products my be derived from grapes
@@ -1487,7 +1487,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Preservative
 @FunctionDetails@	Sorbic acid is a preservative, mainly against fungi and yeasts. It is not effective against bacteria. Optimal activity is at pH values below 6.5 (acid and slightly acid foods). Sodium sorbate is often used, as it is better soluble; its activity is similar to that of sorbic acid
-@Origin@	Sodium salt of sorbic acid (E200), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
+@Origin@	Sodium salt of sorbic acid (<a href="http://fake.com/#E200">E200</a>), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None; sorbates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Digestive Disorders, Rhinitis, Urticaria
@@ -1512,7 +1512,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Preservative
 @FunctionDetails@	Sorbic acid is a preservative, mainly against fungi and yeasts. It is not effective against bacteria. Optimal activity is at pH values below 6.5 (acid and slightly acid foods)
-@Origin@	Potassium salt of sorbic acid (E200), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
+@Origin@	Potassium salt of sorbic acid (<a href="http://fake.com/#E200">E200</a>), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
 @MyAdditivesDescription@	White or yellowish-white crystals or crystalline powder or granules
 @DietaryRestrictions@	None; sorbates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Digestive Disorders, Rhinitis, Urticaria
@@ -1535,7 +1535,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Preservative
 @FunctionDetails@	Sorbic acid is a preservative, mainly against fungi and yeasts. It is not effective against bacteria. Optimal activity is at pH values below 6.5 (acid and slightly acid foods). Calcium sorbate is used mainly in dairy products; its activity is similar to that of sorbic acid
-@Origin@	Calcium salt of sorbic acid (E200), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
+@Origin@	Calcium salt of sorbic acid (<a href="http://fake.com/#E200">E200</a>), which naturally occurs in the fruit of the European Mountain-ash (Sorbus aucuparia ), after which the acid is named. It is commercially produced by several different chemical pathways
 @MyAdditivesDescription@	Fine white crystalline powder not showing any change in colour after heating at 105o for 90 min
 @DietaryRestrictions@	None; sorbates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Digestive Disorders, Rhinitis, Urticaria
@@ -1589,7 +1589,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @DietaryRestrictions@	None; benzoic acid and benzoates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Liver Problems
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	See 210 for similar details. In combination with ascorbic acid (<a href="http://fake.com/#E300">E300</a>), sodium benzoate form benzene, a known carcinogen. However, in most beverages that contain both, the benzene levels are below those considered dangerous for consumption. Heat, light and shelf life can affect the rate at which benzene is formed.
+@EverbumDescription@	See <a href="http://fake.com/#E210">E210</a> for similar details. In combination with ascorbic acid (<a href="http://fake.com/#E300">E300</a>), sodium benzoate form benzene, a known carcinogen. However, in most beverages that contain both, the benzene levels are below those considered dangerous for consumption. Heat, light and shelf life can affect the rate at which benzene is formed.
 @EverbumSafetyRating@	danger
 @Description@
 		<p align="center"><font color="red"><font face="Times New Roman" size="6"><b><i>E211<br>
@@ -1616,7 +1616,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @DietaryRestrictions@	None; benzoic acid and benzoates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cancer, Digestive Disorders, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	See 210 for similar details. In combination with ascorbic acid (<a href="http://fake.com/#E300">E300</a>), potassium benzoate form benzene, a known carcinogen. However, in most beverages that contain both, the benzene levels are below those considered dangerous for consumption. Heat, light and shelf life can affect the rate at which benzene is formed.
+@EverbumDescription@	See <a href="http://fake.com/#E210">E210</a> for similar details. In combination with ascorbic acid (<a href="http://fake.com/#E300">E300</a>), potassium benzoate form benzene, a known carcinogen. However, in most beverages that contain both, the benzene levels are below those considered dangerous for consumption. Heat, light and shelf life can affect the rate at which benzene is formed.
 @EverbumSafetyRating@	danger
 @Description@
 		<p align="center"><font face="Times New Roman" size="6" color="red"><b><i>E212<br>
@@ -1644,7 +1644,7 @@ White in colour, Titanium dioxide is extracted from the  naturally occurring min
 @DietaryRestrictions@	None; benzoic acid and benzoates can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cancer, Digestive Disorders, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	See 210 for similar details.
+@EverbumDescription@	See <a href="http://fake.com/#E210">E210</a> for similar details.
 @EverbumSafetyRating@	avoid
 @Description@
 		<p align="center"><font face="Times New Roman" size="6" color="red"><b><i>E213<br>
@@ -1780,7 +1780,7 @@ A naturally occurring mineral generally caused by the oxidation of nitrogenous m
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Anti-oxidant and bread enhancer. It prevents browning of fruits as well as formation of nitrosamines in meat. Ascorbic acid is vitamin C; however, it cannot be added as a vitamin supplement when labelled E300
+@FunctionDetails@	Anti-oxidant and bread enhancer. It prevents browning of fruits as well as formation of nitrosamines in meat. Ascorbic acid is vitamin C; however, it cannot be added as a vitamin supplement when labelled <a href="http://fake.com/#E300">E300</a>
 @Origin@	Sodium salt of ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Commercially synthesised by bacterial fermentation of glucose, followed by chemical oxidation
 @MyAdditivesDescription@	Not less than 99% after drying
 @DietaryRestrictions@	None; ascorbic acid and ascorbates can be consumed by all religious groups, vegans and vegetarians
@@ -1806,7 +1806,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Anti-oxidant and bread enhancer. It prevents browning of fruits as well as formation of nitrosamines in meat. Ascorbic acid is vitamin C; however, it cannot be added as a vitamin supplement when labelled E302
+@FunctionDetails@	Anti-oxidant and bread enhancer. It prevents browning of fruits as well as formation of nitrosamines in meat. Ascorbic acid is vitamin C; however, it cannot be added as a vitamin supplement when labelled <a href="http://fake.com/#E302">E302</a>
 @Origin@	Calcium salt of ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Commercially synthesised by bacterial fermentation of glucose, followed by chemical oxidation
 @MyAdditivesDescription@	White to slightly yellow odourless crystalline powder
 @DietaryRestrictions@	None; ascorbic acid and ascorbates can be consumed by all religious groups, vegans and vegetarians
@@ -1831,8 +1831,8 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours E160 and E161 to prevent oxidation of these colours
-@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see E300)
+@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours <a href="http://fake.com/#E160">E160</a> and <a href="http://fake.com/#E161">E161</a> to prevent oxidation of these colours
+@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see <a href="http://fake.com/#E300">E300</a>)
 @MyAdditivesDescription@	White or yellowish-white solid, with a citrus-like odour
 @DietaryRestrictions@	Ascorbic acid and ascorbates can normally be consumed by all religious groups, vegans and vegetarians. However, there is the possibility that the palmitic acid used is obtained from animal fat, although the main source is vegetable fat. Use of animal (incl. pork) fat cannot be ruled out completely
 @SideEffects@	No side effects known
@@ -1857,8 +1857,8 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours E160 and E161 to prevent oxidation of these colours
-@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see E300)
+@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours <a href="http://fake.com/#E160">E160</a> and <a href="http://fake.com/#E161">E161</a> to prevent oxidation of these colours
+@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see <a href="http://fake.com/#E300">E300</a>)
 @MyAdditivesDescription@	White or yellowish-white solid, with a citrus-like odour
 @DietaryRestrictions@	Ascorbic acid and ascorbates can normally be consumed by all religious groups, vegans and vegetarians. However, there is the possibility that the palmitic acid used is obtained from animal fat, although the main source is vegetable fat. Use of animal (incl. pork) fat cannot be ruled out completely
 @SideEffects@	No side effects known
@@ -1883,8 +1883,8 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours E160 and E161 to prevent oxidation of these colours
-@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see E300)
+@FunctionDetails@	Anti-oxidant in fatty products, especially added to prevent rancidity in plant oils with many unsaturated fatty acids. Also used for the food colours <a href="http://fake.com/#E160">E160</a> and <a href="http://fake.com/#E161">E161</a> to prevent oxidation of these colours
+@Origin@	Combination of the fatty acid palmitate with ascorbic acid (vitamin C, a n atural acid), which occurs naturally in most fruits and vegetables. Palmitic acid is produced from fat (for ascorbate see <a href="http://fake.com/#E300">E300</a>)
 @MyAdditivesDescription@	White or yellowish-white solid, with a citrus-like odour
 @DietaryRestrictions@	Ascorbic acid and ascorbates can normally be consumed by all religious groups, vegans and vegetarians. However, there is the possibility that the palmitic acid used is obtained from animal fat, although the main source is vegetable fat. Use of animal (incl. pork) fat cannot be ruled out completely
 @SideEffects@	No side effects known
@@ -2046,7 +2046,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Lactic acid and lactates are used as preservatives, mainly against yeasts and fungi. It is also used to increase stability of anti-oxidants and to prevent drying of different products
-@Origin@	Sodium salt of lactic acid (E270), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
+@Origin@	Sodium salt of lactic acid (<a href="http://fake.com/#E270">E270</a>), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
 @MyAdditivesDescription@	Colourless, transparent, liquid. Odourless, or with a slight, characteristic odour
 @DietaryRestrictions@	None, lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance
 @SideEffects@	Allergy
@@ -2073,7 +2073,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Lactic acid and lactates are used as preservatives, mainly against yeasts and fungi. It is also used to increase stability of anti-oxidants and to prevent drying of different products
-@Origin@	Potassium salt of lactic acid (E270), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
+@Origin@	Potassium salt of lactic acid (<a href="http://fake.com/#E270">E270</a>), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
 @MyAdditivesDescription@	Slightly viscous, almost odourless clear liquid; odourless, or with a slight, characteristic odour
 @DietaryRestrictions@	None, lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is not made from milk and thus suitable for people with milk allergy or lactose intolerance
 @SideEffects@	Allergy
@@ -2100,7 +2100,7 @@ Vitamin C, essential for growth, healthy teeth, gums, bones, skin and blood vess
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Lactic acid and lactates are used as preservatives, mainly against yeasts and fungi. It is mainly used to stabilize the structure of fruits, vegetables and potatoes during processing. It also has anti-oxidant activity
-@Origin@	Calcium salt of lactic acid (E270), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
+@Origin@	Calcium salt of lactic acid (<a href="http://fake.com/#E270">E270</a>), a natural acid produced by bacteria in fermented foods. All fermented foods are very rich in lactic acid. Commercially produced by bacterial fermentation on starch and molasses. Also produced in large amounts in the large intestine by the resident bacteria
 @MyAdditivesDescription@	White to cream coloured, almost odourless, crystalline powder or granules. The pentahydrate is somewhat efflorescent
 @DietaryRestrictions@	None, lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance
 @SideEffects@	Allergy
@@ -2375,7 +2375,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @FunctionDetails@	Emulsifier
 @Origin@	Synthetic compound, produced from ethylene oxide (a synthetic compound) and stearic acid (a natural fatty acid)
 @MyAdditivesDescription@	Cream-coloured, soft, waxy or pasty solid at 25o, with a faint fatty odour
-@DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
+@DietaryRestrictions@	These compounds (430-<a href="http://fake.com/#E436">E436</a>) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Cancer, Digestive Disorders, Kidney Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Polyoxyethene 8 stearate is a synthetic compound produced from a mixture of mono- and diesters of edible stearic acid, with polyoxyethylene diols. It is used as an emulsifier, gelling agent, stabiliser, and thickener in foods. Used in cakes, cake mixes, fillings, icings, pastries, and toppings. Daily Intake: Up to 25 mg/kg body weight. People intolerant of propylene glycol should also avoid this.
@@ -2401,7 +2401,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @FunctionDetails@	Emulsifier
 @Origin@	E431 is a synthetic compound, produced from ethylene oxide (a synthetic compound) and stearic acid (a natural fatty acid)
 @MyAdditivesDescription@	Cream-coloured and exists as flakes or as a waxy solid at 25o with a faint odour
-@DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
+@DietaryRestrictions@	These compounds (430-<a href="http://fake.com/#E436">E436</a>) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Allergy, Cancer, Cutaneous Reactions, Digestive Disorders, Kidney Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Polyoxyethene 40 stearate is a synthetic compound produced from a mixture of mono- and diesters of edible stearic acid, with polyoxyethylene diols. It is used as an emulsifier, gelling agent, stabiliser, and thickener in foods. 	Used in bakery and baked goods. Daily Intake: Up to 25 mg/kg body weight. People intolerant of propylene glycol should also avoid this.
@@ -2425,9 +2425,9 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Emulsifier
-@Origin@	E432 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see E420) and lauric acid (a natural fatty acid)
+@Origin@	E432 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see <a href="http://fake.com/#E420">E420</a>) and lauric acid (a natural fatty acid)
 @MyAdditivesDescription@	Lemon to amber coloured oily liquid at 25o, with a faint characteristic odour
-@DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
+@DietaryRestrictions@	These compounds (430-<a href="http://fake.com/#E436">E436</a>) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Cancer, Cutaneous Reactions, Digestive Disorders, Kidney Problems, Liver Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Polyeyethene 20 is a synthetic compound produced from ethylene oxide, sorbital and lauric acid. Generally it is used in combination with other emulsifiers to disperse flavours and colours, improve texture in bakery goods, and to make essential oils and vitamins soluble. In many products. Daily Intake: Up to 25 mg/kg body weight. People intolerant of propylene glycol should also avoid this.
@@ -2471,9 +2471,9 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Emulsifier
-@Origin@	E434 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see E420) and palmitic acid (a natural fatty acid)
+@Origin@	E434 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see <a href="http://fake.com/#E420">E420</a>) and palmitic acid (a natural fatty acid)
 @MyAdditivesDescription@	Lemon to orange coloured, oily liquid or semi-gel at 25o, with a faint characteristic odour
-@DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
+@DietaryRestrictions@	These compounds (430-<a href="http://fake.com/#E436">E436</a>) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Cancer, Cutaneous Reactions, Digestive Disorders, Kidney Problems, Liver Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Polysorbate 40 is a synthetic compound that is produced from ethylene oxide, sorbitol and palmitic acid. It is used as an emulsifier, and thickener in foods. Used in spices, cereal, chewing gum, and canned fruit drinks. Daily Intake: Up to 25 mg/kg body weight. People intolerant of propylene glycol should also avoid this.
@@ -2494,9 +2494,9 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Emulsifier
-@Origin@	E435 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see E420) and stearic acid (a natural fatty acid)
+@Origin@	E435 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see <a href="http://fake.com/#E420">E420</a>) and stearic acid (a natural fatty acid)
 @MyAdditivesDescription@	Lemon to orange coloured oily liquid or semi-gel at 25o, with a faint characteristic odour
-@DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
+@DietaryRestrictions@	These compounds (430-<a href="http://fake.com/#E436">E436</a>) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Allergy, Cancer, Diarrhea, Digestive Disorders, Kidney Problems, Liver Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Polysorbate 60 is a synthetic compound that is produced from ethylene oxide, sorbitol and stearic acid. It is used as an emulsifier, and thickener in foods. Used in soups, breads, biscuits and cakes, frozen desserts, sauces, cream, crisps, spreads, jams, chocolate, margarine, quick-setting deserts, and milk shakes. Daily Intake: Up to 25 mg/kg body weight. People intolerant of propylene glycol should also avoid this.
@@ -2517,7 +2517,7 @@ It is not allowed in foods intended specifically for babies or young children.<B
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Emulsifier, anti-foaming agent, etc
-@Origin@	E436 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see E420) and stearic acid (a natural fatty acid)
+@Origin@	E436 is a synthetic compound, produced from ethylene oxide (a synthetic compound), sorbitol (see <a href="http://fake.com/#E420">E420</a>) and stearic acid (a natural fatty acid)
 @MyAdditivesDescription@	Tan coloured, waxy solid at 25o, with a faint characteristic odour
 @DietaryRestrictions@	These compounds (430-E436) contain fatty acids, which are nearly always from vegetable oils; however, use of animal fat (including pork) cannot be fully ruled out. Chemically, the origin of these compounds cannot be determined; only the producer may provide information on the origin
 @SideEffects@	Allergy, Cancer, Diarrhea, Digestive Disorders, Kidney Problems, Liver Problems
@@ -3203,7 +3203,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Used as anti-caking agent and emulsifier
-@Origin@	Magnesium salt of stearic acid, E570
+@Origin@	Magnesium salt of stearic acid, <a href="http://fake.com/#E570">E570</a>
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Although stearic acid and stearates are commercially obtained from plant sources, the use of animal fat (including pork and beef) can not be excluded. Only the producer can provide information on the origin. The use by vegans, vegetarians, Muslims, Jews and Hindus thus is not recommended
 @SideEffects@	Dangerous To Breathe
@@ -3230,7 +3230,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Iron supplement
-@Origin@	Iron salt of lactic acid, E270
+@Origin@	Iron salt of lactic acid, <a href="http://fake.com/#E270">E270</a>
 @MyAdditivesDescription@	Greenish white crystals or light green powder having a weak, characteristic smell
 @DietaryRestrictions@	None, lactic acid and lactates can be consumed by all religious groups, vegans and vegetarians. Although the name refers to milk, it is mot made from milk and thus suitable for people with milk allergy or lactose intolerance
 @SideEffects@	No side effects known
@@ -3278,7 +3278,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @wiki_notConsideredDangerous@	FALSE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Glutamic acid and glutamates have the specific umami taste and enhance many other flavours, thereby reducing the amounts of salt needed in a product
-@Origin@	Sodium salt from glutamic acid (E620), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
+@Origin@	Sodium salt from glutamic acid (<a href="http://fake.com/#E620">E620</a>), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
 @MyAdditivesDescription@	White, practically odourless crystals or crystalline powder
 @DietaryRestrictions@	None. Glutamic acid and glutamates can be used by all religious groups, vegetarians and vegans. The products do not contain gluten
 @SideEffects@	Affect Nervous System, Allergy, Asthma, Cancer, Migraine, Urticaria
@@ -3320,7 +3320,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Inosinic acid and inosinates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt or other flavour enhancers needed in a product
-@Origin@	Sodium salt of inosinic acid (E630), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
+@Origin@	Sodium salt of inosinic acid (<a href="http://fake.com/#E630">E630</a>), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
 @MyAdditivesDescription@	Odourless, colourless or white crystals, or a white crystalline powder
 @DietaryRestrictions@	Inosinates are generally produced from meat, but partly also from fish. They are thus not suitable for vegans and vegetarians, and in most cases not suitable for Jews, Muslims and Hindus, depending on the origin of the product. Only the producer can provide information on the origin. Regarding the issue of E631 in Lays products in Pakistan we would like to refer to the Lays Pakistan Statement and the certification of Halal of Lays products. The inosinate is made from tapioca starch and no animal products are involved in the production
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -3343,7 +3343,7 @@ An anti-caking agent and mineral supplement supplying calcium and phosphorous.</
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Guanylates and inosinates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt or other flavour enhancers needed in a product
-@Origin@	Mixture of sodium salts of guanylic (E626) and inosinic acid (E630)
+@Origin@	Mixture of sodium salts of guanylic (<a href="http://fake.com/#E626">E626</a>) and inosinic acid (<a href="http://fake.com/#E630">E630</a>)
 @MyAdditivesDescription@	Odourless, white or off-white crystals or powder
 @DietaryRestrictions@	Guanylates and inosinates are generally produced from meat, but partly also from fish. They are thus not suitable for vegans and vegetarians, and in most cases not suitable for Jews, Muslims and Hindus, depending on the origin of the product. Only the producer can provide information on the origin
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -3881,7 +3881,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	None; benzoic acid esters can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	Ethyl ester of para-hydroxybenzoic acid. See 210 for similar details. Daily intake: Up to 10 mg/kg body weight. 
+@EverbumDescription@	Ethyl ester of para-hydroxybenzoic acid. See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight. 
 @EverbumSafetyRating@	avoid
 @Description@
 
@@ -3901,7 +3901,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	None; benzoic acid esters can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cancer, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	Sodium salt of ethylparaben (<a href="http://fake.com/#E214">E214</a>). See 210 for similar details. Daily intake: Up to 10 mg/kg body weight. 
+@EverbumDescription@	Sodium salt of ethylparaben (<a href="http://fake.com/#E214">E214</a>). See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight. 
 @EverbumSafetyRating@	unknown
 @Description@
 
@@ -3921,7 +3921,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	None; benzoic acid esters can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cancer, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	The propyl ester of para-hydroxybenzoic acid, occurs as a natural substance found in many plants and some insects, although it is manufactured synthetically for use in cosmetics, pharmaceuticals and foods. See 210 for similar details. Daily intake: Up to 10 mg/kg body weight. 
+@EverbumDescription@	The propyl ester of para-hydroxybenzoic acid, occurs as a natural substance found in many plants and some insects, although it is manufactured synthetically for use in cosmetics, pharmaceuticals and foods. See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight. 
 @EverbumSafetyRating@	danger
 @Description@
 
@@ -3941,7 +3941,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	
 @SideEffects@	Allergy, Asthma, Cancer, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	Sodium salt of propylparaben (<a href="http://fake.com/#E216">E216</a>). See 210 for similar details. Daily intake: Up to 10 mg/kg body weight.
+@EverbumDescription@	Sodium salt of propylparaben (<a href="http://fake.com/#E216">E216</a>). See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight.
 @EverbumSafetyRating@	danger
 @Description@
 
@@ -3961,7 +3961,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	None; benzoic acid esters can be consumed by all religious groups, vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cancer, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	Methyl ester of para-hydroxybenzoic acid. See 210 for similar details. Daily intake: Up to 10 mg/kg body weight.
+@EverbumDescription@	Methyl ester of para-hydroxybenzoic acid. See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight.
 @EverbumSafetyRating@	avoid
 @Description@
 
@@ -3981,7 +3981,7 @@ May cause skin irritation.<BR>
 @DietaryRestrictions@	
 @SideEffects@	Allergy, Asthma, Cancer, Hyperactivity, Insomnia, Urticaria
 @MyAdditivesSafetyRating@	Dangerous
-@EverbumDescription@	The sodium salt of methylparaben (<a href="http://fake.com/#E218">E218</a>). See 210 for similar details. Daily intake: Up to 10 mg/kg body weight.
+@EverbumDescription@	The sodium salt of methylparaben (<a href="http://fake.com/#E218">E218</a>). See <a href="http://fake.com/#E210">E210</a> for similar details. Daily intake: Up to 10 mg/kg body weight.
 @EverbumSafetyRating@	avoid
 @Description@
 
@@ -5075,7 +5075,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. E332 (ii) is also used as an antacid (against stomach acid)
+@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. <a href="http://fake.com/#E332ii">E332ii</a> is also used as an antacid (against stomach acid)
 @Origin@	Potassium salts of citric acid, a compound found in every living organism, as it is part of the key metabolic pathways in all body cells. Large concentrations are found in citrus fruits, kiwi, strawberries and many other fruits. Commercially prepared by fermentation of molasses with the mould Aspergillus niger 
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Citric acid and citrates can normally be consumed by all religious groups, vegans and vegetarians. Citric acid does not cause allergic reactions in people who are allergic to oranges and other citrus fruits, as it is commercially made from sugar, not fruits
@@ -5095,7 +5095,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. E332 (ii) is also used as an antacid (against stomach acid)
+@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. <a href="http://fake.com/#E332ii">E332ii</a> is also used as an antacid (against stomach acid)
 @Origin@	Potassium salts of citric acid, a compound found in every living organism, as it is part of the key metabolic pathways in all body cells. Large concentrations are found in citrus fruits, kiwi, strawberries and many other fruits. Commercially prepared by fermentation of molasses with the mould Aspergillus niger 
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Citric acid and citrates can normally be consumed by all religious groups, vegans and vegetarians. Citric acid does not cause allergic reactions in people who are allergic to oranges and other citrus fruits, as it is commercially made from sugar, not fruits
@@ -5115,7 +5115,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. E332 (ii) is also used as an antacid (against stomach acid)
+@FunctionDetails@	Potassium citrate is used as a buffer, to bind metal ions and as a nutrient source for yeasts in special fermented products. <a href="http://fake.com/#E332ii">E332ii</a> is also used as an antacid (against stomach acid)
 @Origin@	Potassium salts of citric acid, a compound found in every living organism, as it is part of the key metabolic pathways in all body cells. Large concentrations are found in citrus fruits, kiwi, strawberries and many other fruits. Commercially prepared by fermentation of molasses with the mould Aspergillus niger 
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Citric acid and citrates can normally be consumed by all religious groups, vegans and vegetarians. Citric acid does not cause allergic reactions in people who are allergic to oranges and other citrus fruits, as it is commercially made from sugar, not fruits
@@ -5535,7 +5535,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. E341 (ii) is used as polishing material in toothpaste. E341 (iii) is mainly used in powders to avoid formation of clumps
+@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. <a href="http://fake.com/#E341ii">E341ii</a> is used as polishing material in toothpaste. <a href="http://fake.com/#E341iii">E341iii</a> is mainly used in powders to avoid formation of clumps
 @Origin@	Calcium salts of phosphoric acid. Normal constituent of the body. Commercially produced from phosphoric acid, which is produced from phosphate mined in the US
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Phosphoric acid and phosphates can normally be consumed by all religious groups, vegans and vegetarians. Although animal bones are mainly made up of phosphates, commercial phosphate is not made from bones
@@ -5555,7 +5555,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. E341 (ii) is used as polishing material in toothpaste. E341 (iii) is mainly used in powders to avoid formation of clumps
+@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. <a href="http://fake.com/#E341ii">E341ii</a> is used as polishing material in toothpaste. <a href="http://fake.com/#E341iii">E341iii</a> is mainly used in powders to avoid formation of clumps
 @Origin@	Calcium salts of phosphoric acid. Normal constituent of the body. Commercially produced from phosphoric acid, which is produced from phosphate mined in the US
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Phosphoric acid and phosphates can normally be consumed by all religious groups, vegans and vegetarians. Although animal bones are mainly made up of phosphates, commercial phosphate is not made from bones
@@ -5575,7 +5575,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. E341 (ii) is used as polishing material in toothpaste. E341 (iii) is mainly used in powders to avoid formation of clumps
+@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. <a href="http://fake.com/#E341ii">E341ii</a> is used as polishing material in toothpaste. <a href="http://fake.com/#E341iii">E341iii</a> is mainly used in powders to avoid formation of clumps
 @Origin@	Calcium salts of phosphoric acid. Normal constituent of the body. Commercially produced from phosphoric acid, which is produced from phosphate mined in the US
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Phosphoric acid and phosphates can normally be consumed by all religious groups, vegans and vegetarians. Although animal bones are mainly made up of phosphates, commercial phosphate is not made from bones
@@ -5595,7 +5595,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
-@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. E341 (ii) is used as polishing material in toothpaste. E341 (iii) is mainly used in powders to avoid formation of clumps
+@FunctionDetails@	Calcium phosphate is an acidity regulator, used in baking powder and acts as a bread enhancer. It also binds metal ions, increases the activity of antioxidants and stabilises the texture of canned vegetables. <a href="http://fake.com/#E341ii">E341ii</a> is used as polishing material in toothpaste. <a href="http://fake.com/#E341iii">E341iii</a> is mainly used in powders to avoid formation of clumps
 @Origin@	Calcium salts of phosphoric acid. Normal constituent of the body. Commercially produced from phosphoric acid, which is produced from phosphate mined in the US
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Phosphoric acid and phosphates can normally be consumed by all religious groups, vegans and vegetarians. Although animal bones are mainly made up of phosphates, commercial phosphate is not made from bones
@@ -5676,7 +5676,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Sodium malate is used as a buffer and flavouring
-@Origin@	Sodium salt of malic acid (E296), a natural acid present in fruits
+@Origin@	Sodium salt of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5696,7 +5696,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Sodium malate is used as a buffer and flavouring
-@Origin@	Sodium salt of malic acid (E296), a natural acid present in fruits
+@Origin@	Sodium salt of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5716,7 +5716,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Sodium malate is used as a buffer and flavouring
-@Origin@	Sodium salt of malic acid (E296), a natural acid present in fruits
+@Origin@	Sodium salt of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5736,7 +5736,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Potassium malate is used as a buffer and flavouring
-@Origin@	Potassium salts of malic acid (E296), a natural acid present in fruits
+@Origin@	Potassium salts of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5756,7 +5756,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Calcium malate is used as a thickener and flavouring
-@Origin@	Calcium salts of malic acid (E296), a natural acid present in fruits
+@Origin@	Calcium salts of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5776,7 +5776,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Calcium malate is used as a thickener and flavouring
-@Origin@	Calcium salts of malic acid (E296), a natural acid present in fruits
+@Origin@	Calcium salts of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5796,7 +5796,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Calcium malate is used as a thickener and flavouring
-@Origin@	Calcium salts of malic acid (E296), a natural acid present in fruits
+@Origin@	Calcium salts of malic acid (<a href="http://fake.com/#E296">E296</a>), a natural acid present in fruits
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Malic acid and malates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -5936,7 +5936,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Acidity regulator
-@Origin@	Sodium salt of fumaric acid (E297), a natural acid
+@Origin@	Sodium salt of fumaric acid (<a href="http://fake.com/#E297">E297</a>), a natural acid
 @MyAdditivesDescription@	Odourless, white crystalline powder
 @DietaryRestrictions@	Fumaric acid and fumarates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -6016,7 +6016,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Acidity regulator, buffer and emulsifier
-@Origin@	Ammonium salt of citric acid (E330)
+@Origin@	Ammonium salt of citric acid (<a href="http://fake.com/#E330">E330</a>)
 @MyAdditivesDescription@	White crystals or crystalline powder
 @DietaryRestrictions@	Citric acid and citrates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	Digestive Disorders, Kidney Problems, Liver Problems
@@ -6036,7 +6036,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Antioxidant, Acidity regulator
 @FunctionDetails@	Enrichment of products with iron (UK, Denmark only), anti-caking agent in salt
-@Origin@	Complex mixture of ammonia, iron and citric acid (E330)
+@Origin@	Complex mixture of ammonia, iron and citric acid (<a href="http://fake.com/#E330">E330</a>)
 @MyAdditivesDescription@	Brown salt: thin, transparent brown, reddish brown, or garnet red scales or granules, or a brownish yellow powder; odourless or has a slight ammoniacal odour Green salt: thin, transparent green scales, granules, powder, or transparent green crystals; odourless
 @DietaryRestrictions@	Citric acid and citrates can be used by all religious groups, vegans and vegetarians. The iron used is not of animal origin
 @SideEffects@	Cutaneous Reactions
@@ -6096,7 +6096,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent and emulsifier
-@Origin@	Sodium salt of alginic acid (E400), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
+@Origin@	Sodium salt of alginic acid (<a href="http://fake.com/#E400">E400</a>), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
 @MyAdditivesDescription@	White to yellowish brown filamentous, grainy, granular or powdered forms
 @DietaryRestrictions@	Alginic acid and alginates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -6116,7 +6116,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent and emulsifier
-@Origin@	Potassium salt of alginic acid (E400), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
+@Origin@	Potassium salt of alginic acid (<a href="http://fake.com/#E400">E400</a>), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
 @MyAdditivesDescription@	White to yellowish brown filamentous, grainy, granular or powdered forms
 @DietaryRestrictions@	Alginic acid and alginates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -6136,7 +6136,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent and emulsifier
-@Origin@	Ammonium salt of alginic acid (E400), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
+@Origin@	Ammonium salt of alginic acid (<a href="http://fake.com/#E400">E400</a>), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
 @MyAdditivesDescription@	White to yellowish brown filamentous, grainy, granular or powdered forms
 @DietaryRestrictions@	Alginic acid and alginates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -6156,7 +6156,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent, emulsifier, prevents crystallisation in frozen products
-@Origin@	Calcium salt of alginic acid (E400), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
+@Origin@	Calcium salt of alginic acid (<a href="http://fake.com/#E400">E400</a>), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
 @MyAdditivesDescription@	White to yellowish brown filamentous, grainy, granular and powdered forms
 @DietaryRestrictions@	Alginic acid and alginates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	No side effects known
@@ -6176,7 +6176,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent
-@Origin@	Propylene glycol ester of alginic acid (E400), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
+@Origin@	Propylene glycol ester of alginic acid (<a href="http://fake.com/#E400">E400</a>), a natural polysaccharide, produced by different seaweeds of the family Phaeophyceae (Macrocystis pyrifera, Laminaria digitata, L. cloustoni, Ascophyllum nodosum) in the USA and the UK
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Alginic acid and alginates can be used by all religious groups, vegans and vegetarians
 @SideEffects@	Reduce Vitamin Absorbption
@@ -6216,7 +6216,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
 @FunctionDetails@	Thickening agent and stabiliser
-@Origin@	A natural polysaccharide, produced by different seaweeds (Chrondrus crispus, Gigartina stellata, Euchema spinosum, E. cottonii) in Europe, Asia and America. It is a complex mixture of polysaccharides. E407a has a slightly different composition; moreover, it contains a considerable amount of cellulose
+@Origin@	A natural polysaccharide, produced by different seaweeds (Chrondrus crispus, Gigartina stellata, Euchema spinosum, E. cottonii) in Europe, Asia and America. It is a complex mixture of polysaccharides. <a href="http://fake.com/#E407a">E407a</a> has a slightly different composition; moreover, it contains a considerable amount of cellulose
 @MyAdditivesDescription@	
 @DietaryRestrictions@	Carrageenans can be used by all religious groups, vegans and vegetarians
 @SideEffects@	Reduce Vitamin Absorbption
@@ -6575,7 +6575,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6595,7 +6595,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6615,7 +6615,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6635,7 +6635,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6655,7 +6655,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6675,7 +6675,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6695,7 +6695,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -6715,7 +6715,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Thickener, Stabilizer, Emulsifier
-@FunctionDetails@	Buffers and emulsifiers. E450 (iii) also binds metals and prevents discoloration due to metals. E450 (vi) is also used as bread enhancer and calcium supplement
+@FunctionDetails@	Buffers and emulsifiers. <a href="http://fake.com/#E450iii">E450iii</a> also binds metals and prevents discoloration due to metals. <a href="http://fake.com/#E450vi">E450vi</a> is also used as bread enhancer and calcium supplement
 @Origin@	Salts of sodium/potassium/calcium with phosphates. All are produced synthetically from the respective carbonates and phosphoric acid
 @MyAdditivesDescription@	
 @DietaryRestrictions@	E450 can be consumed by all religious groups, vegans and vegetarians
@@ -7398,7 +7398,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Acidity regulator
 @Origin@	Natural acid, normal acid in the stomach. Produced from salt and sulphuric acid
 @MyAdditivesDescription@	Clear colourless or slightly yellowish liquid with a pungent odour. Various concentrations are supplied as products of commerce
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E507
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E507">E507</a>
 @SideEffects@	Cancer, Cutaneous Reactions, Digestive Disorders, Eyesight Problems
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Hydrochloric acid is synthetically prepared by adding gaseous hydrogen chloride to water. The resulting acid is highly corrosive and a strong mineral acid. Hydrochloric acid is found naturally in the stomach, also known as gastric acid. It has wide applications but is used as an acidity regulator in food. Used mainly for the malting of beer, gelatine manufacture, and cornflour. 
@@ -7418,7 +7418,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Salt replacer
 @Origin@	Natural salt, part of sea salt and rock salt
 @MyAdditivesDescription@	Colourless, elongated, prismatic, or cubital crystals, or white granular powder; odourless
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E508
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E508">E508</a>
 @SideEffects@	Diarrhea, Digestive Disorders, Nausea
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Potassium chloride is a natural mineral salt composed of chlorine and potassium. Commercially it is usually extracted from salt water. It is usually used as a salt replacer in foods. It is also used as a gelling agent, acidity regulator, thickener, and stabiliser in foods. It is toxic in high doses. It can cause cardiac arrest and rapid death. In small doses it is considered safe and it is almost self-limiting, because most people perceive potassium chloride to taste extremely bitter.
@@ -7438,7 +7438,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Acidity regulator, enhances firmness in fruits and vegetables, binds metals
 @Origin@	Natural salt, part of sea salt and rock salt
 @MyAdditivesDescription@	Anhydrous: White, deliquescent lumps or porous masses Dihydrate: White, hard, deliquescent fragments or granules Hexahydrate: Colourless, very deliquescent crystals
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E509
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E509">E509</a>
 @SideEffects@	Digestive Disorders, Nausea
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Calcium chloride is a common salt that is a crystalline solid at room temperature. It can be produced directly from limestone, although commercially it can be exacted from sea salt and rock salt. It is used as a sequestrant and firming agent in food, as an electrolyte in sports drinks, and used as a preservative for canned foods. Used in sausage, canned fish and shellfish, processed vegetables, processed meat, cheese, and baking powder.
@@ -7478,7 +7478,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Acidity regulator
 @Origin@	Natural salt, part of sea salt and rock salt
 @MyAdditivesDescription@	Colourless, odourless flakes, granules, lumps or crystals; it is very deliquescent
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E511
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E511">E511</a>
 @SideEffects@	Kidney Problems, Laxative
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Magnesium chloride is a natural mineral salt that has been mined out of ancient seabeds. Commercially it is produced from sea water after the sodium chloride and the water have been removed. It is used as a firming agent, stabiliser, and colour retention agent in foods. Can act as a laxative. 
@@ -7498,7 +7498,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Stabiliser
 @Origin@	Prepared from tin ores and hydrochloric acid
 @MyAdditivesDescription@	Colourless or white crystals, odourless or having slight odour of hydrochloric acid
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E512
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E512">E512</a>
 @SideEffects@	Kidney Problems, Liver Problems, Nausea
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Stannous chloride also known as Tin chloride is produced by dissolving tin in hydrochloric acid. It is used as a reducing agent, anti-oxidant, and colour retention agent in foods. Used in many foods such as soups, jellies, ice-creams, meringues, cream, milk, yoghurt, and laxatives. Daily Intake: Up to 2 mg/kg body weight.
@@ -7518,7 +7518,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Acid and acidity regulator
 @Origin@	Prepared from sulphur dioxide, oxygen and water
 @MyAdditivesDescription@	
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E513
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E513">E513</a>
 @SideEffects@	No side effects known
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Sulphuric acid is a natural strong mineral acid. Commercially it is prepared by the oxidation of sulphur dioxide in the presence of water. It produces a clear, colourless, and odourless liquid that is used as an acidity regulator in food. Used mainly in beer.
@@ -7616,7 +7616,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Stabiliser, metal binding agent, nutrient for yeast in bread
 @Origin@	Prepared from calcium salts and sulphuric acid. Natural mineral
 @MyAdditivesDescription@	Fine, white to slightly yellow-white, odourless powder
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E516
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E516">E516</a>
 @SideEffects@	Digestive Disorders, Laxative
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Calcium sulphate is a white solid and very soluble compound that is naturally found in gypsum and anhydrite, which may be extracted by deep mining, or open-cast quarrying. It is used as a stabiliser, metal binding agent, bleaching agent and a nutrient for yeast in bread, and as a safe calcium supplement. Naturally found in meat, cereals, and vegetables and is used primarily in agriculture and livestock feed. It can also be used in infant formula as a mineral supplement. 
@@ -7636,7 +7636,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Stabiliser, buffer, bread enhancer
 @Origin@	Prepared from ammonium salts and sulphuric acid. Natural mineral
 @MyAdditivesDescription@	
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E517
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E517">E517</a>
 @SideEffects@	Affect Nervous System, Digestive Disorders
 @MyAdditivesSafetyRating@	Dangerous
 @EverbumDescription@	Ammonium sulphate is an inorganic chemical compound that is commercially prepared by reacting ammonia with sulphuric acid. This results in fine, white, hygroscopic granules, or crystals, that are soluble in water. Ammonium sulphate is used as a stabiliser, buffer, and bread enhancer in foods. Found in foods such as pickled vegetables, beer, and proteins. 
@@ -8326,7 +8326,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Sequestrant (binds metals) in many products. Also used as nutrient for yeast
-@Origin@	Sodium salt of gluconic acid, E574
+@Origin@	Sodium salt of gluconic acid, <a href="http://fake.com/#E574">E574</a>
 @MyAdditivesDescription@	White to tan, granular to fine, crystalline powder
 @DietaryRestrictions@	None. E576 can be used by all religious groups, vegetarians and vegans
 @SideEffects@	Laxative
@@ -8346,7 +8346,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Sequestrant (binds metals) in many products. Also used as nutrient for yeast
-@Origin@	Potassium salt of gluconic acid, E574
+@Origin@	Potassium salt of gluconic acid, <a href="http://fake.com/#E574">E574</a>
 @MyAdditivesDescription@	Odourless, free flowing white to yellowish white, crystalline powder or granules
 @DietaryRestrictions@	None. E577 can be used by all religious groups, vegetarians and vegans
 @SideEffects@	Laxative
@@ -8366,7 +8366,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Anti-caking agent and strengthens the structure of canned vegetables
-@Origin@	Calcium salt of gluconic acid, E574
+@Origin@	Calcium salt of gluconic acid, <a href="http://fake.com/#E574">E574</a>
 @MyAdditivesDescription@	Odourless, white, crystalline granules or powder, stable in air
 @DietaryRestrictions@	None. E578 can be used by all religious groups, vegetarians and vegans
 @SideEffects@	Laxative
@@ -8386,7 +8386,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Acidity regulator, Anticaking agent
 @FunctionDetails@	Colour and as iron supplement
-@Origin@	Iron salt of gluconic acid, E574
+@Origin@	Iron salt of gluconic acid, <a href="http://fake.com/#E574">E574</a>
 @MyAdditivesDescription@	Fine yellowish-grey or pale greenish-yellow powder or granules having a slight odour resembling that of burnt sugar
 @DietaryRestrictions@	None. E579 can be used by all religious groups, vegetarians and vegans
 @SideEffects@	Digestive Disorders
@@ -8406,7 +8406,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Glutamic acid and glutamates have the specific umami taste and enhance many other flavours, thereby reducing the amounts of salt needed in a product. Potassium glutamate is mainly used in low salt (low sodium) products
-@Origin@	Potassium salt from glutamic acid (E620), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
+@Origin@	Potassium salt from glutamic acid (<a href="http://fake.com/#E620">E620</a>), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
 @MyAdditivesDescription@	
 @DietaryRestrictions@	None. Glutamic acid and glutamates can be used by all religious groups, vegetarians and vegans. The products do not contain gluten
 @SideEffects@	Affect Nervous System, Allergy, Asthma, Cancer, Migraine, Urticaria
@@ -8426,7 +8426,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Glutamic acid and glutamates have the specific umami taste and enhance many other flavours, thereby reducing the amounts of salt needed in a product. Calcium glutamate is mainly used in low salt (low sodium) products
-@Origin@	Calcium salt from glutamic acid (E620), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
+@Origin@	Calcium salt from glutamic acid (<a href="http://fake.com/#E620">E620</a>), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
 @MyAdditivesDescription@	White, practically odourless crystals or crystalline powder
 @DietaryRestrictions@	None. Glutamic acid and glutamates can be used by all religious groups, vegetarians and vegans. The products do not contain gluten
 @SideEffects@	Affect Nervous System, Allergy, Asthma, Cancer, Migraine, Urticaria
@@ -8446,7 +8446,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Glutamic acid and glutamates have the specific umami taste and enhance many other flavours, thereby reducing the amounts of salt needed in a product. Ammonium glutamate is mainly used in low salt (low sodium) products
-@Origin@	Ammonium salt from glutamic acid (E620), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
+@Origin@	Ammonium salt from glutamic acid (<a href="http://fake.com/#E620">E620</a>), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
 @MyAdditivesDescription@	White, practically odourless crystals or crystalline powder
 @DietaryRestrictions@	None. Glutamic acid and glutamates can be used by all religious groups, vegetarians and vegans. The products do not contain gluten
 @SideEffects@	Affect Nervous System, Allergy, Asthma, Cancer, Migraine, Urticaria
@@ -8466,7 +8466,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Glutamic acid and glutamates have the specific umami taste and enhance many other flavours, thereby reducing the amounts of salt needed in a product
-@Origin@	Magnesium salt from glutamic acid (E620), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
+@Origin@	Magnesium salt from glutamic acid (<a href="http://fake.com/#E620">E620</a>), a natural amino acid (building block of protein). Commercially prepared from molasses by bacterial fermentation. Also prepared from vegetable protein, such as gluten, or soy protein. Glutamic acid and glutamates are present in all proteins. Free glutamates are present in high concentrations in ripened cheese, breast milk, tomatoes and sardines
 @MyAdditivesDescription@	Odourless, white or off-white crystals or powder
 @DietaryRestrictions@	None. Glutamic acid and glutamates can be used by all religious groups, vegetarians and vegans. The products do not contain gluten
 @SideEffects@	Affect Nervous System, Allergy, Asthma, Cancer, Migraine, Urticaria
@@ -8506,7 +8506,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Guanylic acid and guanylates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt needed in a product
-@Origin@	Sodium salt of guanylic acid (E626), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
+@Origin@	Sodium salt of guanylic acid (<a href="http://fake.com/#E626">E626</a>), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
 @MyAdditivesDescription@	Odourless, colourless or white crystals, or a white crystalline powder
 @DietaryRestrictions@	Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -8526,7 +8526,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Guanylic acid and guanylates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt needed in a product
-@Origin@	Potassium salt of guanylic acid (E626), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
+@Origin@	Potassium salt of guanylic acid (<a href="http://fake.com/#E626">E626</a>), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
 @MyAdditivesDescription@	Odourless, colourless or white crystals, or a white crystalline powder
 @DietaryRestrictions@	Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -8546,7 +8546,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Guanylic acid and guanylates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt needed in a product
-@Origin@	Calcium salt of guanylic acid (E626), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
+@Origin@	Calcium salt of guanylic acid (<a href="http://fake.com/#E626">E626</a>), a natural acid, which is part of RNA, one of the genetic carrier molecules in the cell. It is thus part of all cells in all living organisms. Commercially prepared from yeast extract or sardines
 @MyAdditivesDescription@	Odourless, white or off-white crystals, or powder
 @DietaryRestrictions@	Guanlyic acic and guanylates are generally produced from yeasts, but partly also from fish. They may thus not suitable for vegans and vegetarians
 @SideEffects@	Asthma, Cutaneous Reactions
@@ -8586,7 +8586,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Inosinic acid and inosinates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt or other flavour enhancers needed in a product
-@Origin@	Potassium salt of inosinic acid (E630), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
+@Origin@	Potassium salt of inosinic acid (<a href="http://fake.com/#E630">E630</a>), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
 @MyAdditivesDescription@	Odourless, colourless or white crystals, or a white crystalline powder
 @DietaryRestrictions@	Inosinates are generally produced from meat, but partly also from fish. They are thus not suitable for vegans and vegetarians, and in most cases not suitable for Jews, Muslims and Hindus, depending on the origin of the product. Only the producer can provide information on the origin
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -8606,7 +8606,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Inosinic acid and inosinates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt or other flavour enhancers needed in a product
-@Origin@	Calcium salt of inosinic acid (E630), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
+@Origin@	Calcium salt of inosinic acid (<a href="http://fake.com/#E630">E630</a>), a natural acid, that is mainly present in animals. Commercially prepared from meat or fish (sardines). May also be produced by bacterial fermentation of sugars
 @MyAdditivesDescription@	Odourless, white or off-white crystals, or powder
 @DietaryRestrictions@	Inosinates are generally produced from meat, but partly also from fish. They are thus not suitable for vegans and vegetarians, and in most cases not suitable for Jews, Muslims and Hindus, depending on the origin of the product. Only the producer can provide information on the origin
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -8626,7 +8626,7 @@ May cause skin irritation.<BR>
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Flavour enhancer
 @FunctionDetails@	Flavour enhancer. Guanylates and inosinates do not have the specific umami taste but strongly enhance many other flavours, thereby reducing the amounts of salt or other flavour enhancers needed in a product
-@Origin@	Mixture of calcium salts of guanylic (E626) and inosinic acid (E630)
+@Origin@	Mixture of calcium salts of guanylic (<a href="http://fake.com/#E626">E626</a>) and inosinic acid (<a href="http://fake.com/#E630">E630</a>)
 @MyAdditivesDescription@	Odourless, white or off-white crystals or powder
 @DietaryRestrictions@	Guanylates and inosinates are generally produced from meat, but partly also from fish. They are thus not suitable for vegans and vegetarians, and in most cases not suitable for Jews, Muslims and Hindus, depending on the origin of the product. Only the producer can provide information on the origin
 @SideEffects@	Allergy, Asthma, Cutaneous Reactions, Hyperactivity, Insomnia
@@ -9081,7 +9081,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Propellant
 @Origin@	Natural inert gas
 @MyAdditivesDescription@	
-@DietaryRestrictions@	None. E943 can be used by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None. <a href="http://fake.com/#E943">E943</a> can be used by all religious groups, vegans and vegetarians
 @SideEffects@	Cancer
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Butane is an inert natural gas produced from petroleum. As a food additive, butane is used as a propellant in aerosol spray cans for vegetable oil-based aerosol cooking sprays and water-based emulsion cooking sprays. Used as a propellant and aerating agent in foamed or sprayed food products.
@@ -9101,7 +9101,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Propellant
 @Origin@	Natural inert gas
 @MyAdditivesDescription@	
-@DietaryRestrictions@	None. E943 can be used by all religious groups, vegans and vegetarians
+@DietaryRestrictions@	None. <a href="http://fake.com/#E943">E943</a> can be used by all religious groups, vegans and vegetarians
 @SideEffects@	Cancer
 @MyAdditivesSafetyRating@	Unhealthy
 @EverbumDescription@	Isobutane is an inert natural gas and is an isomer of butane. As a food additive, isobutane is used as a propellant in aerosol spray cans for vegetable oil-based aerosol cooking sprays and water-based emulsion cooking sprays. Used as a propellant and aerating agent in foamed or sprayed food products.
@@ -9907,7 +9907,7 @@ May cause skin irritation.<BR>
 @wiki_notBanned@	TRUE
 @wiki_notConsideredDangerous@	TRUE
 @Classification@	Preservative
-@FunctionDetails@	It is a white non-stable powder, which reacts with oxygen to potassium sulphate. In acidic conditions it forms sulphurous acid, which acts as a preservative. It is used as a preservative and may be used as a bleaching agent in sugar production. It is used for the production of sulphite-caramel (E150d)
+@FunctionDetails@	It is a white non-stable powder, which reacts with oxygen to potassium sulphate. In acidic conditions it forms sulphurous acid, which acts as a preservative. It is used as a preservative and may be used as a bleaching agent in sugar production. It is used for the production of sulphite-caramel (<a href="http://fake.com/#E150d">E150d</a>)
 @Origin@	Potassium salt of sulphurous acid
 @MyAdditivesDescription@	White, odourless, granular powder
 @DietaryRestrictions@	None, sulphur dioxide and sulphites can be consumed by all religious groups, vegans and vegetarians
@@ -10965,7 +10965,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Antibiotic against fungi and moulds
 @Origin@	Spiramycins are a class of antibiotics, produced by the mould Streptomyces ambofaciens
 @MyAdditivesDescription@	
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E710
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E710">E710</a>
 @SideEffects@	No side effects known
 @MyAdditivesSafetyRating@	Unknown
 @EverbumDescription@	Spiramycins are a class of antibiotics, produced by the mould Streptomyces ambofaciens.
@@ -11011,7 +11011,7 @@ May cause skin irritation.<BR>
 @FunctionDetails@	Antibiotic against fungi and moulds
 @Origin@	Tylosin is an antibiotic, produced by the mould Streptomyces fradiae
 @MyAdditivesDescription@	
-@DietaryRestrictions@	All religious groups, vegans and vegetarians can use E713
+@DietaryRestrictions@	All religious groups, vegans and vegetarians can use <a href="http://fake.com/#E713">E713</a>
 @SideEffects@	No side effects known
 @MyAdditivesSafetyRating@	Unknown
 @EverbumDescription@	Tylosin is an antibiotic, produced by the mould Streptomyces fradiae. Antibiotic against fungi and moulds.  Acceptable Daily Intake: Up to 0,2 mg/kg body weight.

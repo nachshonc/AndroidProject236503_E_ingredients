@@ -1,7 +1,9 @@
 package il.ac.technion.tessa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +17,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class DetailsViewActivity extends AppCompatActivity implements View.OnClickListener {
@@ -114,11 +118,27 @@ public class DetailsViewActivity extends AppCompatActivity implements View.OnCli
             return true;
         }
 
+        if ((id == R.id.action_internet_search) && (keyStack.size() > 0)) {
+            String key =  keyStack.get(keyStack.size() - 1);
+            EDBIngredient ingredient = dbHandler.findIngredient(key);
+            String searchString = key+" "+ingredient.getTitle();
+
+            String url;
+            try {
+                url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + URLEncoder.encode(searchString, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + searchString;
+            }
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
         return super.onOptionsItemSelected(item);
     }
     private void openPreferencesDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Modify safety rating:");
+        builder.setTitle("Change safety rating:");
         LayoutInflater inflater = (LayoutInflater) getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate( R.layout.user_choice, null, false);
