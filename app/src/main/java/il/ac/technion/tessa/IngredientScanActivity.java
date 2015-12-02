@@ -295,7 +295,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             if (mCurrentPhotoPath == null)
                 restorePreferences();
 
-            Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
             setPic(true);
 //            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
 //
