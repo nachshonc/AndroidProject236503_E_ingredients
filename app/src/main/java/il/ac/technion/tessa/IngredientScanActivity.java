@@ -58,6 +58,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import it.sephiroth.android.library.imagezoom.ImageViewTouch;
+
 import static android.hardware.Camera.*;
 
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
@@ -479,7 +481,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("");
 
-        ImageView imageView = new ImageView(getApplicationContext());
+        ImageViewTouch imageView = new ImageViewTouch(getApplicationContext(), null);
         imageView.setImageBitmap(origImage);
 
 
