@@ -62,7 +62,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             OnItemClickListener {
     static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
     static final boolean MOCK_OCR = true;
-    static final ArrayList<String> MOCK_LIST = new ArrayList<>(); //Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
+    static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
             "heb.traineddata",
@@ -438,6 +438,19 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 }
             });
         }
+    }
+
+    public void imageClick(View view) {
+        Toast.makeText(getApplicationContext(), "click on image", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("");
+
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageBitmap(origImage);
+
+
+        builder.setView(imageView);
+        builder.show();
     }
 
     /*
