@@ -13,8 +13,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.hardware.Camera;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -336,7 +338,39 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         // Get the dimensions of the View
         int targetW = 1024;
 
+
+        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
+
+        try {
+            ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
+            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+            Log.d("EXIF", "Exif: " + orientation);
+            Matrix matrix = new Matrix();
+            if (orientation == 6) {
+                matrix.postRotate(90);
+            }
+            else if (orientation == 3) {
+                matrix.postRotate(180);
+            }
+            else if (orientation == 8) {
+                matrix.postRotate(270);
+            }
+            origImage = Bitmap.createBitmap(origImage, 0, 0, origImage.getWidth(), origImage.getHeight(), matrix, true); // rotating bitmap
+        }
+        catch (Exception e) {
+
+        }
+/*
         // Get the dimensions of the bitmap
+        int orientation=0;
+        try {
+            ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
+            orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+        } catch (IOException e) {
+
+        }
+
+
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
@@ -354,6 +388,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         bmOptions.inPurgeable = true;
 
         origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        */
         ImageView iv = (ImageView) findViewById(R.id.origImage);
 
         if(enableGrayscale && origImage!=null)
