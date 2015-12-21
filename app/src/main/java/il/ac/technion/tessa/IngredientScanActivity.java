@@ -113,6 +113,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private AdapterIngredientList adapter;
     private static final String FIRST_RUN_FLAG="FIRSTRUN";
     private static final String FIRST_RUN_SHARED_PREF_NAME="FIRST_RUN_SP_NAME";
+    private static final String NOT_FOUND_STR = "NOT_FOUND";
+    private static volatile IngredientScanActivity lastInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,6 +202,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        lastInstance = this;
         mCurrentPhotoPath = savedInstanceState.getString("mCurrentPhotoPath");
         thresholdValue = savedInstanceState.getInt("thresholdValue");
         enableBinarize = savedInstanceState.getBoolean("enableBinarize");
@@ -214,13 +217,17 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 setPic(false);
             ListView listView = (ListView) findViewById(R.id.frag_list);
             ArrayList<EDBIngredient> models = new ArrayList<>();
-            for(int i=0; i<ingredientsList.size(); ++i) {
-                EDBIngredient ingredient = dbHandler.findIngredient(ingredientsList.get(i));
-                if(ingredient==null) {
-                    ingredient = new EDBIngredient(ingredientsList.get(i));
-                    ingredient.setTitle("Unknown additive");
+            if(ingredientsList.size()==1 && ingredientsList.get(0)==NOT_FOUND_STR)
+                models.add(EDBIngredient.notFound);
+            else {
+                for (int i = 0; i < ingredientsList.size(); ++i) {
+                    EDBIngredient ingredient = dbHandler.findIngredient(ingredientsList.get(i));
+                    if (ingredient == null) {
+                        ingredient = new EDBIngredient(ingredientsList.get(i));
+                        ingredient.setTitle("Unknown additive");
+                    }
+                    models.add(ingredient);
                 }
-                models.add(ingredient);
             }
             adapter = new AdapterIngredientList(listView.getContext(), models);
             listView.setAdapter(adapter);
@@ -564,9 +571,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         protected void onPreExecute() {
             this.dialog = new ProgressDialog(IngredientScanActivity.this);
             this.dialog.setMessage("Please wait while finishing the installation...");
-            this.dialog.show();
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
+            this.dialog.show();
         }
 
         @Override
@@ -576,7 +583,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     dialog.dismiss();
                 }
             }catch(Exception e){
-                Toast.makeText(IngredientScanActivity.this.getApplicationContext(), "exception happend", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(IngredientScanActivity.this.getApplicationContext(), "Dialog is no longer attached to the window", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -606,7 +613,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             baseApi.init(DATA_PATH, "eng+heb");
 //        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
 
-            baseApi.setImage(params[0]);
+            Log.d("tessa api set image", params[0]==null?"null":"non null");
+            try {
+                baseApi.setImage(params[0]);
+            }catch (RuntimeException e){
+                Toast.makeText(IngredientScanActivity.this.getApplicationContext(), "OCR failed to read image. Please try again", Toast.LENGTH_SHORT).show();
+                return "";
+            }
 //        baseApi.setImage(b);
             String recognizedText = baseApi.getUTF8Text();
 
@@ -650,12 +663,17 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return res;
         }
 
+        private StrongProgDialog strongProgDialog;
         @Override
         protected void onPreExecute() {
 //            TextView tv = (TextView) findViewById(R.id.result);
 //            tv.setText("Analyzing...");
-            this.dialog.setMessage("Extracting text from the picture. This may take a while, please be patient.");
-            this.dialog.show();
+            /*strongProgDialog = new StrongProgDialog();
+            strongProgDialog.show(getFragmentManager(), "OCR progress dialog");*/
+            dialog.setMessage("Extracting text from the picture. This may take a while, please be patient.");
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setCancelable(false);
+            dialog.show();
         }
 
         @Override
@@ -671,9 +689,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             /*if (list.isEmpty()) {
 //                tv.setText("No match found");
             } else*/ {
-                ingredientsList = list;
-                int sz = ingredientsList.size();
-                Log.d("post exec. ", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
+                int sz = list.size();
+                Log.d("Finished OCR", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
                 ListView listView = (ListView) findViewById(R.id.frag_list);
                 ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
                 for(int i=0; i<list.size(); ++i) {
@@ -686,9 +703,15 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 }
                 if(list.isEmpty()){
                     models.add(EDBIngredient.notFound);
+                    list.add(NOT_FOUND_STR);
                 }
-                adapter = new AdapterIngredientList(listView.getContext(), models);
-                listView.setAdapter(adapter);
+                IngredientScanActivity cur =  lastInstance;//IngredientScanActivity.this; //lastInstance;
+                if(cur==null) cur=IngredientScanActivity.this;
+                Log.d("On finish OCR", (IngredientScanActivity.this==lastInstance)?"this equals UI":"this not equal UI");
+                cur.ingredientsList = list;
+                cur.adapter = new AdapterIngredientList(listView.getContext(), models);
+                Log.d("setting a new adapter", String.format("size=%d",cur.adapter.getSize()));
+                cur.listView.setAdapter(cur.adapter);
             }
         }
     }
