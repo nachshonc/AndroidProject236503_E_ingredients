@@ -65,7 +65,7 @@ import static android.hardware.Camera.*;
 public class IngredientScanActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
             OnItemClickListener {
     static String TEST_FILE=null; //"lord_sandwich.jpg"; //null; //"bread.jpg";
-    static final boolean MOCK_OCR = true;
+    static final boolean MOCK_OCR = false;
     static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
@@ -111,54 +111,57 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private EditText txtAdd;
     private ListView listView;
     private AdapterIngredientList adapter;
+    private static final String FIRST_RUN_FLAG="FIRSTRUN";
+    private static final String FIRST_RUN_SHARED_PREF_NAME="FIRST_RUN_SP_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredient_scan);
 
-        SharedPreferences wmbPreference = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences wmbPreference = this.getSharedPreferences(FIRST_RUN_SHARED_PREF_NAME, MODE_PRIVATE); //PreferenceManager.getDefaultSharedPreferences(this);
         dbHandler = new EDBHandler(this, null, null, 1);
-        boolean isFirstRun = wmbPreference.getBoolean("FIRSTRUN", true);
+        boolean isFirstRun = wmbPreference.getBoolean(FIRST_RUN_FLAG, true);
+        Log.d("FIRST_RUN", "115 " + ((isFirstRun)?"true":"false"));
         // even if marked false, things may have changed
-        if (!isFirstRun) {
+        if (!isFirstRun || true) {
             String cmpDataFiles = TextUtils.join(":", DATA_FILES);
             String dataFiles=wmbPreference.getString("DATAFILES", "");
             if (!cmpDataFiles.equals(dataFiles)) {
-                Log.d("FR", "116");
+                Log.d("FIRST_RUN", "116");
                 isFirstRun = true;
                 SharedPreferences.Editor editor = wmbPreference.edit();
                 editor.putString("DATAFILES", cmpDataFiles);
                 editor.apply();
             }
         }
-        if (!isFirstRun) {
+        if (!isFirstRun || true) {
             String cmpDataFiles = TextUtils.join(":", ALWAYS_COPY_DATA_FILES);
             String dataFiles=wmbPreference.getString("ALWAYSCOPYDATAFILES", "");
             if (!cmpDataFiles.equals(dataFiles)) {
-                Log.d("FR", "127");
+                Log.d("FIRST_RUN", "127");
                 isFirstRun = true;
                 SharedPreferences.Editor editor = wmbPreference.edit();
                 editor.putString("ALWAYSCOPYDATAFILES", cmpDataFiles);
                 editor.apply();
             }
         }
-        if (!isFirstRun) {
+        if (!isFirstRun || true) {
             if (wmbPreference.getInt("EDBVERSION", -1) != EDBHandler.DATABASE_VERSION) {
-                Log.d("FR", "136");
+                Log.d("FIRST_RUN", "136");
                 isFirstRun = true;
                 SharedPreferences.Editor editor = wmbPreference.edit();
                 editor.putInt("EDBVERSION", EDBHandler.DATABASE_VERSION);
                 editor.apply();
             }
         }
-
+        Log.d("FIRST_RUN", "145 " + ((isFirstRun)?"true":"false"));
         if (isFirstRun)
         {
-            // Code to run once
+            // Code to run onceכ
             SharedPreferences.Editor editor = wmbPreference.edit();
-            editor.putBoolean("FIRSTRUN", false);
-            editor.apply();
+            editor.putBoolean(FIRST_RUN_FLAG, false);
+            editor.commit();
             loadTrainDataFile();
 
             // Seems like parseDB needs to happen in a background thread.
@@ -341,7 +344,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         int targetW = 1024;
 
 
-        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inSampleSize=4;
+        //BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
         try {
             ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
@@ -557,14 +563,20 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         protected void onPreExecute() {
             this.dialog = new ProgressDialog(IngredientScanActivity.this);
-            this.dialog.setMessage("Please wait while the database is being initialized...");
+            this.dialog.setMessage("Please wait while finishing the installation...");
             this.dialog.show();
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setCancelable(false);
         }
 
         @Override
         protected void onPostExecute(Void result) {
-            if (dialog.isShowing()) {
-                dialog.dismiss();
+            try {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }catch(Exception e){
+                Toast.makeText(IngredientScanActivity.this.getApplicationContext(), "exception happend", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -642,14 +654,18 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         protected void onPreExecute() {
 //            TextView tv = (TextView) findViewById(R.id.result);
 //            tv.setText("Analyzing...");
-            this.dialog.setMessage("Please wait");
+            this.dialog.setMessage("Extracting text from the picture. This may take a while, please be patient.");
             this.dialog.show();
         }
 
         @Override
         protected void onPostExecute(String result) {
-            if (dialog.isShowing()) {
-                dialog.dismiss();
+            try {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }catch(Exception e){
+                
             }
 //            TextView tv = (TextView) findViewById(R.id.result);
             /*if (list.isEmpty()) {

@@ -209,7 +209,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public void addIngredient(EDBIngredient ingredient) {
 
-        Log.d("EDB", "Adding " + ingredient.toString());
+        //Log.d("EDB", "Adding " + ingredient.toString());
         ContentValues values = new ContentValues();
         values.put(COLUMN_KEY, ingredient.getKey());
         values.put(COLUMN_TITLE, ingredient.getTitle());
