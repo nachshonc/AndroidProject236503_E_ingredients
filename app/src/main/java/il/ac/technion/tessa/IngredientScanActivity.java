@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -96,6 +97,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             "IngredientList.txt",
             "Edb.txt"
     };
+    public static void error(String s){Log.d("error", s);}
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
 
@@ -114,7 +116,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private static final String FIRST_RUN_FLAG="FIRSTRUN";
     private static final String FIRST_RUN_SHARED_PREF_NAME="FIRST_RUN_SP_NAME";
     private static final String NOT_FOUND_STR = "NOT_FOUND";
-    private static volatile IngredientScanActivity lastInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,7 +203,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        lastInstance = this;
         mCurrentPhotoPath = savedInstanceState.getString("mCurrentPhotoPath");
         thresholdValue = savedInstanceState.getInt("thresholdValue");
         enableBinarize = savedInstanceState.getBoolean("enableBinarize");
@@ -556,6 +556,37 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
     };
     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        try {
+            // Checks the orientation of the screen
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                setContentView(R.layout.activity_ingredient_scan);
+                //Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                setContentView(R.layout.activity_ingredient_scan);
+                //Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            }
+            listView = (ListView) findViewById(R.id.frag_list);
+            listView.setOnItemClickListener(this);
+            txtAdd = (EditText) findViewById(R.id.txtAdd);
+            //if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
+            //adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
+            listView.setAdapter(adapter);
+
+            ImageView iv = (ImageView) findViewById(R.id.origImage);
+            TextView tv = (TextView)findViewById(R.id.cameraMessage);
+            Bitmap b = binarizedImage;
+            if (b == null) b = this.origImage;
+            if (b != null)
+                iv.setImageBitmap(b);
+            tv.setText("");
+        }catch(Exception e){
+            error("failed on configuration change");
+        }
+    }
 
 
     private class DBParserTask extends AsyncTask<EDBHandler, Void, Void> {
@@ -563,8 +594,12 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         @Override
         protected Void doInBackground(EDBHandler... params) {
-            EDBHandler dbHandler = params[0];
-            dbHandler.parseDB();
+            try {
+                EDBHandler dbHandler = params[0];
+                dbHandler.parseDB();
+            }catch(Exception e){
+                error(e.toString());
+            }
             return null;
         }
 
@@ -608,7 +643,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 return "";
             }
             TessBaseAPI baseApi = new TessBaseAPI();
-
             baseApi.setDebug(false);
             baseApi.init(DATA_PATH, "eng+heb");
 //        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
@@ -683,12 +717,9 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     dialog.dismiss();
                 }
             }catch(Exception e){
-                
+
             }
-//            TextView tv = (TextView) findViewById(R.id.result);
-            /*if (list.isEmpty()) {
-//                tv.setText("No match found");
-            } else*/ {
+            try{
                 int sz = list.size();
                 Log.d("Finished OCR", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
                 ListView listView = (ListView) findViewById(R.id.frag_list);
@@ -705,14 +736,12 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                     models.add(EDBIngredient.notFound);
                     list.add(NOT_FOUND_STR);
                 }
-                IngredientScanActivity cur =  lastInstance;//IngredientScanActivity.this; //lastInstance;
-                if(cur==null) cur=IngredientScanActivity.this;
-                Log.d("On finish OCR", (IngredientScanActivity.this==lastInstance)?"this equals UI":"this not equal UI");
+                IngredientScanActivity cur =  IngredientScanActivity.this;
                 cur.ingredientsList = list;
                 cur.adapter = new AdapterIngredientList(listView.getContext(), models);
                 Log.d("setting a new adapter", String.format("size=%d",cur.adapter.getSize()));
                 cur.listView.setAdapter(cur.adapter);
-            }
+            }catch(Exception e) {error(e.toString()); }
         }
     }
 
@@ -721,7 +750,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         {
             return;
         }
-
 //        grayscale(v);
 //        binarize(v);
         if (binarizedImage == null)
