@@ -821,10 +821,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ingredient_scan, menu);
-
-        menu.getItem(0).setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
-        menu.getItem(1).setTitle((enableBinarize ? getString(R.string.str_dis_bin) : getString(R.string.str_en_bin)));
+        try {
+            getMenuInflater().inflate(R.menu.menu_ingredient_scan, menu);
+            menu.getItem(0).setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
+            menu.getItem(1).setTitle((enableBinarize ? getString(R.string.str_dis_bin) : getString(R.string.str_en_bin)));
+        }catch(Exception e){error(e.toString()); }
 
         return true;
     }
@@ -870,24 +871,26 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        try {
+            int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            imageProccessSettings();
-            return true;
-        }
-        if (id == R.id.action_grayscale){
-            enableGrayscale=!enableGrayscale;
-            item.setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
-            setPic(true);
-        }
-        if (id == R.id.action_enhance){
-            enableBinarize=!enableBinarize;
-            Log.d("626:", "Setting enableBinarize to "+enableBinarize);
-            item.setTitle((enableBinarize?getString(R.string.str_dis_bin):getString(R.string.str_en_bin)));
-            setPic(true);
-        }
+            //noinspection SimplifiableIfStatement
+            if (id == R.id.action_settings) {
+                imageProccessSettings();
+                return true;
+            }
+            if (id == R.id.action_grayscale) {
+                enableGrayscale = !enableGrayscale;
+                item.setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
+                setPic(true);
+            }
+            if (id == R.id.action_enhance) {
+                enableBinarize = !enableBinarize;
+                Log.d("626:", "Setting enableBinarize to " + enableBinarize);
+                item.setTitle((enableBinarize ? getString(R.string.str_dis_bin) : getString(R.string.str_en_bin)));
+                setPic(true);
+            }
+        }catch(Exception e){error(e.toString());        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -897,20 +900,22 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
      * If the file already on the storage - does nothing.
      */
     private void loadTrainDataFile() {
-        String[] paths = new String[]{DATA_PATH, DATA_PATH + "tessdata/"};
-        for (String p : paths) {
-            File dir = new File(p);
-            if (!dir.exists()) {
-                if (!dir.mkdirs()) {
-                    Log.v("DATAPATH", "ERROR: Creation of directory " + p + " on sdcard failed");
-                    return;
-                } else {
-                    Log.v("DATAPATH", "Created directory " + p + " on sdcard");
+        try {
+            String[] paths = new String[]{DATA_PATH, DATA_PATH + "tessdata/"};
+            for (String p : paths) {
+                File dir = new File(p);
+                if (!dir.exists()) {
+                    if (!dir.mkdirs()) {
+                        Log.v("DATAPATH", "ERROR: Creation of directory " + p + " on sdcard failed");
+                        return;
+                    } else {
+                        Log.v("DATAPATH", "Created directory " + p + " on sdcard");
+                    }
                 }
             }
-        }
 
-        copyFiles();
+            copyFiles();
+        }catch(Exception e){error(e.toString()); }
     }
 
 
