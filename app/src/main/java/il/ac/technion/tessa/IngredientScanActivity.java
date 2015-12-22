@@ -347,77 +347,54 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         if (mCurrentPhotoPath == null) {
             return;
         }
-        // Get the dimensions of the View
-        int targetW = 1024;
-
-
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inSampleSize=4;
-        //BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-
         try {
-            ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
-            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-            Log.d("EXIF", "Exif: " + orientation);
-            Matrix matrix = new Matrix();
-            if (orientation == 6) {
-                matrix.postRotate(90);
+            int targetW = 1024;
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inSampleSize = 4;
+            //BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+
+            try {
+                ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
+                int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+                Log.d("EXIF", "Exif: " + orientation);
+                Matrix matrix = new Matrix();
+                if (orientation == 6) {
+                    matrix.postRotate(90);
+                } else if (orientation == 3) {
+                    matrix.postRotate(180);
+                } else if (orientation == 8) {
+                    matrix.postRotate(270);
+                }
+                origImage = Bitmap.createBitmap(origImage, 0, 0, origImage.getWidth(), origImage.getHeight(), matrix, true); // rotating bitmap
+            } catch (Exception e) {
+                error(e.toString());
             }
-            else if (orientation == 3) {
-                matrix.postRotate(180);
-            }
-            else if (orientation == 8) {
-                matrix.postRotate(270);
-            }
-            origImage = Bitmap.createBitmap(origImage, 0, 0, origImage.getWidth(), origImage.getHeight(), matrix, true); // rotating bitmap
+            ImageView iv = (ImageView) findViewById(R.id.origImage);
+
+            if (enableGrayscale && origImage != null)
+                grayscale(null);
+            if (enableBinarize && origImage != null)
+                binarize(null);
+            else
+                binarizedImage = origImage;
+
+            if (iv != null)
+                iv.setImageBitmap(binarizedImage);
+
+            TextView tv = (TextView) findViewById(R.id.cameraMessage);
+            tv.setText("");
+        }catch(OutOfMemoryError e){
+            binarizedImage=null; origImage=null;
+            System.gc(); System.gc();
+            Toast.makeText(getApplicationContext(), "OutOfMemoryError. Trying to handle..", Toast.LENGTH_SHORT).show();
+            ImageView iv = (ImageView) findViewById(R.id.origImage);
+            iv.setImageResource(0);
+            System.gc(); System.gc();
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inSampleSize = 8;
+            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         }
-        catch (Exception e) {
-
-        }
-/*
-        // Get the dimensions of the bitmap
-        int orientation=0;
-        try {
-            ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
-            orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-        } catch (IOException e) {
-
-        }
-
-
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        int photoW = bmOptions.outWidth;
-
-        // Determine how much to scale down the image
-        int scaleFactor=1;
-        if (photoW >= 2*targetW)
-            scaleFactor = photoW/targetW;
-        Log.d("ScaleFactor", ""+scaleFactor);
-
-        // Decode the image file into a Bitmap sized to fill the View
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        */
-        ImageView iv = (ImageView) findViewById(R.id.origImage);
-
-        if(enableGrayscale && origImage!=null)
-            grayscale(null);
-        if(enableBinarize && origImage!=null)
-            binarize(null);
-        else
-            binarizedImage = origImage;
-
-        if (iv != null)
-            iv.setImageBitmap(binarizedImage);
-
-        TextView tv = (TextView)findViewById(R.id.cameraMessage);
-        tv.setText("");
 
         if (analyzeIt)
             analyze(null);
