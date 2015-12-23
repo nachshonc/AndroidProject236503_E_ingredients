@@ -467,14 +467,32 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
     }
 
+    public static Bitmap scaleBitmap(Bitmap bitmapToScale) {
+        if(bitmapToScale == null)
+            return null;
+//get the original width and height
+        int width = bitmapToScale.getWidth();
+        int height = bitmapToScale.getHeight();
+// create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+// resize the bit map
+        matrix.postScale(4, 4);
+// recreate the new Bitmap and set it back
+        return Bitmap.createBitmap(bitmapToScale, 0, 0, bitmapToScale.getWidth(), bitmapToScale.getHeight(), matrix, true);
+    }
+
     public void imageClick(View view) {
         if(origImage==null)
             return;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("");
+        builder.setTitle("");///+++
 
+        Bitmap b = origImage;
+        try{
+            b=scaleBitmap(b);
+        }catch(OutOfMemoryError e){b=origImage; System.gc(); System.gc(); Toast.makeText(getApplicationContext(), "OutOfMemory. Trying to handle", Toast.LENGTH_SHORT).show();}
         ImageViewTouch imageView = new ImageViewTouch(getApplicationContext(), null);
-        imageView.setImageBitmap(origImage);
+        imageView.setImageBitmap(b);
 
 
         builder.setView(imageView);
@@ -624,7 +642,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             baseApi.init(DATA_PATH, "eng+heb");
 //        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
 
-            Log.d("tessa api set image", params[0]==null?"null":"non null");
+            Log.d("tessa api set image", params[0] == null ? "null" : "non null");
             try {
                 baseApi.setImage(params[0]);
             }catch (RuntimeException e){
