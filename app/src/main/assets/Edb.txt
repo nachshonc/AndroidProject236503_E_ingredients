@@ -8125,7 +8125,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E553a
-@Title@	 Magnesium silicate 
+@Title@	Magnesium silicate 
 @Type@	Anti-caking agent
 @Warning@	animal origin
 @Banned@	
@@ -8138,7 +8138,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E553ai
-@Title@	 Magnesium silicate : Magnesium silicate 
+@Title@	Magnesium silicate : Magnesium silicate 
 @Type@	Anti-caking agent
 @Warning@	animal origin
 @Banned@	
@@ -8151,7 +8151,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E553aii
-@Title@	 Magnesium silicate : Magnesium trisilicate 
+@Title@	Magnesium silicate : Magnesium trisilicate 
 @Type@	Anti-caking agent
 @Warning@	animal origin
 @Banned@	
@@ -11628,7 +11628,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E1101
-@Title@	Proteases (
+@Title@	Proteases
 @Type@	stabiliser, flavour enhancer
 @Warning@	
 @Banned@	
@@ -11641,7 +11641,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E1101i
-@Title@	Proteases (:Protease, 
+@Title@	Proteases:Protease 
 @Type@	stabiliser, flavour enhancer
 @Warning@	
 @Banned@	
@@ -11654,7 +11654,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E1101ii
-@Title@	Proteases (:Papain, 
+@Title@	Proteases:Papain 
 @Type@	stabiliser, flavour enhancer
 @Warning@	
 @Banned@	
@@ -11667,7 +11667,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E1101iii
-@Title@	Proteases (:Bromelain, 
+@Title@	Proteases:Bromelain 
 @Type@	stabiliser, flavour enhancer
 @Warning@	
 @Banned@	
@@ -11680,7 +11680,7 @@ May cause skin irritation.<BR>
 
 @MAGIC-ADD@
 @Key@	E1101iv
-@Title@	Proteases (:Ficin)
+@Title@	Proteases:Ficin
 @Type@	stabiliser, flavour enhancer
 @Warning@	
 @Banned@	
