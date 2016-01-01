@@ -27,7 +27,7 @@ public class EDBHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 12;
     private static final String DATABASE_NAME = "Edb.db";
-    private static final String TABLE_INGREDIENTS = "Ingredients";
+    public static final String TABLE_INGREDIENTS = "Ingredients";
 
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_KEY = "Key";

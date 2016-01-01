@@ -16,6 +16,7 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Camera;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -23,6 +24,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresPermission;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,6 +46,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.camera.CropImageIntentBuilder;
 import com.googlecode.tesseract.android.ResultIterator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -60,6 +63,12 @@ import java.util.List;
 import java.util.Locale;
 
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
+import com.googlecode.leptonica.android.Binarize;
+import com.googlecode.leptonica.android.Pix;
+import com.googlecode.leptonica.android.ReadFile;
+import com.googlecode.leptonica.android.WriteFile;
+import com.googlecode.leptonica.android.Constants;
+import com.soundcloud.android.crop.Crop;
 
 import static android.hardware.Camera.*;
 
@@ -70,13 +79,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     static final ArrayList<String> MOCK_LIST = new ArrayList<>(Arrays.asList("E100", "E102", "E110", "E121","E151", "E270", "E266"));
     static final String DATA_FILES[]={
             "eng.traineddata",
-            "heb.traineddata",
+            "heb.traineddata"/*,
             "lord_sandwich.jpg",
             "P1a.jpg",
             "P2a.jpg",
             "P3.jpg",
             "Q1.jpg",
-            "Q2.jpg"/*,
+            "Q2.jpg"
             "pic1.jpg",
             "pic2.jpg",
             "pic3.jpg",
@@ -87,8 +96,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             "test2.png",
             "test3.png",
             "test4.png",
-            "e-num-ingred.jpg",*/
-            ,"w2-sandwich-ingredients.jpg"/*,
+            "e-num-ingred.jpg",
+            "w2-sandwich-ingredients.jpg",
             "salad-dressing.jpg",
             "coconut-milk.jpg"*/
     };
@@ -101,7 +110,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
 //    static String TEST_FILE=DATA_FILES[DATA_FILES.length-1];
 
-    Bitmap origImage, binarizedImage;
+    Bitmap origImage;
+    Pix binarizedPixImage;
 //    Preview preview;
     int thresholdValue=80;
     boolean enableBinarize=true, enableGrayscale=true;
@@ -110,7 +120,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     EDBHandler dbHandler;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
-    private EditText txtAdd;
     private ListView listView;
     private AdapterIngredientList adapter;
     private static final String FIRST_RUN_FLAG="FIRSTRUN";
@@ -178,7 +187,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
         listView = (ListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
-        txtAdd = (EditText) findViewById(R.id.txtAdd);
         if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
             adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
             listView.setAdapter(adapter);
@@ -197,6 +205,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         outState.putInt("thresholdValue", thresholdValue);
         outState.putBoolean("enableBinarize", enableBinarize);
         outState.putBoolean("enableGrayscale", enableGrayscale);
+        outState.putInt("mOrientation", mOrientation);
         outState.putStringArrayList("ingredientsList", ingredientsList);
     }
 
@@ -208,6 +217,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         enableBinarize = savedInstanceState.getBoolean("enableBinarize");
         enableGrayscale = savedInstanceState.getBoolean("enableGrayscale");
         ingredientsList = savedInstanceState.getStringArrayList("ingredientsList");
+        mOrientation = savedInstanceState.getInt(("mOrientation"));
 
         if (ingredientsList == null) {
             if (mCurrentPhotoPath != null)
@@ -257,6 +267,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    static final int REQUEST_INGREDIENT_SELECTION = 3;
+
+    static final int REQUEST_IMAGE_CROP = 2;
+
     static final int REQUEST_TAKE_PHOTO = 1;
 
     private void dispatchTakePictureIntent() {
@@ -286,6 +300,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         // We need an Editor object to make preference changes.
         SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
         editor.putString("mCurrentPhotoPath", mCurrentPhotoPath);
+        editor.putInt("mOrientation", mOrientation);
         editor.putInt("thresholdValue", thresholdValue);
         editor.putBoolean("enableBinarize", enableBinarize);
         editor.putBoolean("enableGrayscale", enableGrayscale);
@@ -297,26 +312,87 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     private void restorePreferences() {
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         mCurrentPhotoPath = settings.getString("mCurrentPhotoPath", "");
+        mOrientation = settings.getInt("mOrientation", 0);
         thresholdValue = settings.getInt("thresholdValue", 80);
         enableGrayscale = settings.getBoolean("enableGrayscale", true);
         enableBinarize = settings.getBoolean("enableBinarize", true);
 
     }
 
+    private int mOrientation;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            mOrientation = 0;
             if (mCurrentPhotoPath == null)
                 restorePreferences();
+            try {
+                ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
+                mOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+                Log.d("EXIF(1)", "Exif: " + mOrientation);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
 
             //Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
-            setPic(true);
+//            setPic(true);
 //            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
 //
 //            ImageView iv = (ImageView) findViewById(R.id.origImage);
 //            iv.setImageBitmap(origImage);
 
+            Uri imageUri = Uri.fromFile(new File(mCurrentPhotoPath));
+//            CropImageIntentBuilder cropImage = new CropImageIntentBuilder(1024*2, 768*2, imageUri);
+//            cropImage.setOutlineColor(Color.GREEN); // 0xFF03A9F4);
+//            cropImage.setSourceImage(imageUri);
+
+         //   startActivityForResult(cropImage.getIntent(this), REQUEST_IMAGE_CROP);
+            Crop.of(imageUri, imageUri).asSquare().start(this);
+
+        } else if (requestCode == REQUEST_IMAGE_CROP && resultCode == RESULT_OK) {
+            setPic(true);
+
+        } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
+            setPic(true);
+        } else if (requestCode == REQUEST_INGREDIENT_SELECTION && resultCode == RESULT_OK) {
+            String txtToAdd = data.getStringExtra(EIngredientSelectionActivity.EXTRA_SELECTED);
+
+            EDBIngredient ingredient = dbHandler.findIngredient(txtToAdd);
+            if(ingredient==null){
+                Toast.makeText(getApplicationContext(), "Unknown additive", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(adapter.exists(txtToAdd)){
+                Toast.makeText(getApplicationContext(), "Additive already appears in the list", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            ingredientsList.add(txtToAdd);
+            if(adapter.getSize()>=1 && adapter.getModel(0)==EDBIngredient.notFound){
+                adapter.remove(EDBIngredient.notFound);
+            }
+            adapter.add(ingredient);
+            adapter.notifyDataSetChanged();
+            listView.deferNotifyDataSetChanged();
+            if(adapter.getSize()>1) {
+                listView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Select the last row so it will scroll into view...
+                        listView.setSelection(adapter.getSize() - 1);
+                    }
+                });
+            }
+
+
         }
+    }
+
+    public void add(View v) {
+        Log.d("Add", "Add pressed");
+        startActivityForResult(new Intent(this, EIngredientSelectionActivity.class), REQUEST_INGREDIENT_SELECTION);
     }
 
     public void snap(View v) {
@@ -350,20 +426,17 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         try {
             int targetW = 1024;
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inSampleSize = 4;
+            bmOptions.inSampleSize = 2;
             //BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
             origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
             try {
-                ExifInterface exif = new ExifInterface(mCurrentPhotoPath);
-                int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-                Log.d("EXIF", "Exif: " + orientation);
                 Matrix matrix = new Matrix();
-                if (orientation == 6) {
+                if (mOrientation == 6) {
                     matrix.postRotate(90);
-                } else if (orientation == 3) {
+                } else if (mOrientation == 3) {
                     matrix.postRotate(180);
-                } else if (orientation == 8) {
+                } else if (mOrientation == 8) {
                     matrix.postRotate(270);
                 }
                 origImage = Bitmap.createBitmap(origImage, 0, 0, origImage.getWidth(), origImage.getHeight(), matrix, true); // rotating bitmap
@@ -372,20 +445,23 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }
             ImageView iv = (ImageView) findViewById(R.id.origImage);
 
-            if (enableGrayscale && origImage != null)
+            // try using leptonica instead
+            if (enableGrayscale && enableBinarize && origImage != null) {
+                Pix pix = ReadFile.readBitmap(origImage);
+                binarizedPixImage = Binarize.otsuAdaptiveThreshold(pix);
+            }
+            /*if (enableGrayscale && origImage != null)
                 grayscale(null);
             if (enableBinarize && origImage != null)
-                binarize(null);
-            else
-                binarizedImage = origImage;
+                binarize(null); */
 
-            if (iv != null)
-                iv.setImageBitmap(binarizedImage);
+            if (iv != null && binarizedPixImage != null)
+                iv.setImageBitmap(WriteFile.writeBitmap(binarizedPixImage));
 
             TextView tv = (TextView) findViewById(R.id.cameraMessage);
             tv.setText("");
         }catch(OutOfMemoryError e){
-            binarizedImage=null; origImage=null;
+            binarizedPixImage=null; origImage=null;
             System.gc(); System.gc();
             Toast.makeText(getApplicationContext(), "OutOfMemoryError. Trying to handle..", Toast.LENGTH_SHORT).show();
             ImageView iv = (ImageView) findViewById(R.id.origImage);
@@ -434,7 +510,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     }
 
-    public void addIngredient(View view) {
+/*    public void addIngredient(View view) {
         String txtToAdd = txtAdd.getText().toString();
         txtToAdd = txtToAdd.replaceFirst("^e", "E");
         if(!txtToAdd.startsWith("E"))
@@ -466,6 +542,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             });
         }
     }
+*/
 
     public static Bitmap scaleBitmap(Bitmap bitmapToScale) {
         if(bitmapToScale == null)
@@ -476,7 +553,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 // create a matrix for the manipulation
         Matrix matrix = new Matrix();
 // resize the bit map
-        matrix.postScale(4, 4);
+        matrix.postScale(2, 2);
 // recreate the new Bitmap and set it back
         return Bitmap.createBitmap(bitmapToScale, 0, 0, bitmapToScale.getWidth(), bitmapToScale.getHeight(), matrix, true);
     }
@@ -492,6 +569,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             b=scaleBitmap(b);
         }catch(OutOfMemoryError e){b=origImage; System.gc(); System.gc(); Toast.makeText(getApplicationContext(), "OutOfMemory. Trying to handle", Toast.LENGTH_SHORT).show();}
         ImageViewTouch imageView = new ImageViewTouch(getApplicationContext(), null);
+//        imageView.setImageBitmap(origImage);
+//        ImageView imageView = new ImageView(getApplicationContext(), null);
         imageView.setImageBitmap(b);
 
 
@@ -566,18 +645,23 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }
             listView = (ListView) findViewById(R.id.frag_list);
             listView.setOnItemClickListener(this);
-            txtAdd = (EditText) findViewById(R.id.txtAdd);
             //if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
             //adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
             listView.setAdapter(adapter);
 
             ImageView iv = (ImageView) findViewById(R.id.origImage);
             TextView tv = (TextView)findViewById(R.id.cameraMessage);
-            Bitmap b = binarizedImage;
-            if (b == null) b = this.origImage;
-            if (b != null)
+            Bitmap b = origImage;
+            if (enableGrayscale && enableBinarize && origImage != null) {
+                Pix pix = ReadFile.readBitmap(origImage);
+                binarizedPixImage = Binarize.otsuAdaptiveThreshold(pix);
+            }
+
+            if (binarizedPixImage != null) b = WriteFile.writeBitmap(binarizedPixImage);
+            if (b != null) {
                 iv.setImageBitmap(b);
-            tv.setText("");
+                tv.setText("");
+            }
         }catch(Exception e){
             error("failed on configuration change");
         }
@@ -620,16 +704,19 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
 
-    private class Analyzer extends AsyncTask<Bitmap, Void, String> {
+    private class Analyzer extends AsyncTask<Pix, Integer, String> implements TessBaseAPI.ProgressNotifier {
 
         private ProgressDialog dialog = new ProgressDialog(IngredientScanActivity.this);
         private ArrayList<String> list = new ArrayList<>();
+        private Bitmap originalPixToBitmap;
+        private ImageView originalImage;
 
         private void addIngredient(String ingredient){
             list.add(ingredient);
         }
         @Override
-        protected String doInBackground(Bitmap... params) {
+        protected String doInBackground(Pix... params) {
+            originalPixToBitmap = WriteFile.writeBitmap(params[0]);
             if(MOCK_OCR){
                 list=MOCK_LIST;
                 try {
@@ -637,7 +724,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 } catch (InterruptedException e) { Log.d("sleep", "ignored");  }
                 return "";
             }
-            TessBaseAPI baseApi = new TessBaseAPI();
+            TessBaseAPI baseApi = new TessBaseAPI(this);
             baseApi.setDebug(false);
             baseApi.init(DATA_PATH, "eng+heb");
 //        baseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "E0123456789,()ai-");
@@ -673,8 +760,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                                     replaceAll("S","5");
                             Log.d("toAdd",toAdd);
                             addIngredient(toAdd);
-                        } else if (words[i].matches("^[\\doOSD][\\doOSD][\\doOSD][a-i]*([^0-9a-zA-Z].*|)-?[^E£5₪]*[E£5₪]$")) {
-                            String toAdd = words[i].replaceAll("^[^E£5₪]*[E5£₪]-?([\\doOSD][\\doOSD][\\doOSD][a-i]*).*", "E$1").
+                        } else if (words[i].matches("^[\\doOSD][\\doOSD][\\doOSD][a-i]*-?[E£5₪]$")) {
+                            String toAdd = words[i].replaceAll("^([\\doOSD][\\doOSD][\\doOSD][a-i]*).*", "E$1").
                                     replaceAll("[oOD]", "0").
                                     replaceAll("S","5");
                             Log.d("toAdd",toAdd);
@@ -692,14 +779,23 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             return res;
         }
 
-        private StrongProgDialog strongProgDialog;
+//        private StrongProgDialog strongProgDialog;
+
+        static final String TITLE="Extracting text from the picture";
+        static final String MESSAGE_BASE="This may take a while, please be patient.";
         @Override
         protected void onPreExecute() {
 //            TextView tv = (TextView) findViewById(R.id.result);
 //            tv.setText("Analyzing...");
             /*strongProgDialog = new StrongProgDialog();
             strongProgDialog.show(getFragmentManager(), "OCR progress dialog");*/
-            dialog.setMessage("Extracting text from the picture. This may take a while, please be patient.");
+//            dialog.setMessage(MESSAGE_BASE+"0%");
+            dialog.setTitle(TITLE);
+            dialog.setMessage(MESSAGE_BASE);
+            dialog.setIndeterminate(false);
+            dialog.setMax(100);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setProgressNumberFormat("");
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
             dialog.show();
@@ -714,6 +810,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }catch(Exception e){
 
             }
+
             try{
                 int sz = list.size();
                 Log.d("Finished OCR", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
@@ -722,8 +819,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 for(int i=0; i<list.size(); ++i) {
                     EDBIngredient ingredient = dbHandler.findIngredient(list.get(i));
                     if(ingredient==null) {
-                        ingredient = new EDBIngredient(list.get(i));
-                        ingredient.setTitle("Unknown ingredient");
+                        // skip misidentified ingredients
+                        continue;
+//                        ingredient = new EDBIngredient(list.get(i));
+//                        ingredient.setTitle("Unknown ingredient");
                     }
                     models.add(ingredient);
                 }
@@ -738,7 +837,41 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 cur.listView.setAdapter(cur.adapter);
             }catch(Exception e) {error(e.toString()); }
         }
+
+        @Override
+        public void onProgressValues(TessBaseAPI.ProgressValues progressValues) {
+            Log.d("Progress:", ""+progressValues.getPercent()+" [("+progressValues.getBoundingBoxLeft()+", "+
+            progressValues.getBoundingBoxTop()+"), ("+progressValues.getBoundingBoxRight()+", "+progressValues.getBoundingBoxBottom()+")]");
+            try {
+                if (dialog.isShowing()) {
+                    if (originalImage == null)
+                        originalImage = (ImageView) IngredientScanActivity.this.findViewById(R.id.origImage);
+//                    dialog.setMessage(MESSAGE_BASE+progressValues.getPercent()+"%");
+                    publishProgress(progressValues.getPercent());
+//                    dialog.setProgress(progressValues.getPercent());
+/*                    Paint paint = new Paint();
+                    Bitmap temp = Bitmap.createBitmap(originalPixToBitmap.getWidth(), originalPixToBitmap.getHeight(),
+                            Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(temp);
+                    canvas.drawBitmap(originalPixToBitmap, 0, 0, null);
+                    paint.setColor(Color.RED);
+                    canvas.drawRect(progressValues.getBoundingBoxLeft(), progressValues.getBoundingBoxTop(),
+                            progressValues.getBoundingBoxRight(), progressValues.getBoundingBoxBottom(), paint);
+                    originalImage.setImageDrawable(new BitmapDrawable(getResources(), temp));*/
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+
+        }
+        @Override
+        public void onProgressUpdate(Integer... progress) {
+            super.onProgressUpdate(progress);
+            dialog.setProgress(progress[0]);
+        }
     }
+
 
     public void analyze(View v) {
         if (origImage == null)
@@ -747,11 +880,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
 //        grayscale(v);
 //        binarize(v);
-        if (binarizedImage == null)
-            binarizedImage = origImage;
-        new Analyzer().execute(binarizedImage);
+        if (binarizedPixImage != null)
+        new Analyzer().execute(binarizedPixImage);
     }
-
+/*
     public void grayscale(View v) {
         if (enableGrayscale==false || origImage == null)
             return;
@@ -767,13 +899,14 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public void binarize(View v) {
         if (enableBinarize==false || origImage == null)
             return;
-        if (binarizedImage != origImage && binarizedImage != null)
-            binarizedImage.recycle();
-        binarizedImage = null;
+//        if (binarizedImage != origImage && binarizedImage != null)
+//            binarizedImage.recycle();
+//        binarizedImage = null;
         System.gc();
-        binarizedImage = lowPassFilter(origImage);
+        binarizedPixImage = Binarize.otsuAdaptiveThreshold(ReadFile.readBitmap(origImage));
+        System.gc();
         ImageView iv = (ImageView) findViewById(R.id.origImage);
-        iv.setImageBitmap(binarizedImage);
+        iv.setImageBitmap(WriteFile.writeBitmap(binarizedPixImage));
     }
 
     public Bitmap toGrayscale(Bitmap bmpOriginal)
@@ -811,16 +944,16 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         c.drawBitmap(bmpOriginal, 0, 0, paint);
         return bmpGrayscale;
     }
-
+    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        try {
+  /*      try {
             getMenuInflater().inflate(R.menu.menu_ingredient_scan, menu);
             menu.getItem(0).setTitle((enableGrayscale ? getString(R.string.str_dis_gray) : getString(R.string.str_en_gray)));
             menu.getItem(1).setTitle((enableBinarize ? getString(R.string.str_dis_bin) : getString(R.string.str_en_bin)));
-        }catch(Exception e){error(e.toString()); }
+        }catch(Exception e){error(e.toString()); } */
 
         return true;
     }
@@ -1006,159 +1139,4 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
 
-}
-
-class Preview extends SurfaceView implements SurfaceHolder.Callback {
-    private static final String TAG = "Preview";
-
-    SurfaceHolder mHolder;
-    public Camera mCamera;
-    List<Camera.Size> mSupportedPreviewSizes;
-    Activity mActivity;
-
-    Preview(Context context, Activity activity) {
-        super(context);
-
-        // Install a SurfaceHolder.Callback so we get notified when the
-        // underlying surface is created and destroyed.
-        mHolder = getHolder();
-        mHolder.addCallback(this);
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        mActivity = activity;
-    }
-
-    public void setCamera(Camera camera) {
-        if (mCamera == camera) { return; }
-
-        stopPreviewAndFreeCamera();
-
-        mCamera = camera;
-
-        if (mCamera != null) {
-            List<Camera.Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
-            mSupportedPreviewSizes = localSizes;
-            requestLayout();
-
-            try {
-                mCamera.setPreviewDisplay(mHolder);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // Important: Call startPreview() to start updating the preview
-            // surface. Preview must be started before you can take a picture.
-            mCamera.startPreview();
-        }
-    }
-
-    /**
-     * When this function returns, mCamera will be null.
-     */
-    private void stopPreviewAndFreeCamera() {
-
-        if (mCamera != null) {
-            // Call stopPreview() to stop updating the preview surface.
-            mCamera.stopPreview();
-
-            // Important: Call release() to release the camera for use by other
-            // applications. Applications should release the camera immediately
-            // during onPause() and re-open() it during onResume()).
-            mCamera.release();
-
-            mCamera = null;
-        }
-    }
-
-    public void surfaceCreated(SurfaceHolder holder) {
-        // The Surface has been created, acquire the mCamera and tell it where
-        // to draw.
-        if (mCamera == null)
-            mCamera = open();
-        try {
-            mCamera.setPreviewDisplay(holder);
-
-
-            mCamera.setPreviewCallback(new PreviewCallback() {
-
-                public void onPreviewFrame(byte[] data, Camera arg1) {
-                    /*
-                    FileOutputStream outStream = null;
-                    try {
-                        outStream = new FileOutputStream(String.format("/sdcard/%d.jpg", System.currentTimeMillis()));
-                        outStream.write(data);
-                        outStream.close();
-                        Log.d(TAG, "onPreviewFrame - wrote bytes: " + data.length);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                    }*/
-                    Preview.this.invalidate();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        // Surface will be destroyed when we return, so stop the preview.
-        // Because the CameraDevice object is not a shared resource, it's very
-        // important to release it when the activity is paused.
-        if (mCamera != null){
-            mCamera.stopPreview();
-        }
-        mCamera = null;
-    }
-
-    public static void setCameraDisplayOrientation(Activity activity,
-                                                   int cameraId, android.hardware.Camera camera) {
-        android.hardware.Camera.CameraInfo info =
-                new android.hardware.Camera.CameraInfo();
-        android.hardware.Camera.getCameraInfo(cameraId, info);
-        int rotation = activity.getWindowManager().getDefaultDisplay()
-                .getRotation();
-        int degrees = 0;
-        switch (rotation) {
-            case Surface.ROTATION_0: degrees = 0; break;
-            case Surface.ROTATION_90: degrees = 90; break;
-            case Surface.ROTATION_180: degrees = 180; break;
-            case Surface.ROTATION_270: degrees = 270; break;
-        }
-
-        int result;
-        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-            result = (info.orientation + degrees) % 360;
-            result = (360 - result) % 360;  // compensate the mirror
-        } else {  // back-facing
-            result = (info.orientation - degrees + 360) % 360;
-        }
-        camera.setDisplayOrientation(result);
-    }
-
-
-    public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-        // Now that the size is known, set up the mCamera parameters and begin
-        // the preview.
-        Camera.Parameters parameters = mCamera.getParameters();
-//        parameters.setPreviewSize(w, h);
-//        parameters.setPreviewSize(mPreviewSize.width, mPreviewSize.height);
-        requestLayout();
-        mCamera.setParameters(parameters);
-        setCameraDisplayOrientation(mActivity, 0, mCamera);
-
-        // Important: Call startPreview() to start updating the preview surface.
-        // Preview must be started before you can take a picture.
-        mCamera.startPreview();
-
-    }
-
-    @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
-        Paint p= new Paint(Color.RED);
-        Log.d(TAG,"draw");
-        canvas.drawText("PREVIEW", canvas.getWidth()/2, canvas.getHeight()/2, p );
-    }
 }

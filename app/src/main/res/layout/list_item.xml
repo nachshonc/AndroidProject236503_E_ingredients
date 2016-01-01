@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:id="@+id/list_item_layout"
     android:background="#F3F3F3">
 
     <!-- icon, if found something -->

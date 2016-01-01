@@ -206,7 +206,7 @@ public class EDBIngredient {
     public String toHTML() {
         StringBuilder result = new StringBuilder();
 
-        result.append("<HTML><BODY background=#F0F0F0>\n");
+        result.append("<HTML><BODY>\n");
 
         result.append("<h1>").append(getKey()).append(" details</h1>\n");
         result.append("<b>Name:&nbsp;</b>").append(getTitle()).append("<br/>\n");

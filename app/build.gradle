@@ -22,10 +22,21 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'http://lorenzo.villani.me/android-cropimage/'
+    }
+}
+
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
     compile 'it.sephiroth.android.library.imagezoom:imagezoom:+'
+    compile 'me.villani.lorenzo.android:android-cropimage:1.1.0'
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
     compile project(':tess-two')
 }
