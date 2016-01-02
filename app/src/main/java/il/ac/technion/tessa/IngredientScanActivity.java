@@ -208,19 +208,21 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
             @Override
             public void create(SwipeMenu menu) {
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
-                // set item width
-                int pixels = getResources().getDimensionPixelSize(R.dimen.item_delete);
-                deleteItem.setWidth(pixels);
-                // set a icon
-                deleteItem.setIcon(android.R.drawable.ic_menu_delete);
-                // add to menu
-                menu.addMenuItem(deleteItem);
+                if (menu.getViewType() == 0) {
+                    // create "delete" item
+                    SwipeMenuItem deleteItem = new SwipeMenuItem(
+                            getApplicationContext());
+                    // set item background
+                    deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+                            0x3F, 0x25)));
+                    // set item width
+                    int pixels = getResources().getDimensionPixelSize(R.dimen.item_delete);
+                    deleteItem.setWidth(pixels);
+                    // set a icon
+                    deleteItem.setIcon(android.R.drawable.ic_menu_delete);
+                    // add to menu
+                    menu.addMenuItem(deleteItem);
+                }
             }
         };
 

@@ -48,11 +48,9 @@ public class AdapterIngredientList extends BaseAdapter implements View.OnClickLi
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Log.d("getView", ""+position);
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         EDBIngredient ingredient = modelsArrayList.get(position);
-        Log.d("getView", ""+position+" key ="+ingredient.getKey());
         View rowView;
         TextView titleView;
         TextView counterView;
@@ -129,5 +127,18 @@ public class AdapterIngredientList extends BaseAdapter implements View.OnClickLi
     @Override
     public boolean hasStableIds() {
         return false;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        EDBIngredient item = getModel(position);
+        if (item.equals(EDBIngredient.notFound))
+            return 1;
+        return 0;
     }
 }
