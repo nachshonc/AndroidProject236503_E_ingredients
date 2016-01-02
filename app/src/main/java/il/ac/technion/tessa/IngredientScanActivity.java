@@ -17,6 +17,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -47,6 +48,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.camera.CropImageIntentBuilder;
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuAdapter;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.googlecode.tesseract.android.ResultIterator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -120,7 +126,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     EDBHandler dbHandler;
     public static final String DATA_PATH = Environment
             .getExternalStorageDirectory().toString() + "/E_Ingredients/";
-    private ListView listView;
+    private SwipeMenuListView listView;
     private AdapterIngredientList adapter;
     private static final String FIRST_RUN_FLAG="FIRSTRUN";
     private static final String FIRST_RUN_SHARED_PREF_NAME="FIRST_RUN_SP_NAME";
@@ -185,14 +191,62 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 //        preview = new Preview(this, this);
 
 //        ((FrameLayout)findViewById(R.id.preview)).addView(preview);
-        listView = (ListView) findViewById(R.id.frag_list);
+        listView = (SwipeMenuListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
+        setSwipe(listView);
         if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
             adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
             listView.setAdapter(adapter);
         }
+
+
     }
 
+    private void setSwipe(SwipeMenuListView listView) {
+
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
+
+            @Override
+            public void create(SwipeMenu menu) {
+                // create "delete" item
+                SwipeMenuItem deleteItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+                        0x3F, 0x25)));
+                // set item width
+                int pixels = getResources().getDimensionPixelSize(R.dimen.item_delete);
+                deleteItem.setWidth(pixels);
+                // set a icon
+                deleteItem.setIcon(android.R.drawable.ic_menu_delete);
+                // add to menu
+                menu.addMenuItem(deleteItem);
+            }
+        };
+
+// set creator
+        listView.setMenuCreator(creator);
+
+        listView.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
+
+        listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+                        EDBIngredient model = (EDBIngredient) IngredientScanActivity.this.listView.getAdapter().getItem(position);
+                        ingredientsList.remove(model.getKey());
+                        adapter.remove(model);
+                        adapter.notifyDataSetChanged();
+//                        IngredientScanActivity.this.listView.setAdapter(adapter); // hack for now until I figure out how to refresh correctly
+                        break;
+                }
+                // false : close the menu; true : not close the menu
+                return false;
+            }
+        });
+
+    }
 
     String mCurrentPhotoPath;
 
@@ -225,7 +279,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         } else {
             if (mCurrentPhotoPath != null)
                 setPic(false);
-            ListView listView = (ListView) findViewById(R.id.frag_list);
+            SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.frag_list);
             ArrayList<EDBIngredient> models = new ArrayList<>();
             if(ingredientsList.size()==1 && ingredientsList.get(0)==NOT_FOUND_STR)
                 models.add(EDBIngredient.notFound);
@@ -241,6 +295,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }
             adapter = new AdapterIngredientList(listView.getContext(), models);
             listView.setAdapter(adapter);
+            setSwipe(listView);
         }
 
 
@@ -478,8 +533,8 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
     @Override
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-        ListView listView = (ListView) findViewById(R.id.frag_list);
-        AdapterIngredientList adapter = (AdapterIngredientList) listView.getAdapter();
+        SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.frag_list);
+        AdapterIngredientList adapter = (AdapterIngredientList) ((SwipeMenuAdapter)listView.getAdapter()).getWrappedAdapter();
 
 //        Toast.makeText(this, String.format("Item %d chosen. ID=%s", position, adapter.getModel(position).getFullName()), Toast.LENGTH_SHORT).show();
 //        String url = "https://www.google.co.il/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=" + adapter.getModel(position).getTag();
@@ -643,10 +698,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 setContentView(R.layout.activity_ingredient_scan);
                 //Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
             }
-            listView = (ListView) findViewById(R.id.frag_list);
+            listView = (SwipeMenuListView) findViewById(R.id.frag_list);
             listView.setOnItemClickListener(this);
             //if(adapter==null) {//happen anyway. onRestoreInstanceState is responsible to populate the list
             //adapter = new AdapterIngredientList(listView.getContext(), new ArrayList<EDBIngredient>());
+            setSwipe(listView);
             listView.setAdapter(adapter);
 
             ImageView iv = (ImageView) findViewById(R.id.origImage);
@@ -814,7 +870,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             try{
                 int sz = list.size();
                 Log.d("Finished OCR", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
-                ListView listView = (ListView) findViewById(R.id.frag_list);
+                SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.frag_list);
                 ArrayList<EDBIngredient> models = new ArrayList<EDBIngredient>();
                 for(int i=0; i<list.size(); ++i) {
                     EDBIngredient ingredient = dbHandler.findIngredient(list.get(i));

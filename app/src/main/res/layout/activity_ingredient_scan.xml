@@ -58,7 +58,7 @@
             android:background="@drawable/roundedborder"
             android:orientation="vertical"
             android:id="@+id/ingList">
-            <ListView
+            <com.baoyz.swipemenulistview.SwipeMenuListView
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

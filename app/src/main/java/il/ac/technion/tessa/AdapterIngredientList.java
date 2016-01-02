@@ -9,13 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implements View.OnClickListener {
+public class AdapterIngredientList extends BaseAdapter implements View.OnClickListener {
 
     private final Context context;
     private final ArrayList<EDBIngredient> modelsArrayList;
@@ -23,7 +24,7 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
     public AdapterIngredientList(Context context, ArrayList<EDBIngredient> modelsArrayList) {
 
-        super(context, R.layout.list_item, modelsArrayList);
+//        super(context, R.layout.list_item);
 
         this.context = context;
         this.modelsArrayList = modelsArrayList;
@@ -31,10 +32,27 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
     }
 
     @Override
+    public int getCount() {
+        return modelsArrayList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return modelsArrayList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d("getView", ""+position);
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         EDBIngredient ingredient = modelsArrayList.get(position);
+        Log.d("getView", ""+position+" key ="+ingredient.getKey());
         View rowView;
         TextView titleView;
         TextView counterView;
@@ -51,7 +69,10 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
             titleView.setTypeface(null, Typeface.ITALIC);
 
         } else {
-            rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
+            if (convertView != null)
+                rowView = convertView;
+            else
+                rowView = inflater.inflate(R.layout.list_item_dang, parent, false);
             ImageView image = (ImageView)rowView.findViewById(R.id.item_icon);
             if (opt == Options.SAFE) {
                 image.setImageResource(R.drawable.okicon);
@@ -94,6 +115,19 @@ public class AdapterIngredientList extends ArrayAdapter<EDBIngredient> implement
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this.getContext(), "AdapterIngredientList ", Toast.LENGTH_LONG).show();
+        Toast.makeText(this.context, "AdapterIngredientList ", Toast.LENGTH_LONG).show();
+    }
+
+    public void remove(EDBIngredient obj) {
+        modelsArrayList.remove(obj);
+    }
+
+    public void add(EDBIngredient obj) {
+        modelsArrayList.add(obj);
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return false;
     }
 }
