@@ -57,6 +57,7 @@ import com.googlecode.tesseract.android.ResultIterator;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -393,7 +394,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }
 
 
-
             //Toast.makeText(getApplicationContext(),"Grabbing image from "+mCurrentPhotoPath, Toast.LENGTH_LONG).show();
 //            setPic(true);
 //            origImage = BitmapFactory.decodeFile(mCurrentPhotoPath);
@@ -414,6 +414,19 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
 
         } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             setPic(true);
+            // Erase all .jpg files in the results directory except the one pointed to by mCurrentPhotoPath to save storage
+            // on the device (prevent storage leak)
+            File datadir = new File(DATA_PATH + "/tessdata");
+            File files[] = datadir.listFiles();
+            for (File file: files) {
+                String abspath = file.getAbsolutePath();
+                if (!abspath.endsWith(".jpg"))
+                    continue;
+                if (abspath.equals(mCurrentPhotoPath))
+                    continue;
+                // delete the file here
+                file.delete();
+            }
         } else if (requestCode == REQUEST_INGREDIENT_SELECTION && resultCode == RESULT_OK) {
             String txtToAdd = data.getStringExtra(EIngredientSelectionActivity.EXTRA_SELECTED);
 
