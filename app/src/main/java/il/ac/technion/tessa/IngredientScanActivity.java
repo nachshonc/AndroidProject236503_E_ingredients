@@ -1,9 +1,13 @@
 package il.ac.technion.tessa;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -20,6 +24,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -132,19 +137,6 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
                 editor.apply();
             }
         }
-        Log.d("FIRST_RUN", "145 " + ((isFirstRun)?"true":"false"));
-        if (isFirstRun)
-        {
-            // Code to run onceכ
-            SharedPreferences.Editor editor = wmbPreference.edit();
-            editor.putBoolean(FIRST_RUN_FLAG, false);
-            editor.commit();
-            loadTrainDataFile();
-
-            // Seems like parseDB needs to happen in a background thread.
-            new DBParserTask().execute(dbHandler);
-        }
-
 
         listView = (SwipeMenuListView) findViewById(R.id.frag_list);
         listView.setOnItemClickListener(this);
@@ -155,6 +147,147 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         }
 
 
+        Log.d("FIRST_RUN", "145 " + ((isFirstRun) ? "true" : "false"));
+        if (isFirstRun)
+        {
+            File storageDir = getStorageDir(REQUEST_WRITE_PERMISSION_FIRST_RUN);
+
+            if (storageDir != null)
+                firstRun();
+
+        }
+
+
+    }
+
+    void firstRun() {
+        // Code to run once
+        SharedPreferences wmbPreference = this.getSharedPreferences(FIRST_RUN_SHARED_PREF_NAME, MODE_PRIVATE); //PreferenceManager.getDefaultSharedPreferences(this);
+
+        boolean isFirstRun = wmbPreference.getBoolean(FIRST_RUN_FLAG, true);
+
+        Log.d("REQUS", "isFirstRun = "+isFirstRun);
+        if (isFirstRun) {
+            SharedPreferences.Editor editor = wmbPreference.edit();
+            editor.putBoolean(FIRST_RUN_FLAG, false);
+            editor.commit();
+            loadTrainDataFile();
+
+            // Seems like parseDB needs to happen in a background thread.
+            new DBParserTask().execute(dbHandler);
+        }
+    }
+    static final int REQUEST_WRITE_PERMISSION_FIRST_RUN=1;
+    static final int REQUEST_WRITE_PERMISSION_CAMERA=2;
+
+    public File getStorageDir(int stage) {
+        File storageDir = null;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            //RUNTIME PERMISSION Android M
+            if(PackageManager.PERMISSION_GRANTED== ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+                storageDir = new File(DATA_PATH + "tessdata");
+            }else{
+                requestPermission(this, stage);
+                return null;
+            }
+
+        } else {
+            storageDir = new File(DATA_PATH+"tessdata");
+        }
+        return storageDir;
+    }
+
+    int mStage=0;
+    void setStage(int stage) {
+        Log.d("REQUS", "setStage("+stage+")");
+        mStage = stage;
+    }
+
+    int getStage() {
+        Log.d("REQUS","getStage() == "+mStage);
+        return mStage;
+    }
+
+    String mRequestedPermission=null;
+
+    void setRequestedPermission(String permission) {
+        mRequestedPermission = permission;
+    }
+
+    String getRequestedPermission() {
+        return mRequestedPermission;
+    }
+
+    private static void requestPermission(final Context context, int stage){
+        ((IngredientScanActivity)context).setStage(stage);
+        String permission = null;
+        int permission_detail = 0;
+        switch (stage) {
+            case REQUEST_WRITE_PERMISSION_FIRST_RUN:
+                permission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+                permission_detail = R.string.permission_storage;
+                break;
+            case REQUEST_WRITE_PERMISSION_CAMERA:
+                permission = Manifest.permission.CAMERA;
+                permission_detail = R.string.permission_camera;
+                break;
+        }
+        if (permission == null)
+            return;
+        ((IngredientScanActivity)context).setRequestedPermission(permission);
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, permission)) {
+            // Provide an additional rationale to the user if the permission was not granted
+            // and the user would benefit from additional context for the use of the permission.
+            // For example if the user has previously denied the permission.
+
+            new AlertDialog.Builder(context)
+                    .setMessage(context.getResources().getString(permission_detail))
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions((Activity) context,
+                                    new String[]{((IngredientScanActivity) context).getRequestedPermission()},
+                                    ((IngredientScanActivity) context).getStage()
+                            );
+                        }
+                    }).show();
+
+        } else {
+            // permission has not been granted yet. Request it directly.
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[]{((IngredientScanActivity)context).getRequestedPermission()},
+                    ((IngredientScanActivity) context).getStage());
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+        Log.d("REQUS", "onRequestPermissiosnResult " + requestCode);
+        switch (requestCode) {
+            case REQUEST_WRITE_PERMISSION_FIRST_RUN: {
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    firstRun();
+                } else {
+                    Toast.makeText(this,
+                            getResources().getString(R.string.permission_storage_failure),
+                            Toast.LENGTH_LONG).show();
+                    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+                }
+                return;
+            }
+            case REQUEST_WRITE_PERMISSION_CAMERA: {
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    dispatchTakePictureIntent();
+                } else {
+                    Toast.makeText(this,
+                            getResources().getString(R.string.permission_camera_failure),
+                            Toast.LENGTH_LONG).show();
+                    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+                }
+                return;
+            }
+        }
     }
 
     private void setSwipe(SwipeMenuListView listView) {
@@ -260,7 +393,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String imageFileName = "JPEG_" + timeStamp;
-        File storageDir = new File(DATA_PATH+"tessdata");
+        File storageDir = getStorageDir(REQUEST_WRITE_PERMISSION_CAMERA); //new File(DATA_PATH+"tessdata");
 //        File image = new File(DATA_PATH+"tessdata/" + imageFileName + ".jpg");
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
@@ -398,7 +531,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     }
 
     public void snap(View v) {
-        dispatchTakePictureIntent();
+        if(PackageManager.PERMISSION_GRANTED== ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)){
+            dispatchTakePictureIntent();
+        }else{
+            requestPermission(this, REQUEST_WRITE_PERMISSION_CAMERA);
+        }
     }
 
 
@@ -877,6 +1014,11 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         super.onResume();
         Log.d("onResume", "main activity");
         adapter.notifyDataSetChanged();
+        if (getRequestedPermission() == null) {
+            File storageDir = getStorageDir(REQUEST_WRITE_PERMISSION_FIRST_RUN);
+            if (storageDir != null)
+                firstRun();
+        }
     }
 
 
