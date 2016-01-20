@@ -81,7 +81,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     };
     public static void error(String s){Log.d("error", s);}
 
-    final static int IMAGE_SCALE_FACTOR=4;
+    final static int IMAGE_SCALE_FACTOR=2;
 
     Bitmap origImage;
     Pix binarizedPixImage;
@@ -547,7 +547,7 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         try {
             int targetW = 1024;
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            bmOptions.inSampleSize = 2;
+            bmOptions.inSampleSize = IMAGE_SCALE_FACTOR;
             //BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
             origImage = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
@@ -633,37 +633,55 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
     public void imageClick(View view) {
         if(origImage==null)
             return;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("");///+++
+        try {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("");///+++
 
-        Bitmap b = origImage;
-        try{
-            b=scaleBitmap(b);
-        }catch(OutOfMemoryError e){b=origImage; System.gc(); System.gc(); Toast.makeText(getApplicationContext(), "OutOfMemory. Trying to handle", Toast.LENGTH_SHORT).show();}
-        ImageViewTouch imageView = new ImageViewTouch(getApplicationContext(), null);
+            Bitmap b = origImage;
+            try {
+                b = scaleBitmap(b);
+            } catch (OutOfMemoryError e) {
+                b = origImage;
+                System.gc();
+                System.gc();
+                Toast.makeText(getApplicationContext(), "OutOfMemory. Trying to handle", Toast.LENGTH_SHORT).show();
+            }
+            ImageViewTouch imageView = new ImageViewTouch(getApplicationContext(), null);
 
-        Bitmap bmp = b.copy(b.getConfig(), true);
-        Canvas canvas = new Canvas(bmp);
+            Bitmap bmp=null;
+            try {
+                bmp = b.copy(b.getConfig(), true);
+                Canvas canvas = new Canvas(bmp);
 
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(4);
-        for (Rect rect : rectangles) {
-            Rect r = new Rect(rect);
-            r.left  *= IMAGE_SCALE_FACTOR;
-            r.top *= IMAGE_SCALE_FACTOR;
-            r.right *= IMAGE_SCALE_FACTOR;
-            r.bottom *= IMAGE_SCALE_FACTOR;
-            canvas.drawRect(r, paint);
-        }
+                Paint paint = new Paint();
+                paint.setColor(Color.RED);
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setStrokeWidth(4);
+                for (Rect rect : rectangles) {
+                    Rect r = new Rect(rect);
+                    r.left *= IMAGE_SCALE_FACTOR;
+                    r.top *= IMAGE_SCALE_FACTOR;
+                    r.right *= IMAGE_SCALE_FACTOR;
+                    r.bottom *= IMAGE_SCALE_FACTOR;
+                    canvas.drawRect(r, paint);
+                }
+                Log.d("RECTS", rectangles.toString());
+            }catch(OutOfMemoryError error){
+                bmp=null; b=null;  System.gc();System.gc();
+                Toast.makeText(getApplicationContext(), "OOM: failed to emphasize the picked ingredients", Toast.LENGTH_SHORT).show();
+                bmp=origImage;
+                Log.d("OOM", "bmp=b");
+            }
+            try {
+                imageView.setImageBitmap(bmp);
+            }catch(OutOfMemoryError error){bmp=b=null; System.gc();System.gc();Toast.makeText(getApplicationContext(), "OOM2", Toast.LENGTH_SHORT).show();}
 
-        imageView.setImageBitmap(bmp);
-        Log.d("RECTS", rectangles.toString());
 
 
-        builder.setView(imageView);
-        builder.show();
+            builder.setView(imageView);
+            builder.show();
+        }catch(Exception e){Toast.makeText(getApplicationContext(), "Unexpected error", Toast.LENGTH_SHORT).show();}
+        catch(OutOfMemoryError error){System.gc();System.gc();Toast.makeText(getApplicationContext(), "OOM", Toast.LENGTH_SHORT).show();}
     }
 
     @Override
