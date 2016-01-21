@@ -23,6 +23,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -348,6 +350,10 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         outState.putString("mCurrentPhotoPath", mCurrentPhotoPath);
         outState.putInt("mOrientation", mOrientation);
         outState.putStringArrayList("ingredientsList", ingredientsList);
+        ArrayList<ParcelableRect> rects = new ArrayList<>();
+        for (Rect rect : rectangles)
+            rects.add(new ParcelableRect(rect));
+        outState.putParcelableArrayList("rectangles", rects);
     }
 
     @Override
@@ -355,7 +361,13 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
         super.onRestoreInstanceState(savedInstanceState);
         mCurrentPhotoPath = savedInstanceState.getString("mCurrentPhotoPath");
         ingredientsList = savedInstanceState.getStringArrayList("ingredientsList");
-        mOrientation = savedInstanceState.getInt(("mOrientation"));
+        mOrientation = savedInstanceState.getInt("mOrientation");
+        ArrayList<ParcelableRect> prects = savedInstanceState.getParcelableArrayList("rectangles");
+        rectangles = new ArrayList<>();
+        for (ParcelableRect prect : prects) {
+            rectangles.add(prect.toRect());
+        }
+
 
         if (ingredientsList == null) {
             if (mCurrentPhotoPath != null)
@@ -861,22 +873,22 @@ public class IngredientScanActivity extends AppCompatActivity implements SeekBar
             }
 
             try{
+                ArrayList<String> filteredList = new ArrayList<>();
+                ArrayList<EDBIngredient> models = new ArrayList<>();
+                ArrayList<Rect> rectangles = new ArrayList<>();
+                for (String key : list) {
+                    EDBIngredient ingredient = dbHandler.findIngredient(key);
+                    if (ingredient != null && !filteredList.contains(key)) {
+                        filteredList.add(key);
+                        models.add(ingredient);
+                        rectangles.addAll(rects.get(key));
+                    }
+                }
+                list = filteredList;
                 int sz = list.size();
                 Log.d("Finished OCR", String.format("%d %s", sz, list.isEmpty()?"empty":"nonempty"));
                 SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.frag_list);
-                ArrayList<EDBIngredient> models = new ArrayList<>();
-                ArrayList<Rect> rectangles = new ArrayList<>();
-                for(int i=0; i<list.size(); ++i) {
-                    EDBIngredient ingredient = dbHandler.findIngredient(list.get(i));
-                    if(ingredient==null) {
-                        // skip misidentified ingredients
-                        continue;
-//                        ingredient = new EDBIngredient(list.get(i));
-//                        ingredient.setTitle("Unknown ingredient");
-                    }
-                    models.add(ingredient);
-                    rectangles.addAll(rects.get(list.get(i)));
-                }
+
                 if(list.isEmpty()){
                     models.add(EDBIngredient.notFound);
                     list.add(NOT_FOUND_STR);

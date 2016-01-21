@@ -143,6 +143,7 @@ public class EIngredientSelectionActivity extends AppCompatActivity implements L
         Log.d("setOnItemSelected", "");
         cursor.moveToFirst();
         elist.setSelection(0);
+        db.close();
     }
 
 

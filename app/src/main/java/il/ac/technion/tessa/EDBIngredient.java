@@ -152,20 +152,28 @@ public class EDBIngredient {
                 || getAllowedInEU().equals("FALSE"));
     }
 
+    int getDangerCount() {
+        int dangerCount=0;
+        if (getWiki_notConsideredDangerous().equals("FALSE"))
+            dangerCount++;
+        if (getMyAdditivesSafetyRating().equals("Dangerous"))
+            dangerCount++;
+        if (getEverbumSafetyRating().equals("danger"))
+            dangerCount++;
+        return dangerCount;
+    }
     boolean isDangerous() {
-        return (getWiki_notConsideredDangerous().equals("FALSE")
-                || getMyAdditivesSafetyRating().equals("Dangerous")
-                || getEverbumSafetyRating().equals("danger"));
+        return getDangerCount() > 1;
     }
 
     boolean isSuspect() {
-        return (!isDangerous()
+        return ((!isDangerous() || getDangerCount() == 1)
                 && (getMyAdditivesSafetyRating().equals("Suspect")
                     || getEverbumSafetyRating().equals("suspicious")));
     }
 
     boolean isUnhealthy() {
-        return (!isDangerous()
+        return ((!isDangerous() || getDangerCount() == 1)
                 && !isSuspect()
                 && (getMyAdditivesSafetyRating().equals("Unhealthy")
                 || getEverbumSafetyRating().equals("avoid")));
